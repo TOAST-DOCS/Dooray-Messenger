@@ -1,1 +1,1 @@
-## Dooray > Messenger > 서비스 가이드
+## Dooray > Messenger > Service Guide
