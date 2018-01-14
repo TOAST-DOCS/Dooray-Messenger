@@ -21,6 +21,7 @@ Dooray! Messenger는 실시간 커뮤니케이션을 위한 메신저 서비스�
 대화 상대를 대화방으로 초대할 수 있습니다. 대화방 화면에서 톱니 바퀴 모양의 아이콘을 누르고 “초대 및 관리” 버튼을 누르세요.
 ![https://lh5.googleusercontent.com/whUQP86UCGbjSZ-7tTfXg1kb9BARjnVZ8pygcT-wjdH0tmi16ejgmEzAAe3ZibA7Ow3-j-5NjKwb-zbxX5-ydoYnssiXtbHFmskCs5TZEy7VtcxfquWa4LpKrAqokfX8kDIHNR0](media/image86.png){width="7.322916666666667in"
 height="4.291666666666667in"}
+
 원하는 상대를 선택한 후 “확인”을 누르면 대화방에 초대됩니다. 대화방에 참여하고 있는 상대를 제외할 수도 있습니다.
 ![https://lh4.googleusercontent.com/fVqn0sZwvOuUIl6hJ86RbxAnetWBU76jDl5Vb\_XkSJ0v0wEq2vWGgIVeA-Uxi8iZfljjoxDaTFO-J0XGhz7MznMsfC1XBBi7QB1XjwSLy-mHfSjelA32T1yR14P1l3nx330wwl0](media/image87.png){width="7.322916666666667in"
 height="4.28125in"}
@@ -83,7 +84,7 @@ height="4.291666666666667in"}
 
 ### 설정
 
--   알림
+#### 알림
 새 메시지가 도착했을 때, PC의 화면에서 새 메시지를 표시해줍니다. 보지 않으려면 아래의 설정 화면에서 전체 알림을 끄거나, 대화방의 종 모양
 아이콘을 클릭하여 대화방별로 알림을 끄세요.
 ![https://lh5.googleusercontent.com/VRr2mrtTsNCzYsukGe5jKsU7bfIE2BhlZGdwbR\_lCZAJZbnBzO7EyvoENuFrum73gjAOn8Zvudj29p0CksH3xlsY35cM2Z4jIXmofownv4nWjwn2IKzmj3K33-nGIr7PG7ocq68](media/image94.png){width="7.322916666666667in"
