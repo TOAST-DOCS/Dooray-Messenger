@@ -6,7 +6,7 @@ Dooray! Messenger는 실시간 커뮤니케이션을 위한 메신저 서비스�
 [*https://dooray.com/messenger/orgs*](https://dooray.com/messenger/orgs) 에 접속하거나 [*https://dooray.com*](https://dooray.com) 에서 PC의 운영체제에 맞는 클라이언트를 설치하고 실행합니다.
 모바일 애플리케이션은 앱스토어 / 구글플레이에서 ‘Dooray 메신저를 검색하여 설치할 수 있습니다. 
 
-[앱스토어 바로가기](https://itunes.apple.com/kr/app/dooray-messenger/id1273636061?mt=8)
+[앱스토어 바로가기](https://itunes.apple.com/kr/app/dooray-messenger/id1273636061?mt=8)<br>
 [구글 플레이 바로가기](https://play.google.com/store/apps/details?id=com.dooray.messenger)
 
 ### 대화
