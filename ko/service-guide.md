@@ -21,7 +21,6 @@ Dooray! Messenger는 실시간 커뮤니케이션을 위한 메신저 서비스�
 대화 상대를 대화방으로 초대할 수 있습니다. 대화방 화면에서 톱니 바퀴 모양의 아이콘을 누르고 “초대 및 관리” 버튼을 누르세요.
 ![https://lh5.googleusercontent.com/whUQP86UCGbjSZ-7tTfXg1kb9BARjnVZ8pygcT-wjdH0tmi16ejgmEzAAe3ZibA7Ow3-j-5NjKwb-zbxX5-ydoYnssiXtbHFmskCs5TZEy7VtcxfquWa4LpKrAqokfX8kDIHNR0](media/image86.png){width="7.322916666666667in"
 height="4.291666666666667in"}
-
 원하는 상대를 선택한 후 “확인”을 누르면 대화방에 초대됩니다. 대화방에 참여하고 있는 상대를 제외할 수도 있습니다.
 ![https://lh4.googleusercontent.com/fVqn0sZwvOuUIl6hJ86RbxAnetWBU76jDl5Vb\_XkSJ0v0wEq2vWGgIVeA-Uxi8iZfljjoxDaTFO-J0XGhz7MznMsfC1XBBi7QB1XjwSLy-mHfSjelA32T1yR14P1l3nx330wwl0](media/image87.png){width="7.322916666666667in"
 height="4.28125in"}
@@ -29,13 +28,11 @@ height="4.28125in"}
 -   메시지 전송
 대화방 하단의 입력창에서 여러 가지 유형의 메시지를 전송할 수 있습니다.
 텍스트와 URL, 이미지, 동영상, 이모지, 스티커를 전송할 수 있습니다.
-
 Youtube나 Slideshare의 링크를 전송하면 대화방에서 내용을 미리 확인할 수 있습니다.
 
 -   멘션
 @멘션은 참여자가 많은 대화방에서도 특정한 상대를 지명하여 말을 걸 수 있는 유용한 기능입니다. ‘@’뒤에 해당 상대의 이름을 입력하면 됩니다.
 메신저 모바일 앱에는 자신을 @멘션한 메시지만 푸시를 주는 기능이 있어 중요한 메시지만 확인할 수 있습니다.
-
 또한 ‘@channel’을 입력하면 대화방의 모든 상대가 @멘션됩니다.
 
 ![https://lh6.googleusercontent.com/2je9bq1Fxv8G\_7AbkBh7vsGFE8FQMCvCfGIZPlPLGJICwlr30UbU6oDQpTQf2EcRJTVmuRFiwY\_5MqwdB5hSJXYj6g\_R\_h5DbZ08\_cVO\_3E9JGv-TBm7LBxHHC3sgJnzBvwksUw](media/image88.png){width="7.322916666666667in"
