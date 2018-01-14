@@ -7,6 +7,7 @@ Dooray! Messenger는 실시간 커뮤니케이션을 위한 메신저 서비스�
 모바일 애플리케이션은 앱스토어 / 구글플레이에서 ‘Dooray 메신저를 검색하여 설치할 수 있습니다. 
 
 [앱스토어 바로가기](https://itunes.apple.com/kr/app/dooray-messenger/id1273636061?mt=8)
+
 [구글 플레이 바로가기](https://play.google.com/store/apps/details?id=com.dooray.messenger)
 
 ### 대화
