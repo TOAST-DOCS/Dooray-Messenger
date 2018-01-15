@@ -92,13 +92,13 @@ height="5.677083333333333in"}
 
 - 만약 Dooray!의 특정 Project에서 새로 추가된 글 / 댓글을 대화방에서 확인하고 싶다면 다음과 같이 할 수 있습니다.
 
-1.“설정 > 서비스 연동”에서 incoming의 연동 추가를 누릅니다. 임의의 URL을 복사합니다.
+1. “설정 > 서비스 연동”에서 incoming의 연동 추가를 누릅니다. 임의의 URL을 복사합니다.
 
-2.Dooray! Project 화면에서 Project 명 옆의 톱니 바퀴 아이콘을 눌러 설정을 열고 웹훅 탭에서 웹훅을 추가합니다.
+2. Dooray! Project 화면에서 Project 명 옆의 톱니 바퀴 아이콘을 눌러 설정을 열고 웹훅 탭에서 웹훅을 추가합니다.
 ![https://lh4.googleusercontent.com/reCEsr9Ak3lHcFsclR0aVxj9uB9bjy-SZ3G\_VumLK6GHs28vZmW2TAyC0uP7pJSefVxaB-JUkc6-OZ24eh\_37q6Y6aPdxkGX3bz6zeAkYwDqKsPXdrMy4gVY\_vCKIZTdzK0WHMo](media/image97.png){width="7.322916666666667in"
 height="3.8645833333333335in"}
 
-3.URL을 붙여 넣습니다.
+3. URL을 붙여 넣습니다.
 ![https://lh6.googleusercontent.com/FoZVAJyOD8AY0P3yy6UNrQfytesOr\_8ylTZ-vkO\_AUpYCFZDnbJyMyqdUnIoiYH-Y54UUJFAkNfReCkUAMp7AG41N-84Opqw-rTSHyVbxWbe8Mo4-yrlepq\_nrRYpNhETC-gFkg](media/image98.png){width="7.322916666666667in"
 height="3.875in"}
 
@@ -108,10 +108,10 @@ Dooray! 외에도 Jenjins, Github, JIRA, IFTTT 등을 지원합니다.
 
 1. 로그인한 상태에서 상단의 \[메뉴\] 버튼을 클릭합니다.
 
-2.\[계정 추가\] 버튼을 누르고 다른 조직명과 계정을 입력하면 여러 개의 계정으로 동시에 로그인할 수 있습니다.
+2. \[계정 추가\] 버튼을 누르고 다른 조직명과 계정을 입력하면 여러 개의 계정으로 동시에 로그인할 수 있습니다.
 ![https://lh3.googleusercontent.com/N60qtxJ\_RxBKR4Xnne0VfC91l7lbS3R9x8V0CTwZiq3f3N9B8stlkLrc1XnJz4DWZ4WNk6uAzh2r-bKZqE6qqjwdSdbIR1c4ctAswNH8rxXAwNdjlcZF-voJEqbEyD93dGhXJoc](media/image99.png){width="7.322916666666667in"
 height="4.385416666666667in"}
 
-3.좌측에 파란색 바가 나타나고, 테넌트 버튼을 클릭해서 간편하게 계정을 전환할 수 있습니다.
+3. 좌측에 파란색 바가 나타나고, 테넌트 버튼을 클릭해서 간편하게 계정을 전환할 수 있습니다.
 ![https://lh5.googleusercontent.com/S0y1tzELYOKqK4yyL1ECkRGFARlephgC2P2XzSiVFJNb0p4fWCj9ZY6RutKKGcSx5J4W-AlSwldfIZO1KLFQzpOou1gmYGFA-hQukh6-m0x3Urn2qmtX0qfKalqE6t8QyLD7S\_4](media/image100.png){width="7.322916666666667in"
 height="4.375in"}
