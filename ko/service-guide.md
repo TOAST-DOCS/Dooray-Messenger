@@ -106,7 +106,7 @@ Dooray! 외에도 Jenjins, Github, JIRA, IFTTT 등을 지원합니다.
 
 #### 여러 계정으로 동시에 로그인하기
 
-1.로그인한 상태에서 상단의 \[메뉴\] 버튼을 클릭합니다.
+1. 로그인한 상태에서 상단의 \[메뉴\] 버튼을 클릭합니다.
 
 2.\[계정 추가\] 버튼을 누르고 다른 조직명과 계정을 입력하면 여러 개의 계정으로 동시에 로그인할 수 있습니다.
 ![https://lh3.googleusercontent.com/N60qtxJ\_RxBKR4Xnne0VfC91l7lbS3R9x8V0CTwZiq3f3N9B8stlkLrc1XnJz4DWZ4WNk6uAzh2r-bKZqE6qqjwdSdbIR1c4ctAswNH8rxXAwNdjlcZF-voJEqbEyD93dGhXJoc](media/image99.png){width="7.322916666666667in"
