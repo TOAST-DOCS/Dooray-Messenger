@@ -19,12 +19,10 @@ Dooray! Messenger는 실시간 커뮤니케이션을 위한 메신저 서비스�
 
 #### 대화방으로 초대/제외
 - 대화 상대를 대화방으로 초대할 수 있습니다. 대화방 화면에서 톱니 바퀴 모양의 아이콘을 누르고 “초대 및 관리” 버튼을 누르세요.
-![https://lh5.googleusercontent.com/whUQP86UCGbjSZ-7tTfXg1kb9BARjnVZ8pygcT-wjdH0tmi16ejgmEzAAe3ZibA7Ow3-j-5NjKwb-zbxX5-ydoYnssiXtbHFmskCs5TZEy7VtcxfquWa4LpKrAqokfX8kDIHNR0](media/image86.png){width="7.322916666666667in"
-height="4.291666666666667in"}
+![servide_guide1](http://static.toastoven.net/prod_dooray_messenger/service_guide_1.png)
 
 - 원하는 상대를 선택한 후 “확인”을 누르면 대화방에 초대됩니다. 대화방에 참여하고 있는 상대를 제외할 수도 있습니다.
-![https://lh4.googleusercontent.com/fVqn0sZwvOuUIl6hJ86RbxAnetWBU76jDl5Vb\_XkSJ0v0wEq2vWGgIVeA-Uxi8iZfljjoxDaTFO-J0XGhz7MznMsfC1XBBi7QB1XjwSLy-mHfSjelA32T1yR14P1l3nx330wwl0](media/image87.png){width="7.322916666666667in"
-height="4.28125in"}
+![servide_guide2](http://static.toastoven.net/prod_dooray_messenger/service_guide_2.png)
 
 #### 메시지 전송
 - 대화방 하단의 입력창에서 여러 가지 유형의 메시지를 전송할 수 있습니다.
@@ -35,26 +33,20 @@ height="4.28125in"}
 - @멘션은 참여자가 많은 대화방에서도 특정한 상대를 지명하여 말을 걸 수 있는 유용한 기능입니다. ‘@’뒤에 해당 상대의 이름을 입력하면 됩니다.
 - 메신저 모바일 앱에는 자신을 @멘션한 메시지만 푸시를 주는 기능이 있어 중요한 메시지만 확인할 수 있습니다. 
 - 또한 ‘@channel’을 입력하면 대화방의 모든 상대가 @멘션됩니다.
-
-![https://lh6.googleusercontent.com/2je9bq1Fxv8G\_7AbkBh7vsGFE8FQMCvCfGIZPlPLGJICwlr30UbU6oDQpTQf2EcRJTVmuRFiwY\_5MqwdB5hSJXYj6g\_R\_h5DbZ08\_cVO\_3E9JGv-TBm7LBxHHC3sgJnzBvwksUw](media/image88.png){width="7.322916666666667in"
-height="4.28125in"}
+![servide_guide3](http://static.toastoven.net/prod_dooray_messenger/service_guide_3.png)
 
 #### 메시지 검색/모아보기
 - 대화방 내에서는 메시지를 검색하거나 같은 유형의 메시지만 모아서 볼 수 있습니다.
 - 대화방 우측의 돋보기 버튼을 누르면 특정 단어가 포함된 메시지를 검색할 수 있습니다. 만약 검색 결과가 충분하지 않아 더 넓은 범위에서 검색이 필요하다면 붉게 표시한 부분을 눌러 검색 범위를 “모든 대화방”으로 변경하세요.
-![https://lh6.googleusercontent.com/lE0LN1MkrQ-Gr0LIGChDXBIa0Y9FPETgkas7lp989yMe-daoR4Gz70nEq4somo-yactEOAyEZxkEKso43foBVRQNjr4Sh4JLJEoXfG7YhRGhXdtmCxirWiDItOqs26O2Tnr\_kJw](media/image89.png){width="7.322916666666667in"
-height="4.28125in"}
+![servide_guide4](http://static.toastoven.net/prod_dooray_messenger/service_guide_4.png)
 - @, 문서, 링크 모양의 버튼을 누르면 각각 멘션받은 메시지, 문서, 링크가 포함된 메시지만 모아서 확인할 수 있습니다.
 
 #### 번역
 - Dooray! 메신저는 실시간 대화 번역 기능을 지원합니다.
 - 우선 좌측 상단의 자신의 이름 부분을 누른 후 설정 메뉴를 선택하여 나오는 설정 화면에서 대화 시에 사용할 언어가 바르게 적용되어 있는지 확인합니다.
 - Dooray! Messenger는 대화에 참여한 상대가 서로 언어가 다른 경우, 자동으로 해당 언어에 맞는 번역을 제공합니다.
-![https://lh3.googleusercontent.com/pRUDLRQwCVUGoazwPFGD1eQIOapoTjnu5nZxI9KzmW8So\_mDY\_PC3j\_fNc2wVYAo\_5eRzan9qS5zpG7Wnsvd-Iv2JPsJ9J9GmxKZmJI6aIFuDe4eu1MFY6uhbYGF-v1RzddnXAo](media/image90.png){width="7.322916666666667in"
-height="4.291666666666667in"}
-![https://lh4.googleusercontent.com/0q9lVkrhMs\_QlAbfBz97nMYDRZ8W1eMH\_EaprNWd9CNkL\_MmPmR96zTDPITpOtu4URETdRH0G-mXV4Ybu5qUtpcDBjNOWQc5wa-QJGwodAQAPUMG5sQf0P0m5a0QZQkmyQLBLO4](media/image91.png){width="7.322916666666667in"
-height="4.28125in"}
-
+![servide_guide5](http://static.toastoven.net/prod_dooray_messenger/service_guide_5.png)
+![servide_guide6](http://static.toastoven.net/prod_dooray_messenger/service_guide_6.png)
 - 대화방의 톱니 바퀴 버튼을 눌러 자동 번역 설정을 켭니다. 이후로 수신되는 메시지는 자동으로 번역됩니다. 더 이상 번역이 필요하지 않다면 동일한 방법으로 자동 번역 설정을 끄면 됩니다.
 ![https://lh4.googleusercontent.com/mjmS2-psZM5B--fb20QrwuXh7l6qruniVGvoWl3E-XjYgi\_G1wBMCezdR7bN1MiyJvqe17J6hNECp\_alBuaTzwnt4Riypy1Gh12wcLsnUI3l0GsYYPEK6ervsL7rySifTMcUhoc](media/image92.png){width="7.322916666666667in"
 height="4.260416666666667in"}
