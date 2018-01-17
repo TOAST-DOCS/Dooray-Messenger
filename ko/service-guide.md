@@ -33,12 +33,12 @@ Dooray! Messenger는 실시간 커뮤니케이션을 위한 메신저 서비스�
 - @멘션은 참여자가 많은 대화방에서도 특정한 상대를 지명하여 말을 걸 수 있는 유용한 기능입니다. ‘@’뒤에 해당 상대의 이름을 입력하면 됩니다.
 - 메신저 모바일 앱에는 자신을 @멘션한 메시지만 푸시를 주는 기능이 있어 중요한 메시지만 확인할 수 있습니다. 
 - 또한 ‘@channel’을 입력하면 대화방의 모든 상대가 @멘션됩니다.
-![servide_guide3](http://static.toastoven.net/prod_dooray_messenger/service_guide_3.png)
+![servide_guide3](http://static.toastoven.net/prod_dooray_messenger/service_guide_16.png)
 
 #### 메시지 검색/모아보기
 - 대화방 내에서는 메시지를 검색하거나 같은 유형의 메시지만 모아서 볼 수 있습니다.
 - 대화방 우측의 돋보기 버튼을 누르면 특정 단어가 포함된 메시지를 검색할 수 있습니다. 만약 검색 결과가 충분하지 않아 더 넓은 범위에서 검색이 필요하다면 붉게 표시한 부분을 눌러 검색 범위를 “모든 대화방”으로 변경하세요.
-![servide_guide4](http://static.toastoven.net/prod_dooray_messenger/service_guide_4.png)
+![servide_guide4](http://static.toastoven.net/prod_dooray_messenger/service_guide_17.png)
 - @, 문서, 링크 모양의 버튼을 누르면 각각 멘션받은 메시지, 문서, 링크가 포함된 메시지만 모아서 확인할 수 있습니다.
 
 #### 번역
