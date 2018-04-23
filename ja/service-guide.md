@@ -1,4 +1,4 @@
-## Dooray > Messenger > Service Guide
+## Dooray! > Messenger > Service Guide
 ### 소개
 Dooray! Messenger는 실시간 커뮤니케이션을 위한 메신저 서비스입니다. 같은 테넌트의 멤버 / 손님은 물론 서비스에 가입하지 않은 사람과도 대화할 수 있습니다. 여러 협업 도구를 연결하여 사용할 수 있습니다.
 ### 접속
