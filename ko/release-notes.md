@@ -1,4 +1,4 @@
-## Dooray > Messenger > 릴리스 노트
+## Dooray! > Messenger > 릴리스 노트
 
 ### 2017.12.15
 

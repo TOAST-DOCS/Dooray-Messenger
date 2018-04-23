@@ -1,4 +1,4 @@
-## Dooray > Messenger > Release Notes
+## Dooray! > Messenger > Release Notes
 
 ### 2017.12.15
 
