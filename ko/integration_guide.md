@@ -43,6 +43,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 ![4](http://static.toastoven.net/prod_dooray_messenger/integration/4.png)
 
 지금은 아래와 같이 빈 화면이 표시됩니다.
+
 ![5](http://static.toastoven.net/prod_dooray_messenger/integration/5.png)
 
 ### 앱 추가
