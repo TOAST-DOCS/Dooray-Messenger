@@ -452,6 +452,8 @@ dataSource에 'external'로 메시지를 구성해 전송하면 외부 데이터
 }
 ```
 
+![15](http://static.toastoven.net/prod_dooray_messenger/integration/15.png)
+
 ---
 
 ## attachments 메시지 보내기
@@ -465,7 +467,7 @@ Dooray! Messenger는 Slack과 유사한 형태의 데이터 타입과 Attachment
 
 아래의 보시는 메시지의 블록 하나 하나가 타이틀, 설명, 이미지, 링크, 버튼, 드롭 메뉴 등을 가질 수 있는 attachment입니다. 최대 20개의 attachment 블록이 모여 attachments 메시지를 구성합니다.
 
-![15](http://static.toastoven.net/prod_dooray_messenger/integration/15.png)
+![16](http://static.toastoven.net/prod_dooray_messenger/integration/16.png)
 
 |번호|이름|설명|
 |---|---|---|
@@ -621,17 +623,17 @@ Dooray! Messenger는 Slack과 유사한 형태의 데이터 타입과 Attachment
 
 첫째, 메신저 우측 상단의 설정 메뉴를 통해 추가할 수 있습니다.
 
-![16](http://static.toastoven.net/prod_dooray_messenger/integration/16.png)
+![17](http://static.toastoven.net/prod_dooray_messenger/integration/17.png)
 
 둘째, 대화방의 입력창에 '/'를 입력 후 나타나는 화면에서 '연동서비스' 버튼을 통해 추가할 수 있습니다.
 
-![17](http://static.toastoven.net/prod_dooray_messenger/integration/17.png)
+![18](http://static.toastoven.net/prod_dooray_messenger/integration/18.png)
 
 커맨드 추가 화면에는 공개된 커맨드나 자신이 생성한 커맨드가 표시됩니다. 원하는 커맨드의 추가 버튼을 눌러 대화방에 커맨드를 추가하세요. 만약 커맨드가 없다면 본 문서의 처음으로 돌아가 커맨드를 만들어 보세요.
 
-![18](http://static.toastoven.net/prod_dooray_messenger/integration/18.png)
-
 ![19](http://static.toastoven.net/prod_dooray_messenger/integration/19.png)
+
+![20](http://static.toastoven.net/prod_dooray_messenger/integration/20.png)
 
 ### 커맨드 공개
 
