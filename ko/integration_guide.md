@@ -390,12 +390,14 @@ dataSource에 'channels'로 메시지를 구성해 전송하면 사용자가 속
         "dataSource": "channels"
     }
 ]
+```
 
-Inline-image-2018-04-26 18.17.43.842.png
+![14](http://static.toastoven.net/prod_dooray_messenger/integration/14.png)
 
-외부 데이터 목록
+#### 외부 데이터 목록
 dataSource에 'external'로 메시지를 구성해 전송하면 외부 데이터 목록을 보여줄 수 있습니다. 외부 데이터 목록은 앱 설정시 등록한 Interactive Optional URL로 데이터를 요청해 받아옵니다.
 
+``` javascript
 "attachments": [
     {
         "type": "select",
@@ -449,8 +451,6 @@ dataSource에 'external'로 메시지를 구성해 전송하면 외부 데이터
     ]
 }
 ```
-
-![14](http://static.toastoven.net/prod_dooray_messenger/integration/14.png)
 
 ---
 
