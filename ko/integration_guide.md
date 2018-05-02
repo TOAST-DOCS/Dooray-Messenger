@@ -215,5 +215,75 @@ deleteOriginal을 true로 하면 기존 메시지가 삭제되고 다시 전송�
 필요한 기능에 맞는 메시지 전송 방법을 선택하여 커맨드를 제작하시기 바랍니다.
 
 
+## 메시지에 버튼 넣기
+
+응답 메시지는 attachments 필드를 이용해 버튼을 표시할 수 있습니다. 메시지를 받은 사람은 버튼을 눌러 상호작용을 할 수 있습니다. 버튼을 넣는 방법과 버튼을 선택한 결과를 받아 처리하는 방법을 알아보겠습니다.
+
+아래는 입력한 메시지를 대화방에 전송할지 확인하는 attachments가 포함된 메시지입니다.
+
+```json
+{
+    "text": "Message",
+    "attachments": [
+        {
+            "callbackId": "send-a1b2c3", // 사용자 interaction시 함께 전송됩니다. interaction이 일어난 Attachment를 식별할 때 쓸 수 있습니다.
+            "actions": [
+                {
+                    "name": "send",
+                    "type": "button",
+                    "text": "Send", // 사용자에게 출력되는 버튼 텍스트
+                    "value": "posting", // Action 동작에 사용하는 (사용자에게 보이지 않는) 값
+                    "style": "primary" // 버튼의 스타일을 바꿀 수 있습니다. primary, danger, default
+                },
+                {
+                    "name": "send",
+                    "type": "button",
+                    "text": "Cancel",
+                    "value": "cancel"
+                }
+            ]
+        }
+    ]
+}
+```
+
+해당 메시지를 받으면, 아래와 같이 Send와 Cancel 버튼이 있는 메시지가 생성된 것을 확인할 수 있습니다.
+attachment 메시지에 버튼 넣기.png
+
+Send버튼을 눌러봅시다. 아래와 같은 데이터가 커맨드 서버의 Interactive Request URL로 전송됩니다.
+
+```json
+{
+    // 테넌트, 채널, 멤버 정보가 제공됩니다.
+    "tenant": {
+        "id": "1234567891234567891",
+        "domain": "guide.dooray.com"
+    },
+    "channel": {
+        "id": "1234567891234567891",
+        "name" "커맨드 가이드 채널"
+    },
+    "user": {
+        "id": "1234567891234567891",
+        "name": "홍길동"
+    },
+    "commandName": "/post",
+    "command": "/post",
+    "text": "",
+    "callbackId": "send-a1b2c3", // 사용자가 선택한 Action이 속해있는 Attachment의 callbackId입니다.
+    "actionText": "Send", // actionText - 사용자가 선택한 Action의 Text입니다.
+    "actionValue": "posting", // actionValue - 사용자가 선택한 Action의 Value입니다.
+    "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "triggerId": "",
+    "commandRequestUrl": "https://command.example.com/req",
+    "channelLogId": "-7386965175150134411",
+    "originalMessage": { /* action이 발생한 메시지가 포함됩니다. */ }
+    }
+}
+```
+
+사용자가 버튼을 눌렀을 때의 처리는 커맨드 서버에서 구현해야 합니다.
+
 
 
