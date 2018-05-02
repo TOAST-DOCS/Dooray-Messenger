@@ -152,3 +152,65 @@ Command 만들기.png
 |responseType|메시지 게시 타입을 설정합니다.<br>- inChannel: 전체 사용자에게 표시<br>- ephemeral: Command 호출한 사용자에게만 표시<br>(responseType이 없으면 ephemeral로 처리됩니다.)|
 |text|메시지 내용|
 
+## 메시지를 전송하는 4가지 방법(최초 전송/추가 전송/업데이트/기존 메시지 삭제 후 전송)
+
+커맨드 실행 시, 메신저 서버는 4가지의 방식으로 메시지를 전송할 수 있습니다.
+
+최초로 메시지를 전송
+메시지를 보낸 후 추가로 전송
+기존에 보낸 메시지를 업데이트
+기존에 보낸 메시지를 삭제하고 메시지를 새로 전송
+
+1. 메시지를 최초 전송
+
+메시지를 새로 보내는 방법은 간단합니다.
+
+```
+{
+    "responseType": "inChannel",
+    "text": "Hello World!"
+}
+```
+
+2. 메시지를 추가로 전송
+
+replaceOriginal 을 false 로 하면 메시지를 새로 전송합니다.
+
+```json
+{
+    "replaceOriginal" false,
+    "responseType": "inChannel",
+    "text": "Hello World!"
+}
+```
+
+3. 기존에 보낸 메시지를 업데이트
+
+replaceOriginal을 true로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
+기존 메시지의 responseType과 다르게 업데이트 할 수 없습니다. responseType을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
+
+```json
+{
+    "responseType": "inChannel",
+    "replaceOriginal": true,
+    "text": "Hello World!(Updated)"
+}
+```
+
+4. 기존에 보낸 메시지를 삭제하고 메시지를 새로 전송
+
+이 경우에는 대화방의 참여자에게 알림이 가기 때문에 대화방의 사람들이 변경되는 내용을 알게 하고 싶을 때 효과적입니다.
+
+deleteOriginal을 true로 하면 기존 메시지가 삭제되고 다시 전송됩니다.
+
+{
+    "responseType": "inChannel",
+    "deleteOriginal": true,
+    "text": "Hello World!(Updated)"
+}
+
+필요한 기능에 맞는 메시지 전송 방법을 선택하여 커맨드를 제작하시기 바랍니다.
+
+
+
+
