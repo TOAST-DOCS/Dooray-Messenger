@@ -258,7 +258,7 @@ attachment 메시지에 버튼 넣기.png
 
 Send버튼을 눌러봅시다. 아래와 같은 데이터가 커맨드 서버의 Interactive Request URL로 전송됩니다.
 
-```json
+```javascript
 {
     // 테넌트, 채널, 멤버 정보가 제공됩니다.
     "tenant": {
