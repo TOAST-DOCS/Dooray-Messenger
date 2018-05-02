@@ -446,4 +446,160 @@ dataSource에 'external'로 메시지를 구성해 전송하면 외부 데이터
 
 Inline-image-2018-04-26 18.33.43.080.png
 
+---
 
+## attachments 메시지 보내기
+
+커맨드는 attachments라는 특별한 형태의 메시지를 전송할 수 있습니다. attachments의 구성 요소에는 다른 문서에서 설명하였던 버튼과 드롭다운메뉴 외에도 다양한 것이 있습니다. attachments 메시지를 잘 사용하면 사용자의 눈에 잘 띌뿐 아니라 추가 정보를 요청하거나 회신하는 등의 행동을 능숙하게 유도할 수 있습니다.
+
+Dooray! Messenger는 Slack과 유사한 형태의 데이터 타입과 Attachments UI를 제공합니다.
+기존에 Slack integration을 제작한 경험이 있다면 익숙하게 작업할 수 있습니다.
+
+### attachments 메시지
+
+아래의 보시는 메시지의 블록 하나 하나가 타이틀, 설명, 이미지, 링크, 버튼, 드롭 메뉴 등을 가질 수 있는 attachment입니다. 최대 20개의 attachment 블록이 모여 attachments 메시지를 구성합니다.
+
+Inline-image-2018-03-04 14.53.30.763.png
+
+|번호|이름|설명|
+|---|---|---|
+|1|text|메시지의 내용입니다.|
+|2|attachment|메시지에 첨부한 내용입니다. 여러 개의 attachment를 합쳐서 attachments라고 부릅니다.|
+|3|authorName|작성자 이름입니다. authorLink로 링크를 걸 수 있습니다.|
+|4|title|attachment의 제목입니다.|
+|5|text|attachment의 내용입니다.|
+|6|thumbUrl|attachment에 넣을 섬네일 이미지입니다.|
+|7|imageUrl|attachment에 넣을 이미지 URL입니다.|
+|8|field|short의 값에 따라 한 줄에 하나 또는 두 개씩 표시되는 필드입니다.|
+|10|Interactive Menu|드롭다운 메뉴입니다.|
+|11|Interactive Button|버튼입니다.
+
+### 데이터
+
+데이터의 포맷은 아래와 같습니다.
+
+```json
+{
+    "text": "NHN IT News!",
+    "attachments": [
+        {
+            "callbackId": "guide-a1b2c3",
+            "text": "애플은 오늘 오전 2시에 WWDC를 통해 아이폰X 출시를 알렸다.",
+            "title": "아이폰 X 출시",
+            "titleLink": "https://dooray.com/",
+            "authorName": "NHN News",
+            "authorLink": "https://dooray.com/",
+            "imageUrl": "http://it.chosun.com/data/photos/cdn/20180423/2850453_09555838720000.jpg",
+            "thumbUrl": "http://www.kinews.net/news/photo/201804/119143_167793_5622.png",
+        },
+        {
+            "fields": [
+                {
+                    "title": "출시 예정일",
+                    "value": "2018년 겨울",
+                    "short": true
+                },
+                {
+                    "title": "예상 가격",
+                    "value": "125만원",
+                    "short": true
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "title": "설명",
+                    "value": "한국 미출시",
+                }
+            ]
+        },
+        {
+            "fields": [
+                {
+                    "title": "IOS",
+                    "value": "High Sierra OS",
+                }
+            ]
+        },
+        {
+            "actions": [
+                {
+                    "type": "select",
+                    "text": "채널선택",
+                    "name": "guide-sel",
+                    "dataSource": "channels"
+                }
+            ]
+        },
+        {
+            "actions": [
+                {
+                    "type": "button",
+                    "text": "공유하기",
+                    "name": "guide-btn",
+                    "value": "btnValue"
+                },
+                {
+                    "type": "button",
+                    "text": "다음 뉴스",
+                    "name": "guide-btn",
+                    "value": "btnValue"
+                },
+            ]
+        }
+    ]
+}
+```
+
+### 구성 요소 분석
+
+데이터의 구성 요소를 좀 더 자세히 살펴 보겠습니다.
+
+#### Message Object
+|필드명|기본값|설명|
+|---|---|---|
+|text||메시지 텍스트|
+|attachments||Attachment의 배열|
+|responseType|"ephemeral"|메시지 표시 대상<br>"ephemeral": Command를 실행한 사용자에게만 표시<br>"inChannel": 채널 내 전체 사용자에게 표시
+|replaceOriginal|true|Interactive Message에 대한 응답 시 기존 메시지 수정 여부|
+|deleteOriginal|false|Interactive Message에 대한 응답 시 기존 메시지 삭제 여부|
+
+#### Attachment Object
+|필드명|기본값|설명|
+|---|---|---|
+|text||Attachment 텍스트|
+|title||Attachment 제목|
+|titleLink||Attachment 제목 클릭 시 이동할 링크|
+|authorName||Attachment 작성자|
+|authorLink||Attachment 작성자 클릭 시 이동할 링크|
+|fields||Field의 배열|
+|actions||Action의 배열|
+|callbackId||Action 요소 작동 시 함께 전달될 값(세션 유지 등의 용도로 사용)|
+|imageUrl||이미지 주소|
+|thumbUrl||섬네일 주소|
+|color|"#4757C4"|Attachment 세로줄 색상(HTML 색상코드)|
+
+#### Field Object
+|필드명|기본값|설명|
+|---|---|---|
+|title||Field 제목|
+|value||Field 텍스트|
+|short|false|Field 너비 설정(true로 설정 시 절반 너비)|
+
+#### Action Object
+|필드명|기본값|설명|
+|---|---|---|
+|type||Actiontype<br>"button": 버튼<br>"select": 드롭 메뉴|
+|text||버튼, 드롭 메뉴에 표시될 텍스트|
+|name||커맨드 서버에 전달되는 필드명|
+|value||커맨드 서버에 전달되는 필드값|
+|style|"default"|버튼 색상<br>"primary": 강조 색상<br>"default": 기본 색상|
+|options||Option의 배열|
+|dataSource||options 대신 지정할 수 있는 option 값<br>"users": 사용자 목록<br>"channels": 채널 목록<br>"external": Interactive Message Optional URL에서 가져오기
+
+#### Option Object
+|필드명|기본값|설명|
+|---|---|---|
+|text||Option 텍스트|
+|value||커맨드 서버에 전달되는 필드값|
