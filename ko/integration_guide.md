@@ -291,7 +291,157 @@ Send버튼을 눌러봅시다. 아래와 같은 데이터가 커맨드 서버의
 
 사용자가 버튼을 눌렀을 때의 처리는 커맨드 서버에서 구현해야 합니다.
 
+---
+
 ## 메시지에 드롭다운 메뉴 넣기
 
+attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
+드롭다운 메뉴로 채널 목록, 테넌트의 멤버 목록, 또는 임의의 목록에서 하나를 선택할 수 있습니다.
+
+아래 예시에서는 팀원들이 가장 좋아하는 보드 게임을 뽑아서 함께 플레이하려고 합니다.
+아래의 메시지처럼 보드 게임 목록이 있는 드롭다운 메뉴를 활용하여 투표를 받아봅시다.
+
+### 정적 드롭다운 메뉴
+
+options 필드를 이용해 목록을 구성할 수 있습니다.
+
+```json
+"attachments": [
+   {
+       "name": "games_list",
+       "text": "Pick a game...",
+       "type": "select",
+       "options": [
+           {
+               "text": "rock-scissors-paper",
+               "value": "rcp"
+           },
+           {
+               "text": "monopoly",
+               "value": "monopoly"
+           },
+           {
+               "text": "Checkers",
+               "value": "checkers"
+           },
+           {
+               "text": "Chess",
+               "value": "chess"
+           },
+           {
+               "text": "Poker",
+               "value": "poker"
+           },
+           {
+               "text": "scrabble",
+               "value": "scrabble"
+           }
+       ]
+   }
+]
+```
+
+위 Attachments를 통해 아래 화면과 같은 드롭다운 메뉴를 보여줄 수 있습니다.
+
+Inline-image-2018-04-26 17.54.06.114.png
+
+### 동적 드롭다운 메뉴
+
+동적 드롭다운 메뉴는 options 대신 dataSource를 이용합니다. dataSource 값에 따라 멤버, 대화방, 외부 데이터를 보여줄 수 있습니다.
+
+|dataSource|목록|
+|users|멤버|
+|channels|대화방|
+|external|외부 데이터|
+
+#### 멤버 목록
+dataSource에 'users'로 메시지를 구성해 전송하면 현재 대화방의 멤버 목록을 보여줄 수 있습니다. 사용자가 드롭다운 메뉴에 검색어를 입력해 테넌트 전체 멤버를 검색 할 수 있습니다.
+
+```
+"attachments": [
+    {
+        "type": "select",
+        "name": "sel_users",
+        "text": "사용자 출력",
+        "dataSource": "users"
+    }
+]
+```
+
+Inline-image-2018-04-26 18.11.07.988.png
+
+#### 대화방 목록
+dataSource에 'channels'로 메시지를 구성해 전송하면 사용자가 속한 대화방 목록을 보여줄 수 있습니다.
+
+```json
+"attachments": [
+    {
+        "type": "select",
+        "name": "sel_channels",
+        "text": "대화방 출력",
+        "dataSource": "channels"
+    }
+]
+
+Inline-image-2018-04-26 18.17.43.842.png
+
+외부 데이터 목록
+dataSource에 'external'로 메시지를 구성해 전송하면 외부 데이터 목록을 보여줄 수 있습니다. 외부 데이터 목록은 앱 설정시 등록한 Interactive Optional URL로 데이터를 요청해 받아옵니다.
+
+"attachments": [
+    {
+        "type": "select",
+        "name": "sel_external",
+        "text": "외부 데이터",
+        "dataSource": "external"
+    }
+]
+```
+
+클라이언트는 Interactive Optional URL로 아래 메시지와 함께 외부 데이터 목록을 요청합니다.
+
+```json
+{
+    "type": "interactive_message",
+    "tenant": {
+        "id": "1234567891234567891",
+        "domain": "guide.dooray.com"
+    },
+    "channel": {
+        "id": "1234567891234567891",
+        "name": "Command 가이드 채널"
+    },
+    "user": {
+        "id": "1234567891234567891",
+        "name": "홍길동"
+    },
+    "callbackId": "sample",
+    "actionName": "sel_externel",
+    "actionTs": 1524734546105
+}
+```
+
+커맨드 서버에서 위 메시지를 이용해 드롭다운 메뉴의 목록을 응답해 줍니다.
+
+```json
+{
+    "options": [
+        {
+            "text": "external",
+            "value": "value1"
+        },
+        {
+            "text": "load",
+            "value": "value2"
+        },
+        {
+            "text": "success",
+            "value": "value3"
+        }
+    ]
+}
+```
+
+Inline-image-2018-04-26 18.33.43.080.png
 
 
