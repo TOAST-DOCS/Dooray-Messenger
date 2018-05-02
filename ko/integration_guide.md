@@ -186,7 +186,7 @@ replaceOriginal 을 false 로 하면 메시지를 새로 전송합니다.
 
 ```json
 {
-    "replaceOriginal" false,
+    "replaceOriginal": false,
     "responseType": "inChannel",
     "text": "Hello World!"
 }
