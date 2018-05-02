@@ -350,6 +350,7 @@ Inline-image-2018-04-26 17.54.06.114.png
 동적 드롭다운 메뉴는 options 대신 dataSource를 이용합니다. dataSource 값에 따라 멤버, 대화방, 외부 데이터를 보여줄 수 있습니다.
 
 |dataSource|목록|
+|---|---|
 |users|멤버|
 |channels|대화방|
 |external|외부 데이터|
