@@ -630,3 +630,498 @@ Inline-image-2018-04-26 19.20.55.584.png
 조직 내의 다른 사람들도 자유롭게 대화방에 추가하여 사용할 수 있습니다.
 
 비공개로 변경해도 이미 추가한 커맨드는 다른 사람이 계속 사용할 수 있으니, 다른 사람들이 더 이상 커맨드를 사용하지 못하게 하려면 등록한 커맨드를 삭제해 주세요.
+
+---
+
+## 커맨드 서버 요구사항
+
+커맨드 서버는 등록한 커맨드대로 동작하는 REST API를 제공해야 합니다.
+
+| API 종류 | 설명 | 필수 | 메소드 |
+| ------ | --- | :---: | :---: |
+| 커맨드 Request URL | 사용자의 커맨드 실행 요청을 처리할 URL | O | POST |
+| Interactive Message의 Request URL | 사용자의 액션(버튼 클릭, 드롭 메뉴 선택)을 처리할 URL | X | POST |
+| Interactive Message의Optional URL | 드롭 메뉴에서 외부 데이터 제공할 URL | X | POST |
+
+## 투표 커맨드
+
+예제로 대화방에 투표를 만들고 참여할 수 있는 투표 커맨드를 만들겠습니다.
+
+![Inline-image-2018-05-02 10.18.21.281.png](/files/2205531996773043575)
+
+### API
+
+커맨드 Request URL과 Interactive Message의 Request URL만 사용합니다.
+
+### 커맨드 실행 포맷
+
+사용자가 투표 커맨드를 실행 할 입력 포맷은 아래처럼 입력하도록 합니다.
+
+```
+/vote "{제목}" "{항목1}" "{항목2}" [... "{항목n}"]
+
+```
+
+### 시나리오
+
+1. 사용자가 커맨드 실행
+2. 커맨드를 실행한 사용자에게만 보이는 투표 생성 확인 메시지 출력
+3. 생성 버튼을 눌러서 대화방 멤버에게 모두 보이는 투표 메시지 출력
+4. 대화방 멤버들이 투표 버튼으로 투표 참여
+5. 투표를 생성한 사용자가 투표 종료
+6. 투표 결과 출력
+
+## 투표 커맨드 실행 요청
+
+사용자가 투표 커맨드를 아래와 같이 실행합니다.
+
+![Inline-image-2018-03-09 11.22.56.379.png](/files/2166426609762298954)
+
+커맨드 서버는 커맨드 Request URL로 사용자가 입력한 값을 포함한 JSON 데이터를 받게 됩니다.
+
+``` javascript
+{
+    "tenantId": "1234567891234567891",
+    "tenantDomain": "guide.dooray.com",
+    "channelId": "1234567891234567891",
+    "channelName": "Command 가이드",
+    "userId": "1234567891234567891",
+    "userName": "홍길동",
+    "command": "/vote",
+    "text": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
+}
+
+```
+
+| 필드 명 | 설명 |
+| ---- | --- |
+| tenantId | 커맨드가 등록된 테넌트의 ID |
+| tenantDomain | 커맨드가 등록된 테넌트 도메인 |
+| channelId | 커맨드를 요청한 대화방의 ID |
+| channelName | 커맨드를 요청한 대화방 제목 |
+| userId | 커맨드를 요청한 사용자 ID |
+| userName | 커맨드를 요청한 사용자 이름 |
+| command | 커맨드 이름 |
+| text | 사용자가 입력한 전체 텍스트 |
+| responseUrl | 커맨드를 요청한 대화방의 Webhook URL |
+| appToken | 커맨드를 등록한 앱의 토큰(요청 검증으로 활용) |
+| triggerId | 다이얼로그 실행 ID |
+
+## 커맨드 실행 요청에 대한 응답
+
+![Inline-image-2018-05-02 09.59.15.546.png](/files/2205522380375539123)
+
+커맨드 실행 요청에 대한 응답으로 실행 사용자에게만 보이는 확인 메시지를 보냅니다.
+투표를 생성하거나 취소할 수 있는 버튼을 사용자에게 제공하기 위해 아래와 같이 메시지를 전송합니다.
+
+``` javascript
+{
+    "responseType": "ephemeral", // 생략 가능
+    "text": "Click 'Submit' button to start the vote.",
+    "attachments": [
+        {
+            "title": "점심식사",
+            "fields": [
+                {
+                    "title": "Item 1",
+                    "value": "짜장면",
+                    "short": true
+                },
+                {
+                    "title": "Item 2",
+                    "value": "짬뽕",
+                    "short": true
+                },
+                {
+                    "title": "Item 3",
+                    "value": "탕수육",
+                    "short": true
+                }
+            ]
+        },
+        {
+            "callbackId": "vote",
+            "actions": [
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Submit",
+                    "value": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+                    "style": "primary"
+                },
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Cancel",
+                    "value": "cancel"
+                }
+            ]
+        }
+    ]
+}
+
+```
+
+## 액션 실행 요청
+
+사용자가 Submit 버튼을 누르면 아래와 같은 데이터가 Interactive Message의 Request URL로 전송됩니다.
+
+``` javascript
+{
+    "tenant": {
+        "id": "1234567891234567891",
+        "domain": "guide.dooray.com"
+    },
+    "channel": {
+        "id": "1234567891234567891",
+        "name": "Command 가이드 채널"
+    },
+    "user": {
+        "id": "1234567891234567891",
+        "name": "홍길동"
+    },
+    "commandName": "/vote",
+    "command": "/vote",
+    "text": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "callbackId": "vote",
+    "actionText": "Submit",
+    "actionValue": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx",
+    "commandRequestUrl": "https://command.guide.doc/req",
+    "channelLogId": "-7386965175150134411",
+    "originalMessage": { /* Message Object */ }
+}
+
+```
+
+| 필드 명 | 설명 |
+| ---- | --- |
+| callbackId | 사용자가 선택한 액션이 속해있는 Attachment의 ID |
+| actionText | 사용자가 선택한 액션 텍스트 |
+| actionValue | 사용자가 선택한 액션 값 |
+| commandRequestUrl | 커맨드 Request URL |
+| channelLogId | 메시지 ID |
+| originalMessage | 이전 응답으로 받은 메시지 |
+
+## 액션 실행에 대한 응답
+
+![Inline-image-2018-05-02 10.09.15.361.png](/files/2205527417440729785)
+
+Submit 버튼에 대한 응답으로 투표 생성 메시지를 전송합니다.
+생성 확인 메시지는 더 이상 필요가 없기 때문에 삭제하고 메시지를 새로 생성합니다.
+
+``` javascript
+{
+    "responseType": "inChannel", // 대화방 멤버 모두에게 표시
+    "deleteOriginal": true, // true로 설정 시 기존 메시지를 삭제합니다. (기본값: false)
+    // "inChannel", "ephemeral" 메시지 간의 전환은 "deleteOriginal"이 true일 때만 가능합니다.
+    // replaceOriginal - true로 설정 시 기존 메시지를 업데이트 하고, false로 설정 시 새로운 메시지를 생성합니다. (기본값: true)
+    // 새로운 메시지를 생성한 경우에만 푸시/노티가 발생합니다.
+    "text": "[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\") created the vote!",
+    "attachments": [
+        {
+            "callbackId": "1525223162093-[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\")",
+            "title": "점심식사",
+            "actions": [
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "짜장면",
+                    "value": 0
+                },
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "짬뽕",
+                    "value": 1
+                },
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "탕수육",
+                    "value": 2
+                }
+            ],
+            "color": "#4286f4"
+        },
+        {
+            "callbackId": "1525223162093-[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\")",
+            "text": "",
+            "actions": [
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Close the vote (Show result)",
+                    "value": "end"
+                }
+            ]
+        }
+    ]
+}
+
+```
+
+| 필드 명 | 설명 | 기본값 |
+| ---- | --- | --- |
+| deleteOriginal | 새  메시지를 생성하기 전 기존 메시지 삭제 여부 | false |
+| replaceOriginal | 기존 메시지 업데이트 여부 | true |
+
+사용자에게 보여지는 텍스트에 멘션 뱃지를 표현할 수 있습니다. 멘션 뱃지는 아래와 같이 사용하면 됩니다.
+
+```
+[@{사용자이름}](dooray://{테넌트ID}/members/{사용자ID} "member")
+
+```
+## 투표 커맨드 만들기
+
+### 커맨드 서버 요구사항
+
+커맨드 서버는 등록한 커맨드대로 동작하는 REST API를 제공해야 합니다.
+
+| API 종류 | 설명 | 필수 | 메소드 |
+| ------ | --- | :---: | :---: |
+| 커맨드 Request URL | 사용자의 커맨드 실행 요청을 처리할 URL | O | POST |
+| Interactive Message의 Request URL | 사용자의 액션(버튼 클릭, 드롭 메뉴 선택)을 처리할 URL | X | POST |
+| Interactive Message의Optional URL | 드롭 메뉴에서 외부 데이터 제공할 URL | X | POST |
+
+### 투표 커맨드
+
+예제로 대화방에 투표를 만들고 참여할 수 있는 투표 커맨드를 만들겠습니다.
+
+![Inline-image-2018-05-02 10.18.21.281.png](/files/2205531996773043575)
+
+#### API
+
+커맨드 Request URL과 Interactive Message의 Request URL만 사용합니다.
+
+#### 커맨드 실행 포맷
+
+사용자가 투표 커맨드를 실행 할 입력 포맷은 아래처럼 입력하도록 합니다.
+
+```
+/vote "{제목}" "{항목1}" "{항목2}" [... "{항목n}"]
+
+```
+
+#### 시나리오
+
+1. 사용자가 커맨드 실행
+2. 커맨드를 실행한 사용자에게만 보이는 투표 생성 확인 메시지 출력
+3. 생성 버튼을 눌러서 대화방 멤버에게 모두 보이는 투표 메시지 출력
+4. 대화방 멤버들이 투표 버튼으로 투표 참여
+5. 투표를 생성한 사용자가 투표 종료
+6. 투표 결과 출력
+
+### 투표 커맨드 실행 요청
+
+사용자가 투표 커맨드를 아래와 같이 실행합니다.
+
+![Inline-image-2018-03-09 11.22.56.379.png](/files/2166426609762298954)
+
+커맨드 서버는 커맨드 Request URL로 사용자가 입력한 값을 포함한 JSON 데이터를 받게 됩니다.
+
+``` javascript
+{
+    "tenantId": "1234567891234567891",
+    "tenantDomain": "guide.dooray.com",
+    "channelId": "1234567891234567891",
+    "channelName": "Command 가이드",
+    "userId": "1234567891234567891",
+    "userName": "홍길동",
+    "command": "/vote",
+    "text": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
+}
+
+```
+
+| 필드 명 | 설명 |
+| ---- | --- |
+| tenantId | 커맨드가 등록된 테넌트의 ID |
+| tenantDomain | 커맨드가 등록된 테넌트 도메인 |
+| channelId | 커맨드를 요청한 대화방의 ID |
+| channelName | 커맨드를 요청한 대화방 제목 |
+| userId | 커맨드를 요청한 사용자 ID |
+| userName | 커맨드를 요청한 사용자 이름 |
+| command | 커맨드 이름 |
+| text | 사용자가 입력한 전체 텍스트 |
+| responseUrl | 커맨드를 요청한 대화방의 Webhook URL |
+| appToken | 커맨드를 등록한 앱의 토큰(요청 검증으로 활용) |
+| triggerId | 다이얼로그 실행 ID |
+
+### 커맨드 실행 요청에 대한 응답
+
+![Inline-image-2018-05-02 09.59.15.546.png](/files/2205522380375539123)
+
+커맨드 실행 요청에 대한 응답으로 실행 사용자에게만 보이는 확인 메시지를 보냅니다.
+투표를 생성하거나 취소할 수 있는 버튼을 사용자에게 제공하기 위해 아래와 같이 메시지를 전송합니다.
+
+``` javascript
+{
+    "responseType": "ephemeral", // 생략 가능
+    "text": "Click 'Submit' button to start the vote.",
+    "attachments": [
+        {
+            "title": "점심식사",
+            "fields": [
+                {
+                    "title": "Item 1",
+                    "value": "짜장면",
+                    "short": true
+                },
+                {
+                    "title": "Item 2",
+                    "value": "짬뽕",
+                    "short": true
+                },
+                {
+                    "title": "Item 3",
+                    "value": "탕수육",
+                    "short": true
+                }
+            ]
+        },
+        {
+            "callbackId": "vote",
+            "actions": [
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Submit",
+                    "value": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+                    "style": "primary"
+                },
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Cancel",
+                    "value": "cancel"
+                }
+            ]
+        }
+    ]
+}
+
+```
+
+### 액션 실행 요청
+
+사용자가 Submit 버튼을 누르면 아래와 같은 데이터가 Interactive Message의 Request URL로 전송됩니다.
+
+``` javascript
+{
+    "tenant": {
+        "id": "1234567891234567891",
+        "domain": "guide.dooray.com"
+    },
+    "channel": {
+        "id": "1234567891234567891",
+        "name": "Command 가이드 채널"
+    },
+    "user": {
+        "id": "1234567891234567891",
+        "name": "홍길동"
+    },
+    "commandName": "/vote",
+    "command": "/vote",
+    "text": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "callbackId": "vote",
+    "actionText": "Submit",
+    "actionValue": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx",
+    "commandRequestUrl": "https://command.guide.doc/req",
+    "channelLogId": "-7386965175150134411",
+    "originalMessage": { /* Message Object */ }
+}
+
+```
+
+| 필드 명 | 설명 |
+| ---- | --- |
+| callbackId | 사용자가 선택한 액션이 속해있는 Attachment의 ID |
+| actionText | 사용자가 선택한 액션 텍스트 |
+| actionValue | 사용자가 선택한 액션 값 |
+| commandRequestUrl | 커맨드 Request URL |
+| channelLogId | 메시지 ID |
+| originalMessage | 이전 응답으로 받은 메시지 |
+
+### 액션 실행에 대한 응답
+
+![Inline-image-2018-05-02 10.09.15.361.png](/files/2205527417440729785)
+
+Submit 버튼에 대한 응답으로 투표 생성 메시지를 전송합니다.
+생성 확인 메시지는 더 이상 필요가 없기 때문에 삭제하고 메시지를 새로 생성합니다.
+
+``` javascript
+{
+    "responseType": "inChannel", // 대화방 멤버 모두에게 표시
+    "deleteOriginal": true, // true로 설정 시 기존 메시지를 삭제합니다. (기본값: false)
+    // "inChannel", "ephemeral" 메시지 간의 전환은 "deleteOriginal"이 true일 때만 가능합니다.
+    // replaceOriginal - true로 설정 시 기존 메시지를 업데이트 하고, false로 설정 시 새로운 메시지를 생성합니다. (기본값: true)
+    // 새로운 메시지를 생성한 경우에만 푸시/노티가 발생합니다.
+    "text": "[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\") created the vote!",
+    "attachments": [
+        {
+            "callbackId": "1525223162093-[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\")",
+            "title": "점심식사",
+            "actions": [
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "짜장면",
+                    "value": 0
+                },
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "짬뽕",
+                    "value": 1
+                },
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "탕수육",
+                    "value": 2
+                }
+            ],
+            "color": "#4286f4"
+        },
+        {
+            "callbackId": "1525223162093-[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\")",
+            "text": "",
+            "actions": [
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Close the vote (Show result)",
+                    "value": "end"
+                }
+            ]
+        }
+    ]
+}
+
+```
+
+| 필드 명 | 설명 | 기본값 |
+| ---- | --- | --- |
+| deleteOriginal | 새  메시지를 생성하기 전 기존 메시지 삭제 여부 | false |
+| replaceOriginal | 기존 메시지 업데이트 여부 | true |
+
+사용자에게 보여지는 텍스트에 멘션 뱃지를 표현할 수 있습니다. 멘션 뱃지는 아래와 같이 사용하면 됩니다.
+
+``` javascript
+[@{사용자이름}](dooray://{테넌트ID}/members/{사용자ID} "member")
+
+```
+
+이 후 사용자가 누르는 버튼은 액션 실행 요청과 그에 따른 응답의 반복입니다.
