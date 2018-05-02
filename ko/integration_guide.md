@@ -99,7 +99,8 @@ Command 만들기.png
 ### 커맨드 실행
 
 사용자가 Dooray! 메신저를 통해 /hi 커맨드를 실행하면 커맨드 서버는 아래와 같은 JSON 데이터를 전달받습니다.
-```
+
+```json
 {
     "tenantId": "1234567891234567891",
     "tenantDomain": "guide.dooray.com",
@@ -132,7 +133,8 @@ Command 만들기.png
 ### 응답
 
 커맨드 서버는 전달받은 데이터를 이용해 사용자에게 응답할 데이터를 만듭니다. 그리고 이 데이터를 요청에 대한 응답으로 보내야 합니다. /hi 커맨드는 특별한 데이터 처리 없이 Hello World만 보내주면 됩니다.
-```
+
+```json
 {
     "text": "Hello World!",
     "responseType": "ephemeral" // 생략 가능
@@ -141,7 +143,8 @@ Command 만들기.png
 위와 같이 응답하면 커맨드를 호출한 사용자에게만 보이는 메시지가 됩니다.
 
 만약 대화방 내의 멤버들에게 모두 보여주고 싶은 경우 responseType을 "inChannel"로 응답에 추가하면 됩니다.
-```
+
+```json
 {
     "text": "Hello World!",
     "responseType": "inChannel"
@@ -165,7 +168,7 @@ Command 만들기.png
 
 메시지를 새로 보내는 방법은 간단합니다.
 
-```
+```json
 {
     "responseType": "inChannel",
     "text": "Hello World!"
