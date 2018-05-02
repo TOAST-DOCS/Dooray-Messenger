@@ -12,12 +12,14 @@ Dooray! 메신저에서는 사람이 아닌 다양한 도구에게 명령하고 
 커맨드는 ‘/’문자 뒤에 덧붙여서 특정한 기능을 수행하도록 하는 명령어입니다.
 Dooray! 메신저에서는 기본적으로 ‘/mute’, ‘/status’, ‘/search’ 등의 System 커맨드를 제공합니다.
 예컨대 메시지 내용을 찾거나, 자신의 상태를 바꾸는 등의 기능을 마우스의 클릭이나 다른 조작 없이 텍스트 입력으로 빠르게 실행할 수 있도록 도와줍니다.
+
 ![2](http://static.toastoven.net/prod_dooray_messenger/integration/2.png)
 
 자신이 원하는 기능을 수행하는 커맨드를 직접 만들어 사용할 수 있습니다.
 예를 들어 매일 아침 교통 정보와 날씨를 메시지로 받아볼 수 있고, 간단한 명령어를 입력하여 투표를 생성할 수도 있습니다.
 
 아래 그림은 커맨드 서버와 메신저 서버 간의 통신 과정입니다.
+
 ![3](http://static.toastoven.net/prod_dooray_messenger/integration/3.png)
 
 사용자는 '/문자'와 대화방에 등록된 커맨드를 입력합니다. 입력한 커맨드 정보는 메신저 서버를 통해 커맨드 서버로 전송이 됩니다. 커맨드 서버에서 처리한 결과를 메신저 서버로 전송합니다. 메신저 서버는 커맨드 서버로부터 받은 데이터를 기반으로 사용자에게 결과를 보여줍니다.
@@ -40,6 +42,7 @@ Dooray! 메신저에서는 기본적으로 ‘/mute’, ‘/status’, ‘/searc
 ### 추가 화면으로 이동
 
 Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비스’ 메뉴를 선택합니다.
+
 ![4](http://static.toastoven.net/prod_dooray_messenger/integration/4.png)
 
 지금은 아래와 같이 빈 화면이 표시됩니다.
@@ -61,6 +64,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 이제 앱이 만들어졌습니다. 생성되어 있는 Token과 비어 있는 커맨드 목록을 보실 수 있습니다.
 Token 값은 커맨드 요청시 함께 전송되어 요청을 검증하는데에 사용합니다. Token 값이 외부에 유출되지 않도록 주의하시기 바랍니다. 만약 Token에 외부에 유출된 경우에는 Regenerate 버튼을 이용해 기존 Token을 파기하고 다시 발급해 사용하세요.
+
 ![7](http://static.toastoven.net/prod_dooray_messenger/integration/7.png)
 
 ### 커맨드 추가
@@ -69,6 +73,7 @@ Token 값은 커맨드 요청시 함께 전송되어 요청을 검증하는데�
 되도록 하나의 앱에는 서로 밀접하게 관계가 있는 커맨드를 추가하는 것을 권장합니다.
 
 미리 제작한 커맨드가 없다면, 다음 문서에서 예제로 설명할 /hi 커맨드를 입력하면 됩니다.
+
 ![8](http://static.toastoven.net/prod_dooray_messenger/integration/8.png)
 
 |구분|설명|
@@ -80,6 +85,7 @@ Token 값은 커맨드 요청시 함께 전송되어 요청을 검증하는데�
 |Public|해당 커맨드를 다른 사람들도 대화방에 추가하여 사용할 수 있습니다.|
 
 커맨드가 추가되었습니다.
+
 ![9](http://static.toastoven.net/prod_dooray_messenger/integration/9.png)
 
 ### Interactive Request URL 입력
@@ -253,6 +259,7 @@ deleteOriginal을 true로 하면 기존 메시지가 삭제되고 다시 전송�
 ```
 
 해당 메시지를 받으면, 아래와 같이 Send와 Cancel 버튼이 있는 메시지가 생성된 것을 확인할 수 있습니다.
+
 ![11](http://static.toastoven.net/prod_dooray_messenger/integration/11.png)
 
 Send버튼을 눌러봅시다. 아래와 같은 데이터가 커맨드 서버의 Interactive Request URL로 전송됩니다.
@@ -341,6 +348,7 @@ options 필드를 이용해 목록을 구성할 수 있습니다.
 ```
 
 위 Attachments를 통해 아래 화면과 같은 드롭다운 메뉴를 보여줄 수 있습니다.
+
 ![12](http://static.toastoven.net/prod_dooray_messenger/integration/12.png)
 
 ### 동적 드롭다운 메뉴
@@ -612,12 +620,15 @@ Dooray! Messenger는 Slack과 유사한 형태의 데이터 타입과 Attachment
 커맨드 추가 화면을 여는 방법은 두 가지가 있습니다.
 
 첫째, 메신저 우측 상단의 설정 메뉴를 통해 추가할 수 있습니다.
+
 ![16](http://static.toastoven.net/prod_dooray_messenger/integration/16.png)
 
 둘째, 대화방의 입력창에 '/'를 입력 후 나타나는 화면에서 '연동서비스' 버튼을 통해 추가할 수 있습니다.
+
 ![17](http://static.toastoven.net/prod_dooray_messenger/integration/17.png)
 
 커맨드 추가 화면에는 공개된 커맨드나 자신이 생성한 커맨드가 표시됩니다. 원하는 커맨드의 추가 버튼을 눌러 대화방에 커맨드를 추가하세요. 만약 커맨드가 없다면 본 문서의 처음으로 돌아가 커맨드를 만들어 보세요.
+
 ![18](http://static.toastoven.net/prod_dooray_messenger/integration/18.png)
 
 ![19](http://static.toastoven.net/prod_dooray_messenger/integration/19.png)
