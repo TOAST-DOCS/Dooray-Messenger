@@ -94,6 +94,7 @@ Command 만들기.png
 |Interactive Message Request URL|버튼과 드롭 메뉴 등 메시지를 통해서 유저와 상호작용하는 경우, 유저의 요청을 전달할 URL을 입력합니다.|
 |Interactive Message Optional URL|메시지에 dataSource를 external로 설정한 메뉴 목록 등을 제공하는 경우, 메뉴 목록을 요청할 URL을 입력합니다.|
 
+---
 
 ## Hello World! 메시지 보내기
 대화방에서 "/hi"라고 입력하면, "Hello world!"라고 대답하는 아주 간단한 커맨드를 만들어 보겠습니다.
@@ -157,6 +158,8 @@ Command 만들기.png
 |responseType|메시지 게시 타입을 설정합니다.<br>- inChannel: 전체 사용자에게 표시<br>- ephemeral: Command 호출한 사용자에게만 표시<br>(responseType이 없으면 ephemeral로 처리됩니다.)|
 |text|메시지 내용|
 
+---
+
 ## 메시지를 전송하는 4가지 방법(최초 전송/추가 전송/업데이트/기존 메시지 삭제 후 전송)
 
 커맨드 실행 시, 메신저 서버는 4가지의 방식으로 메시지를 전송할 수 있습니다.
@@ -216,6 +219,7 @@ deleteOriginal을 true로 하면 기존 메시지가 삭제되고 다시 전송�
 
 필요한 기능에 맞는 메시지 전송 방법을 선택하여 커맨드를 제작하시기 바랍니다.
 
+---
 
 ## 메시지에 버튼 넣기
 
