@@ -40,7 +40,7 @@ Dooray! 메신저에서는 기본적으로 `/mute`, `/status`, `/search` 등의 
 
 ### 추가 화면으로 이동
 
-Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비스' 메뉴를 선택합니다.
+Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스' 메뉴를 선택합니다.
 
 ![4](http://static.toastoven.net/prod_dooray_messenger/integration/4.png)
 
