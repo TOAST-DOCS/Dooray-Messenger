@@ -569,7 +569,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 |---|---|---|
 |text||메시지 텍스트|
 |attachments||Attachment의 배열|
-|responseType|"ephemeral"|메시지 표시 대상<br>"ephemeral": Command를 실행한 사용자에게만 표시<br>"inChannel": 채널 내 전체 사용자에게 표시
+|responseType|"ephemeral"|메시지 표시 대상<br>- "ephemeral": Command를 실행한 사용자에게만 표시<br>- "inChannel": 채널 내 전체 사용자에게 표시
 |replaceOriginal|true|Interactive Message에 대한 응답 시 기존 메시지 수정 여부|
 |deleteOriginal|false|Interactive Message에 대한 응답 시 기존 메시지 삭제 여부|
 
@@ -602,9 +602,9 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 |text||버튼, 드롭다운 메뉴에 표시될 텍스트|
 |name||커맨드 서버에 전달되는 필드명|
 |value||커맨드 서버에 전달되는 필드값|
-|style|"default"|버튼 색상<br>"primary": 강조 색상<br>"default": 기본 색상|
+|style|"default"|버튼 색상<br>- "primary": 강조 색상<br>- "default": 기본 색상|
 |options||Option의 배열|
-|dataSource||'options' 대신 지정할 수 있는 option 값<br>"users": 사용자 목록<br>"channels": 채널 목록<br>"external": Interactive Message Optional URL에서 가져오기
+|dataSource||'options' 대신 지정할 수 있는 option 값<br>- "users": 사용자 목록<br>- "channels": 채널 목록<br>- "external": Interactive Message Optional URL에서 가져오기
 
 #### Option Object
 |필드명|기본값|설명|
