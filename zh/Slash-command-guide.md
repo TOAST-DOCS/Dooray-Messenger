@@ -89,7 +89,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 ### Interactive Request URL 입력
 
-버튼과 드롭 다운 메뉴를 통해 사용자의 액션을 받으려면 Interactive Message 처리를 위한 별도의 URL이 필요합니다.
+버튼과 드롭다운 메뉴를 통해 사용자의 액션을 받으려면 Interactive Message 처리를 위한 별도의 URL이 필요합니다.
 
 ![10](http://static.toastoven.net/prod_dooray_messenger/integration/10.png)
 
@@ -149,7 +149,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 ```
 위와 같이 응답하면 커맨드를 호출한 사용자에게만 보이는 메시지가 됩니다.
 
-만약 대화방 내의 멤버들에게 모두 보여주고 싶은 경우 `responseType`을 inChannel로 응답에 추가하면 됩니다.
+만약 대화방 내의 멤버들에게 모두 보여주고 싶은 경우 `responseType`을 `inChannel`로 응답에 추가하면 됩니다.
 
 ```javascript
 {
@@ -186,7 +186,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 ### 메시지를 추가로 전송
 
-`replaceOriginal`을 false로 하면 메시지를 새로 전송합니다.
+`replaceOriginal`을 `false`로 하면 메시지를 새로 전송합니다.
 
 ```json
 {
@@ -198,7 +198,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 ### 기존에 보낸 메시지를 업데이트
 
-`replaceOriginal`을 true로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
+`replaceOriginal`을 `true`로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
 기존 메시지의 `responseType`로 바꾸어 업데이트할 수 없습니다. `responseType`을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
 
 ```json
@@ -212,7 +212,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 ### 기존에 보낸 메시지를 삭제하고 메시지를 새로 전송
 
 이 경우에는 대화방의 참여자에게 알림이 가기 때문에 대화방의 사람들이 변경되는 내용을 알게 하고 싶을 때 효과적입니다.
-'deleteOriginal'을 true로 하면 기존 메시지가 삭제되고 다시 전송됩니다.
+`deleteOriginal`을 `true`로 하면 기존 메시지가 삭제되고 다시 전송됩니다.
 
 {
     "responseType": "inChannel",
@@ -226,7 +226,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 ## 메시지에 버튼 넣기
 
-응답 메시지는 attachments 필드를 이용해 버튼을 표시할 수 있습니다. 메시지를 받은 사람은 버튼을 눌러 상호작용을 할 수 있습니다. 버튼을 넣는 방법과 버튼을 선택한 결과를 받아 처리하는 방법을 알아보겠습니다.
+응답 메시지는 `attachments` 필드를 이용해 버튼을 표시할 수 있습니다. 메시지를 받은 사람은 버튼을 눌러 상호작용을 할 수 있습니다. 버튼을 넣는 방법과 버튼을 선택한 결과를 받아 처리하는 방법을 알아보겠습니다.
 
 아래는 입력한 메시지를 대화방에 전송할지 확인하는 attachments가 포함된 메시지입니다.
 
@@ -345,13 +345,13 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ]
 ```
 
-위 Attachments를 통해 아래 화면과 같은 드롭다운 메뉴를 보여줄 수 있습니다.
+위 attachments를 통해 아래 화면과 같은 드롭다운 메뉴를 보여줄 수 있습니다.
 
 ![12](http://static.toastoven.net/prod_dooray_messenger/integration/12.png)
 
 ### 동적 드롭다운 메뉴
 
-동적 드롭다운 메뉴는 'options' 대신 'dataSource'를 이용합니다. 'dataSource'는 값에 따라 멤버, 대화방, 외부 데이터를 보여줄 수 있습니다.
+동적 드롭다운 메뉴는 `options` 대신 `dataSource`를 이용합니다. `dataSource`는 값에 따라 멤버, 대화방, 외부 데이터를 보여줄 수 있습니다.
 
 |구분|설명|
 |---|---|
@@ -361,7 +361,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 |external|외부 데이터|
 
 #### 멤버 목록
-`dataSource`에 users로 메시지를 구성해 전송하면 현재 대화방의 멤버 목록을 보여줄 수 있습니다. 사용자가 드롭다운 메뉴에 검색어를 입력해 테넌트 전체 멤버를 검색 할 수 있습니다.
+`dataSource`에 `users`로 메시지를 구성해 전송하면 현재 대화방의 멤버 목록을 보여줄 수 있습니다. 사용자가 드롭다운 메뉴에 검색어를 입력해 테넌트 전체 멤버를 검색 할 수 있습니다.
 
 ```javascript
 "attachments": [
@@ -377,7 +377,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ![13](http://static.toastoven.net/prod_dooray_messenger/integration/13.png)
 
 #### 대화방 목록
-`dataSource`에 channels로 메시지를 구성해 전송하면 사용자가 속한 대화방 목록을 보여줄 수 있습니다.
+`dataSource`에 `channels`로 메시지를 구성해 전송하면 사용자가 속한 대화방 목록을 보여줄 수 있습니다.
 
 ```javascript
 "attachments": [
@@ -393,7 +393,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ![14](http://static.toastoven.net/prod_dooray_messenger/integration/14.png)
 
 #### 외부 데이터 목록
-`dataSource`에 external로 메시지를 구성해 전송하면 외부 데이터 목록을 보여줄 수 있습니다. 외부 데이터 목록은 앱 설정시 등록한 Interactive Optional URL로 데이터를 요청해 받아옵니다.
+`dataSource`에 `external`로 메시지를 구성해 전송하면 외부 데이터 목록을 보여줄 수 있습니다. 외부 데이터 목록은 앱 설정시 등록한 Interactive Optional URL로 데이터를 요청해 받아옵니다.
 
 ``` javascript
 "attachments": [
@@ -458,7 +458,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 커맨드는 attachments라는 특별한 형태의 메시지를 전송할 수 있습니다. attachments의 구성 요소에는 다른 문서에서 설명하였던 버튼과 드롭다운메뉴 외에도 다양한 것이 있습니다. attachments 메시지를 잘 사용하면 사용자의 눈에 잘 띌뿐 아니라 추가 정보를 요청하거나 회신하는 등의 행동을 능숙하게 유도할 수 있습니다.
 
-Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 제공합니다.
+Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 제공합니다.
 기존에 Slack integration을 제작한 경험이 있다면 익숙하게 작업할 수 있습니다.
 
 ### attachments 메시지
@@ -666,10 +666,10 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
 
 #### 커맨드 실행 포맷
 
-사용자가 투표 커맨드를 실행 할 입력 포맷은 아래처럼 입력하도록 합니다.
+사용자가 투표 커맨드를 실행할 입력 포맷은 아래처럼 입력하도록 합니다.
 
 ```
-/vote {제목} {항목1} {항목2} ... {항목n}
+/vote {제목} {항목1} "{공백을 포함한 항목}" ... {항목n}
 
 ```
 
