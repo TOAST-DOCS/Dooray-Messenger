@@ -672,7 +672,6 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ```
 /vote {제목} {항목1} "{공백을 포함한 항목}" ... {항목n}
-
 ```
 
 #### 시나리오
@@ -706,7 +705,6 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
 }
-
 ```
 
 |필드명|설명|
@@ -775,7 +773,6 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
         }
     ]
 }
-
 ```
 
 ### 액션 실행 요청
