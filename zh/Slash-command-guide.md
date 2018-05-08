@@ -96,7 +96,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 |구분|설명|
 |---|---|
 |Interactive Message Request URL|버튼과 드롭다운 메뉴 등 메시지를 통해서 유저와 상호 작용하는 경우, 유저의 요청을 전달할 URL을 입력합니다.|
-|Interactive Message Optional URL|메시지에 dataSource를 'external로 설정한 메뉴 목록 등을 제공하는 경우, 메뉴 목록을 요청할 URL을 입력합니다.|
+|Interactive Message Optional URL|메시지에 `dataSource`를 external로 설정한 메뉴 목록 등을 제공하는 경우, 메뉴 목록을 요청할 URL을 입력합니다.|
 
 ---
 
@@ -149,7 +149,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 ```
 위와 같이 응답하면 커맨드를 호출한 사용자에게만 보이는 메시지가 됩니다.
 
-만약 대화방 내의 멤버들에게 모두 보여주고 싶은 경우 `responseType`을 `inChannel`로 응답에 추가하면 됩니다.
+만약 대화방 내의 멤버들에게 모두 보여주고 싶은 경우 `responseType`을 inChannel로 응답에 추가하면 됩니다.
 
 ```javascript
 {
@@ -186,7 +186,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 ### 메시지를 추가로 전송
 
-'replaceOriginal'을 false로 하면 메시지를 새로 전송합니다.
+`replaceOriginal`을 false로 하면 메시지를 새로 전송합니다.
 
 ```json
 {
@@ -198,8 +198,8 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 ### 기존에 보낸 메시지를 업데이트
 
-'replaceOriginal'을 true로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
-기존 메시지의 'responseType'로 바꾸어 업데이트할 수 없습니다. 'responseType'을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
+`replaceOriginal`을 true로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
+기존 메시지의 `responseType`로 바꾸어 업데이트할 수 없습니다. `responseType`을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
 
 ```json
 {
@@ -307,7 +307,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ### 정적 드롭다운 메뉴
 
-'options' 필드를 이용해 목록을 구성할 수 있습니다.
+`options` 필드를 이용해 목록을 구성할 수 있습니다.
 
 ```javascript
 "attachments": [
@@ -361,7 +361,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 |external|외부 데이터|
 
 #### 멤버 목록
-'dataSource'에 'users'로 메시지를 구성해 전송하면 현재 대화방의 멤버 목록을 보여줄 수 있습니다. 사용자가 드롭다운 메뉴에 검색어를 입력해 테넌트 전체 멤버를 검색 할 수 있습니다.
+`dataSource`에 users로 메시지를 구성해 전송하면 현재 대화방의 멤버 목록을 보여줄 수 있습니다. 사용자가 드롭다운 메뉴에 검색어를 입력해 테넌트 전체 멤버를 검색 할 수 있습니다.
 
 ```javascript
 "attachments": [
@@ -377,7 +377,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ![13](http://static.toastoven.net/prod_dooray_messenger/integration/13.png)
 
 #### 대화방 목록
-'dataSource'에 'channels'로 메시지를 구성해 전송하면 사용자가 속한 대화방 목록을 보여줄 수 있습니다.
+`dataSource`에 channels로 메시지를 구성해 전송하면 사용자가 속한 대화방 목록을 보여줄 수 있습니다.
 
 ```javascript
 "attachments": [
@@ -393,7 +393,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ![14](http://static.toastoven.net/prod_dooray_messenger/integration/14.png)
 
 #### 외부 데이터 목록
-'dataSource'에 'external'로 메시지를 구성해 전송하면 외부 데이터 목록을 보여줄 수 있습니다. 외부 데이터 목록은 앱 설정시 등록한 Interactive Optional URL로 데이터를 요청해 받아옵니다.
+`dataSource`에 external로 메시지를 구성해 전송하면 외부 데이터 목록을 보여줄 수 있습니다. 외부 데이터 목록은 앱 설정시 등록한 Interactive Optional URL로 데이터를 요청해 받아옵니다.
 
 ``` javascript
 "attachments": [
@@ -471,7 +471,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
 |---|---|---|
 |1|text|메시지의 내용입니다.|
 |2|attachment|메시지에 첨부한 내용입니다. 여러 개의 attachment를 합쳐서 attachments라고 부릅니다.|
-|3|authorName|작성자 이름입니다. authorLink로 링크를 걸 수 있습니다.|
+|3|authorName|작성자 이름입니다. `authorLink`로 링크를 걸 수 있습니다.|
 |4|title|attachment의 제목입니다.|
 |5|text|attachment의 내용입니다.|
 |6|thumbUrl|attachment에 넣을 섬네일 이미지입니다.|
@@ -584,7 +584,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
 |callbackId||Action 요소 작동 시 함께 전달될 값(세션 유지 등의 용도로 사용)|
 |imageUrl||이미지 주소|
 |thumbUrl||섬네일 주소|
-|color|"#4757C4"|Attachment 세로줄 색상(HTML 색상코드)|
+|color|#4757C4|Attachment 세로줄 색상(HTML 색상코드)|
 
 #### Field Object
 |필드명|기본값|설명|
@@ -602,7 +602,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
 |value||커맨드 서버에 전달되는 필드값|
 |style|"default"|버튼 색상<br>"primary": 강조 색상<br>"default": 기본 색상|
 |options||Option의 배열|
-|dataSource||options 대신 지정할 수 있는 option 값<br>"users": 사용자 목록<br>"channels": 채널 목록<br>"external": Interactive Message Optional URL에서 가져오기
+|dataSource||'options' 대신 지정할 수 있는 option 값<br>"users": 사용자 목록<br>"channels": 채널 목록<br>"external": Interactive Message Optional URL에서 가져오기
 
 #### Option Object
 |필드명|기본값|설명|
