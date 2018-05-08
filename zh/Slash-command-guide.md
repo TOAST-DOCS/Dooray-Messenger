@@ -9,7 +9,7 @@ Dooray! 메신저에서는 사람이 아닌 다양한 도구에게 명령하고 
 ### 슬래시 커맨드
 
 슬래시 커맨드(이하 커맨드)는 ‘/’문자 뒤에 덧붙여서 특정한 기능을 수행하도록 하는 명령어입니다.
-Dooray! 메신저에서는 기본적으로 ‘/mute’, ‘/status’, ‘/search’ 등의 System 커맨드를 제공합니다.
+Dooray! 메신저에서는 기본적으로 ‘/mute’, ‘/status’, ‘/search’ 등의  커맨드를 제공합니다.
 예컨대 메시지 내용을 찾거나, 자신의 상태를 바꾸는 등의 기능을 마우스의 클릭이나 다른 조작 없이 키보드 입력만으로 빠르게 실행할 수 있도록 도와줍니다.
 
 ![2](http://static.toastoven.net/prod_dooray_messenger/integration/2.png)
