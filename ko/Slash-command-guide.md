@@ -465,7 +465,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ### attachments 메시지
 
-아래의 보시는 메시지의 블록 하나 하나가 타이틀, 설명, 이미지, 링크, 버튼, 드롭 메뉴 등을 가질 수 있는 attachment입니다. 최대 20개의 attachment 블록이 모여 attachments 메시지를 구성합니다.
+아래의 보시는 메시지의 블록 하나 하나가 타이틀, 설명, 이미지, 링크, 버튼, 드롭다운 메뉴 등을 가질 수 있는 attachment입니다. 최대 20개의 attachment 블록이 모여 attachments 메시지를 구성합니다.
 
 ![16](http://static.toastoven.net/prod_dooray_messenger/integration/16.png)
 
@@ -598,8 +598,8 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 #### Action Object
 |필드명|기본값|설명|
 |---|---|---|
-|type||Actiontype<br>"button": 버튼<br>"select": 드롭 메뉴|
-|text||버튼, 드롭 메뉴에 표시될 텍스트|
+|type||Actiontype<br>"button": 버튼<br>"select": 드롭다운 메뉴|
+|text||버튼, 드롭다운 메뉴에 표시될 텍스트|
 |name||커맨드 서버에 전달되는 필드명|
 |value||커맨드 서버에 전달되는 필드값|
 |style|"default"|버튼 색상<br>"primary": 강조 색상<br>"default": 기본 색상|
@@ -653,8 +653,8 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 | API 종류 | 설명 | 필수 | 메소드 |
 | ------ | --- | :---: | :---: |
 | 커맨드 Request URL | 사용자의 커맨드 실행 요청을 처리할 URL | O | POST |
-| Interactive Message의 Request URL | 사용자의 액션(버튼 클릭, 드롭 메뉴 선택)을 처리할 URL | X | POST |
-| Interactive Message의Optional URL | 드롭 메뉴에서 외부 데이터 제공할 URL | X | POST |
+| Interactive Message의 Request URL | 사용자의 액션(버튼 클릭, 드롭다운 메뉴 선택)을 처리할 URL | X | POST |
+| Interactive Message의Optional URL | 드롭다운 메뉴에서 외부 데이터 제공할 URL | X | POST |
 
 ### 투표 커맨드
 
@@ -855,7 +855,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
                 {
                     "name": "vote",
                     "type": "button",
-                    "text": " 탕수육",
+                    "text": "사천 탕수육",
                     "value": 2
                 }
             ],
@@ -877,10 +877,10 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 }
 ```
 
-| 필드 명 | 설명 | 기본값 |
-| ---- | --- | --- |
-| deleteOriginal | 새  메시지를 생성하기 전 기존 메시지 삭제 여부 | false |
-| replaceOriginal | 기존 메시지 업데이트 여부 | true |
+|필드명|설명|기본값|
+|----|---|---|
+|deleteOriginal|새 메시지를 생성하기 전 기존 메시지 삭제 여부|false|
+|replaceOriginal|기존 메시지 업데이트 여부|true|
 
 사용자에게 보여지는 텍스트에 멘션 뱃지를 표현할 수 있습니다. 멘션 뱃지는 아래와 같이 사용하면 됩니다.
 
