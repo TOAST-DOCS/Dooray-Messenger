@@ -650,11 +650,11 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 커맨드 서버는 등록한 커맨드대로 동작하는 REST API를 제공해야 합니다.
 
-| API 종류 | 설명 | 필수 | 메소드 |
-| ------ | --- | :---: | :---: |
-| 커맨드 Request URL | 사용자의 커맨드 실행 요청을 처리할 URL | O | POST |
-| Interactive Message의 Request URL | 사용자의 액션(버튼 클릭, 드롭다운 메뉴 선택)을 처리할 URL | X | POST |
-| Interactive Message의Optional URL | 드롭다운 메뉴에서 외부 데이터 제공할 URL | X | POST |
+|API 종류|설명|필수 |메소드|
+|------|---|---|---|
+|커맨드 Request URL|사용자의 커맨드 실행 요청을 처리할 URL|O|POST|
+|Interactive Message의 Request URL|사용자의 액션(버튼 클릭, 드롭다운 메뉴 선택)을 처리할 URL|X|POST|
+|Interactive Message의Optional URL|드롭다운 메뉴에서 외부 데이터 제공할 URL|X|POST|
 
 ### 투표 커맨드
 
@@ -709,19 +709,19 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ```
 
-| 필드 명 | 설명 |
-| ---- | --- |
-| tenantId | 커맨드가 등록된 테넌트의 ID |
-| tenantDomain | 커맨드가 등록된 테넌트 도메인 |
-| channelId | 커맨드를 요청한 대화방의 ID |
-| channelName | 커맨드를 요청한 대화방 제목 |
-| userId | 커맨드를 요청한 사용자 ID |
-| userName | 커맨드를 요청한 사용자 이름 |
-| command | 커맨드 이름 |
-| text | 사용자가 입력한 전체 텍스트 |
-| responseUrl | 커맨드를 요청한 대화방의 Webhook URL |
-| appToken | 커맨드를 등록한 앱의 토큰(요청 검증으로 활용) |
-| triggerId | 다이얼로그 실행 ID |
+|필드명|설명|
+|----|---|
+|tenantId|커맨드가 등록된 테넌트의 ID|
+|tenantDomain|커맨드가 등록된 테넌트 도메인|
+|channelId|커맨드를 요청한 대화방의 ID|
+|channelName|커맨드를 요청한 대화방 제목|
+|userId|커맨드를 요청한 사용자 ID|
+|userName|커맨드를 요청한 사용자 이름|
+|command|커맨드 이름|
+|text|사용자가 입력한 전체 텍스트|
+|responseUrl|커맨드를 요청한 대화방의 Webhook URL|
+|appToken|커맨드를 등록한 앱의 토큰(요청 검증으로 활용)|
+|triggerId|다이얼로그 실행 ID|
 
 ### 커맨드 실행 요청에 대한 응답
 
@@ -811,14 +811,14 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 }
 ```
 
-| 필드 명 | 설명 |
-| ---- | --- |
-| callbackId | 사용자가 선택한 액션이 속해있는 Attachment의 ID |
-| actionText | 사용자가 선택한 액션 텍스트 |
-| actionValue | 사용자가 선택한 액션 값 |
-| commandRequestUrl | 커맨드 Request URL |
-| channelLogId | 메시지 ID |
-| originalMessage | 이전 응답으로 받은 메시지 |
+|필드명|설명|
+|----|---|
+|callbackId|사용자가 선택한 액션이 속해있는 Attachment의 ID|
+|actionText|사용자가 선택한 액션 텍스트|
+|actionValue|사용자가 선택한 액션 값|
+|commandRequestUrl|커맨드 Request URL|
+|channelLogId|메시지 ID|
+|originalMessage|이전 응답으로 받은 메시지|
 
 ### 액션 실행에 대한 응답
 
@@ -877,9 +877,9 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 }
 ```
 
-|필드명|설명|기본값|
+|필드명|기본값|설명|
 |----|---|---|
-|deleteOriginal|새 메시지를 생성하기 전 기존 메시지 삭제 여부|false|
-|replaceOriginal|기존 메시지 업데이트 여부|true|
+|deleteOriginal|false|새 메시지를 생성하기 전 기존 메시지 삭제 여부|
+|replaceOriginal|true|기존 메시지 업데이트 여부|
 
 이 후 사용자가 누르는 버튼은 액션 실행 요청과 그에 따른 응답의 반복입니다.
