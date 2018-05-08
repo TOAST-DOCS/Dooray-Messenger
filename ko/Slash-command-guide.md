@@ -598,7 +598,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 #### Action Object
 |필드명|기본값|설명|
 |---|---|---|
-|type||Actiontype<br>"button": 버튼<br>"select": 드롭다운 메뉴|
+|type||Actiontype<br>- "button": 버튼<br>- "select": 드롭다운 메뉴|
 |text||버튼, 드롭다운 메뉴에 표시될 텍스트|
 |name||커맨드 서버에 전달되는 필드명|
 |value||커맨드 서버에 전달되는 필드값|
