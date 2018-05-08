@@ -625,7 +625,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ![17](http://static.toastoven.net/prod_dooray_messenger/integration/17.png)
 
-둘째, 대화방의 입력창에 '/'를 입력 후 나타나는 화면에서 '연동 서비스' 버튼을 통해 추가할 수 있습니다.
+둘째, 대화방의 입력창에 `/`를 입력 후 나타나는 화면에서 '연동 서비스' 버튼을 통해 추가할 수 있습니다.
 
 ![18](http://static.toastoven.net/prod_dooray_messenger/integration/18.png)
 
