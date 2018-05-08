@@ -473,7 +473,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 |---|---|---|
 |1|text|메시지의 내용입니다.|
 |2|attachment|메시지에 첨부한 내용입니다. 여러 개의 attachment를 합쳐서 attachments라고 부릅니다.|
-|3|authorName|작성자 이름입니다. `authorLink`로 링크를 걸 수 있습니다.|
+|3|authorName|작성자 이름입니다. authorLink로 링크를 걸 수 있습니다.|
 |4|title|attachment의 제목입니다.|
 |5|text|attachment의 내용입니다.|
 |6|thumbUrl|attachment에 넣을 섬네일 이미지입니다.|
