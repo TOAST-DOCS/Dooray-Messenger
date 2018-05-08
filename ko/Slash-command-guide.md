@@ -882,10 +882,4 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 |deleteOriginal|새 메시지를 생성하기 전 기존 메시지 삭제 여부|false|
 |replaceOriginal|기존 메시지 업데이트 여부|true|
 
-사용자에게 보여지는 텍스트에 멘션 뱃지를 표현할 수 있습니다. 멘션 뱃지는 아래와 같이 사용하면 됩니다.
-
-```javascript
-[@{사용자이름}](dooray://{테넌트ID}/members/{사용자ID} "member")
-```
-
 이 후 사용자가 누르는 버튼은 액션 실행 요청과 그에 따른 응답의 반복입니다.
