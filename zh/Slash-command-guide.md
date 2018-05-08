@@ -699,7 +699,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
     "userId": "1234567891234567891",
     "userName": "홍길동",
     "command": "/vote",
-    "text": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "text": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
     "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
@@ -748,7 +748,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
                 },
                 {
                     "title": "Item 3",
-                    "value": "탕수육",
+                    "value": "사천 탕수육",
                     "short": true
                 }
             ]
@@ -760,7 +760,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
                     "name": "vote",
                     "type": "button",
                     "text": "Submit",
-                    "value": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+                    "value": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
                     "style": "primary"
                 },
                 {
@@ -796,10 +796,10 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
     },
     "commandName": "/vote",
     "command": "/vote",
-    "text": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "text": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
     "callbackId": "vote",
     "actionText": "Submit",
-    "actionValue": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+    "actionValue": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx",
@@ -853,7 +853,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 Attachments UI를 �
                 {
                     "name": "vote",
                     "type": "button",
-                    "text": "탕수육",
+                    "text": " 탕수육",
                     "value": 2
                 }
             ],
