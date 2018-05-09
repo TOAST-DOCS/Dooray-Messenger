@@ -4,7 +4,7 @@
 Dooray! 메신저에서는 사람이 아닌 다양한 도구에게 명령하고 메시지를 받으면서 더 효율적으로 업무를 할 수 있습니다.
 메신저에서 제공하지 않는 기능을 직접 구현하고 싶을 때 이 기능을 활용하여 여러분도 자신의 업무를 좀 더 효율적으로 자동화 할 수 있습니다.
 
-현재 소개할 기능은 커맨드를 직접 생성하는 것에 대한 내용이며, 앞으로 봇, API 등 다양한 연동 서비스를 제공할 예정입니다.
+소개할 기능은 커맨드를 직접 생성하는 것에 대한 내용이며, 앞으로 봇, API 등 다양한 연동 서비스를 제공할 예정입니다.
 
 ### 슬래시 커맨드
 
@@ -40,9 +40,9 @@ Dooray! 메신저에서는 기본적으로 `/mute`, `/status`, `/search` 등의 
 
 ### 추가 화면으로 이동
 
-Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비스' 메뉴를 선택합니다.
+Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스' 메뉴를 선택합니다.
 
-![4](http://static.toastoven.net/prod_dooray_messenger/integration/4.png)
+![4](http://static.toastoven.net/prod_dooray_messenger/integration/4_1.png)
 
 아래와 같이 빈 화면이 표시됩니다.
 
@@ -71,7 +71,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 앱을 등록한 후, 슬래시 커맨드 영역의 '추가' 버튼을 누르면 커맨드를 추가할 수 있습니다.
 되도록 하나의 앱에는 서로 밀접하게 관계가 있는 커맨드를 추가하는 것을 권장합니다.
 
-미리 제작한 커맨드가 없다면, 다음 문서에서 예제로 설명할 `/hi` 커맨드를 입력하면 됩니다.
+미리 제작한 커맨드가 없다면, 아래의 예제대로 `/hi` 커맨드를 추가해 보세요.
 
 ![8](http://static.toastoven.net/prod_dooray_messenger/integration/8.png)
 
@@ -139,12 +139,12 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 ### 응답
 
-커맨드 서버는 전달받은 데이터를 이용해 사용자에게 응답할 데이터를 만듭니다. 그리고 이 데이터를 요청에 대한 응답으로 보내야 합니다. `/hi` 커맨드는 특별한 데이터 처리 없이 'Hello World!'만 보내주면 됩니다.
+커맨드 서버는 전달받은 데이터를 이용해 사용자에게 응답할 데이터를 만듭니다. 그리고 이 데이터를 요청에 대한 응답으로 보내야 합니다. `/hi` 커맨드는 특별한 데이터 처리 없이 `Hello World!`만 보내주면 됩니다.
 
 ```javascript
 {
     "text": "Hello World!",
-    "responseType": "ephemeral" // 생략 가능
+    "responseType": "ephemeral"
 }
 ```
 위와 같이 응답하면 커맨드를 호출한 사용자에게만 보이는 메시지가 됩니다.
@@ -157,10 +157,10 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
     "responseType": "inChannel"
 }
 ```
-|필드명|설명|
-|---|---|
-|responseType|메시지 게시 타입을 설정합니다.<br>- inChannel: 전체 사용자에게 표시<br>- ephemeral:  호출한 사용자에게만 표시<br>(responseType이 없으면 ephemeral로 처리됩니다.)|
-|text|메시지 내용|
+|필드명|기본값|설명|
+|---|---|---|
+|responseType|ephemeral|메시지 게시 타입을 설정합니다.<br>- inChannel: 전체 사용자에게 표시<br>- ephemeral:  호출한 사용자에게만 표시|
+|text||메시지 내용|
 
 ---
 
@@ -188,7 +188,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 
 `replaceOriginal`을 `false`로 하면 메시지를 새로 전송합니다.
 
-```json
+```javascript
 {
     "replaceOriginal": false,
     "responseType": "inChannel",
@@ -201,7 +201,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 `replaceOriginal`을 `true`로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
 기존 메시지의 `responseType`로 바꾸어 업데이트할 수 없습니다. `responseType`을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
 
-```json
+```javascript
 {
     "responseType": "inChannel",
     "replaceOriginal": true,
@@ -214,11 +214,13 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
 이 경우에는 대화방의 참여자에게 알림이 가기 때문에 대화방의 사람들이 변경되는 내용을 알게 하고 싶을 때 효과적입니다.
 `deleteOriginal`을 `true`로 하면 기존 메시지가 삭제되고 다시 전송됩니다.
 
+```javascript
 {
     "responseType": "inChannel",
     "deleteOriginal": true,
     "text": "Hello World!(Updated)"
 }
+```
 
 필요한 기능에 맞는 메시지 전송 방법을 선택하여 커맨드를 제작하시기 바랍니다.
 
@@ -235,7 +237,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 > '연동 서비�
     "text": "Message",
     "attachments": [
         {
-            "callbackId": "send-a1b2c3", // 사용자 interaction시 함께 전송됩니다. interaction이 일어난 Attachment를 식별할 때 쓸 수 있습니다.
+            "callbackId": "send-a1b2c3", // 사용자 상호 작용 시 함께 전송됩니다. 상호 작용이 일어난 attachment를 식별할 때 쓸 수 있습니다.
             "actions": [
                 {
                     "name": "send",
@@ -456,14 +458,11 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ## attachments 메시지 보내기
 
-커맨드는 attachments라는 특별한 형태의 메시지를 전송할 수 있습니다. attachments의 구성 요소에는 다른 문서에서 설명하였던 버튼과 드롭다운메뉴 외에도 다양한 것이 있습니다. attachments 메시지를 잘 사용하면 사용자의 눈에 잘 띌뿐 아니라 추가 정보를 요청하거나 회신하는 등의 행동을 능숙하게 유도할 수 있습니다.
-
-Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 제공합니다.
-기존에 Slack integration을 제작한 경험이 있다면 익숙하게 작업할 수 있습니다.
+커맨드는 attachments라는 특별한 형태의 메시지를 전송할 수 있습니다. attachments의 구성 요소에는 다른 문서에서 설명하였던 버튼과 드롭다운 메뉴 외에도 다양한 것이 있습니다. attachments 메시지를 잘 사용하면 사용자의 눈에 잘 띌뿐 아니라 추가 정보를 요청하거나 회신하는 등의 행동을 능숙하게 유도할 수 있습니다.
 
 ### attachments 메시지
 
-아래의 보시는 메시지의 블록 하나 하나가 타이틀, 설명, 이미지, 링크, 버튼, 드롭 메뉴 등을 가질 수 있는 attachment입니다. 최대 20개의 attachment 블록이 모여 attachments 메시지를 구성합니다.
+아래의 보시는 메시지의 블록 하나 하나가 타이틀, 설명, 이미지, 링크, 버튼, 드롭다운 메뉴 등을 가질 수 있는 attachment입니다. 최대 20개의 attachment 블록이 모여 attachments 메시지를 구성합니다.
 
 ![16](http://static.toastoven.net/prod_dooray_messenger/integration/16.png)
 
@@ -471,7 +470,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 |---|---|---|
 |1|text|메시지의 내용입니다.|
 |2|attachment|메시지에 첨부한 내용입니다. 여러 개의 attachment를 합쳐서 attachments라고 부릅니다.|
-|3|authorName|작성자 이름입니다. `authorLink`로 링크를 걸 수 있습니다.|
+|3|authorName|작성자 이름입니다. authorLink로 링크를 걸 수 있습니다.|
 |4|title|attachment의 제목입니다.|
 |5|text|attachment의 내용입니다.|
 |6|thumbUrl|attachment에 넣을 섬네일 이미지입니다.|
@@ -567,7 +566,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 |---|---|---|
 |text||메시지 텍스트|
 |attachments||Attachment의 배열|
-|responseType|"ephemeral"|메시지 표시 대상<br>"ephemeral": Command를 실행한 사용자에게만 표시<br>"inChannel": 채널 내 전체 사용자에게 표시
+|responseType|"ephemeral"|메시지 표시 대상<br>- "ephemeral": Command를 실행한 사용자에게만 표시<br>- "inChannel": 채널 내 전체 사용자에게 표시
 |replaceOriginal|true|Interactive Message에 대한 응답 시 기존 메시지 수정 여부|
 |deleteOriginal|false|Interactive Message에 대한 응답 시 기존 메시지 삭제 여부|
 
@@ -596,13 +595,13 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 #### Action Object
 |필드명|기본값|설명|
 |---|---|---|
-|type||Actiontype<br>"button": 버튼<br>"select": 드롭 메뉴|
-|text||버튼, 드롭 메뉴에 표시될 텍스트|
+|type||Actiontype<br>- "button": 버튼<br>- "select": 드롭다운 메뉴|
+|text||버튼, 드롭다운 메뉴에 표시될 텍스트|
 |name||커맨드 서버에 전달되는 필드명|
 |value||커맨드 서버에 전달되는 필드값|
-|style|"default"|버튼 색상<br>"primary": 강조 색상<br>"default": 기본 색상|
+|style|"default"|버튼 색상<br>- "primary": 강조 색상<br>- "default": 기본 색상|
 |options||Option의 배열|
-|dataSource||'options' 대신 지정할 수 있는 option 값<br>"users": 사용자 목록<br>"channels": 채널 목록<br>"external": Interactive Message Optional URL에서 가져오기
+|dataSource||'options' 대신 지정할 수 있는 option 값<br>- "users": 사용자 목록<br>- "channels": 채널 목록<br>- "external": Interactive Message Optional URL에서 가져오기
 
 #### Option Object
 |필드명|기본값|설명|
@@ -616,14 +615,14 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ### 대화방에 커맨드를 등록
 
-커맨드는 자신이 참여하고 있는 1:1대화, 그룹 대화 등에 등록하여 활용할 수 있습니다.
+커맨드는 자신이 참여하고 있는 1:1 대화, 그룹 대화 등에 등록하여 활용할 수 있습니다.
 커맨드 추가 화면을 여는 방법은 두 가지가 있습니다.
 
 첫째, 메신저 우측 상단의 설정 메뉴를 통해 추가할 수 있습니다.
 
 ![17](http://static.toastoven.net/prod_dooray_messenger/integration/17.png)
 
-둘째, 대화방의 입력창에 '/'를 입력 후 나타나는 화면에서 '연동 서비스' 버튼을 통해 추가할 수 있습니다.
+둘째, 대화방의 입력창에 `/`를 입력 후 나타나는 화면에서 '연동 서비스' 버튼을 통해 추가할 수 있습니다.
 
 ![18](http://static.toastoven.net/prod_dooray_messenger/integration/18.png)
 
@@ -642,17 +641,17 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ---
 
-## 투표 커맨드 
+## 예제: 투표 커맨드 
 
 ### 커맨드 서버 요구사항
 
 커맨드 서버는 등록한 커맨드대로 동작하는 REST API를 제공해야 합니다.
 
-| API 종류 | 설명 | 필수 | 메소드 |
-| ------ | --- | :---: | :---: |
-| 커맨드 Request URL | 사용자의 커맨드 실행 요청을 처리할 URL | O | POST |
-| Interactive Message의 Request URL | 사용자의 액션(버튼 클릭, 드롭 메뉴 선택)을 처리할 URL | X | POST |
-| Interactive Message의Optional URL | 드롭 메뉴에서 외부 데이터 제공할 URL | X | POST |
+|API 종류|설명|필수 |메소드|
+|------|---|---|---|
+|커맨드 Request URL|사용자의 커맨드 실행 요청을 처리할 URL|O|POST|
+|Interactive Message의 Request URL|사용자의 액션(버튼 클릭, 드롭다운 메뉴 선택)을 처리할 URL|X|POST|
+|Interactive Message의Optional URL|드롭다운 메뉴에서 외부 데이터 제공할 URL|X|POST|
 
 ### 투표 커맨드
 
@@ -668,9 +667,8 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 사용자가 투표 커맨드를 실행할 입력 포맷은 아래처럼 입력하도록 합니다.
 
-```
+```javascript
 /vote {제목} {항목1} "{공백을 포함한 항목}" ... {항목n}
-
 ```
 
 #### 시나리오
@@ -686,7 +684,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 사용자가 투표 커맨드를 아래와 같이 실행합니다.
 
-![22](http://static.toastoven.net/prod_dooray_messenger/integration/22.png)
+![22](http://static.toastoven.net/prod_dooray_messenger/integration/22_1.png)
 
 커맨드 서버는 커맨드 Request URL로 사용자가 입력한 값을 포함한 JSON 데이터를 받게 됩니다.
 
@@ -704,33 +702,32 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
 }
-
 ```
 
-| 필드 명 | 설명 |
-| ---- | --- |
-| tenantId | 커맨드가 등록된 테넌트의 ID |
-| tenantDomain | 커맨드가 등록된 테넌트 도메인 |
-| channelId | 커맨드를 요청한 대화방의 ID |
-| channelName | 커맨드를 요청한 대화방 제목 |
-| userId | 커맨드를 요청한 사용자 ID |
-| userName | 커맨드를 요청한 사용자 이름 |
-| command | 커맨드 이름 |
-| text | 사용자가 입력한 전체 텍스트 |
-| responseUrl | 커맨드를 요청한 대화방의 Webhook URL |
-| appToken | 커맨드를 등록한 앱의 토큰(요청 검증으로 활용) |
-| triggerId | 다이얼로그 실행 ID |
+|필드명|설명|
+|----|---|
+|tenantId|커맨드가 등록된 테넌트의 ID|
+|tenantDomain|커맨드가 등록된 테넌트 도메인|
+|channelId|커맨드를 요청한 대화방의 ID|
+|channelName|커맨드를 요청한 대화방 제목|
+|userId|커맨드를 요청한 사용자 ID|
+|userName|커맨드를 요청한 사용자 이름|
+|command|커맨드 이름|
+|text|사용자가 입력한 전체 텍스트|
+|responseUrl|커맨드를 요청한 대화방의 Webhook URL|
+|appToken|커맨드를 등록한 앱의 토큰(요청 검증으로 활용)|
+|triggerId|다이얼로그 실행 ID|
 
 ### 커맨드 실행 요청에 대한 응답
 
-![23](http://static.toastoven.net/prod_dooray_messenger/integration/23.png)
+![23](http://static.toastoven.net/prod_dooray_messenger/integration/23_1.png)
 
 커맨드 실행 요청에 대한 응답으로 실행 사용자에게만 보이는 확인 메시지를 보냅니다.
 투표를 생성하거나 취소할 수 있는 버튼을 사용자에게 제공하기 위해 아래와 같이 메시지를 전송합니다.
 
 ``` javascript
 {
-    "responseType": "ephemeral", // 생략 가능
+    "responseType": "ephemeral",
     "text": "Click 'Submit' button to start the vote.",
     "attachments": [
         {
@@ -773,7 +770,6 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
         }
     ]
 }
-
 ```
 
 ### 액션 실행 요청
@@ -809,29 +805,26 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 }
 ```
 
-| 필드 명 | 설명 |
-| ---- | --- |
-| callbackId | 사용자가 선택한 액션이 속해있는 Attachment의 ID |
-| actionText | 사용자가 선택한 액션 텍스트 |
-| actionValue | 사용자가 선택한 액션 값 |
-| commandRequestUrl | 커맨드 Request URL |
-| channelLogId | 메시지 ID |
-| originalMessage | 이전 응답으로 받은 메시지 |
+|필드명|설명|
+|----|---|
+|callbackId|사용자가 선택한 액션이 속해있는 Attachment의 ID|
+|actionText|사용자가 선택한 액션 텍스트|
+|actionValue|사용자가 선택한 액션 값|
+|commandRequestUrl|커맨드 Request URL|
+|channelLogId|메시지 ID|
+|originalMessage|이전 응답으로 받은 메시지|
 
 ### 액션 실행에 대한 응답
 
-![24](http://static.toastoven.net/prod_dooray_messenger/integration/24.png)
+![24](http://static.toastoven.net/prod_dooray_messenger/integration/24_1.png)
 
 'Submit' 버튼에 대한 응답으로 투표 생성 메시지를 전송합니다.
 생성 확인 메시지는 더 이상 필요가 없기 때문에 삭제하고 메시지를 새로 생성합니다.
 
 ``` javascript
 {
-    "responseType": "inChannel", // 대화방 멤버 모두에게 표시
-    "deleteOriginal": true, // true로 설정 시 기존 메시지를 삭제합니다. (기본값: false)
-    // "inChannel", "ephemeral" 메시지 간의 전환은 "deleteOriginal"이 true일 때만 가능합니다.
-    // replaceOriginal - true로 설정 시 기존 메시지를 업데이트 하고, false로 설정 시 새로운 메시지를 생성합니다. (기본값: true)
-    // 새로운 메시지를 생성한 경우에만 푸시/노티가 발생합니다.
+    "responseType": "inChannel", 
+    "deleteOriginal": true, 
     "text": "[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\") created the vote!",
     "attachments": [
         {
@@ -853,7 +846,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
                 {
                     "name": "vote",
                     "type": "button",
-                    "text": " 탕수육",
+                    "text": "사천 탕수육",
                     "value": 2
                 }
             ],
@@ -875,15 +868,9 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 }
 ```
 
-| 필드 명 | 설명 | 기본값 |
-| ---- | --- | --- |
-| deleteOriginal | 새  메시지를 생성하기 전 기존 메시지 삭제 여부 | false |
-| replaceOriginal | 기존 메시지 업데이트 여부 | true |
-
-사용자에게 보여지는 텍스트에 멘션 뱃지를 표현할 수 있습니다. 멘션 뱃지는 아래와 같이 사용하면 됩니다.
-
-```javascript
-[@{사용자이름}](dooray://{테넌트ID}/members/{사용자ID} "member")
-```
+|필드명|기본값|설명|
+|----|---|---|
+|deleteOriginal|false|새 메시지를 생성하기 전 기존 메시지 삭제 여부|
+|replaceOriginal|true|기존 메시지 업데이트 여부|
 
 이 후 사용자가 누르는 버튼은 액션 실행 요청과 그에 따른 응답의 반복입니다.
