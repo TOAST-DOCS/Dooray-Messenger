@@ -42,7 +42,7 @@ Dooray! 메신저에서는 기본적으로 `/mute`, `/status`, `/search` 등의 
 
 Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스' 메뉴를 선택합니다.
 
-![4](http://static.toastoven.net/prod_dooray_messenger/integration/4.png)
+![4](http://static.toastoven.net/prod_dooray_messenger/integration/4_1.png)
 
 아래와 같이 빈 화면이 표시됩니다.
 
@@ -684,7 +684,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 사용자가 투표 커맨드를 아래와 같이 실행합니다.
 
-![22](http://static.toastoven.net/prod_dooray_messenger/integration/22.png)
+![22](http://static.toastoven.net/prod_dooray_messenger/integration/22_1.png)
 
 커맨드 서버는 커맨드 Request URL로 사용자가 입력한 값을 포함한 JSON 데이터를 받게 됩니다.
 
@@ -720,7 +720,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ### 커맨드 실행 요청에 대한 응답
 
-![23](http://static.toastoven.net/prod_dooray_messenger/integration/23.png)
+![23](http://static.toastoven.net/prod_dooray_messenger/integration/23_1.png)
 
 커맨드 실행 요청에 대한 응답으로 실행 사용자에게만 보이는 확인 메시지를 보냅니다.
 투표를 생성하거나 취소할 수 있는 버튼을 사용자에게 제공하기 위해 아래와 같이 메시지를 전송합니다.
@@ -816,7 +816,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ### 액션 실행에 대한 응답
 
-![24](http://static.toastoven.net/prod_dooray_messenger/integration/24.png)
+![24](http://static.toastoven.net/prod_dooray_messenger/integration/24_1.png)
 
 'Submit' 버튼에 대한 응답으로 투표 생성 메시지를 전송합니다.
 생성 확인 메시지는 더 이상 필요가 없기 때문에 삭제하고 메시지를 새로 생성합니다.
