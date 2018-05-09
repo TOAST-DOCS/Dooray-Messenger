@@ -188,7 +188,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 
 `replaceOriginal`을 `false`로 하면 메시지를 새로 전송합니다.
 
-```json
+```javascript
 {
     "replaceOriginal": false,
     "responseType": "inChannel",
@@ -201,7 +201,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 `replaceOriginal`을 `true`로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
 기존 메시지의 `responseType`로 바꾸어 업데이트할 수 없습니다. `responseType`을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
 
-```json
+```javascript
 {
     "responseType": "inChannel",
     "replaceOriginal": true,
@@ -214,7 +214,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 이 경우에는 대화방의 참여자에게 알림이 가기 때문에 대화방의 사람들이 변경되는 내용을 알게 하고 싶을 때 효과적입니다.
 `deleteOriginal`을 `true`로 하면 기존 메시지가 삭제되고 다시 전송됩니다.
 
-```
+```javascript
 {
     "responseType": "inChannel",
     "deleteOriginal": true,
@@ -667,7 +667,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 사용자가 투표 커맨드를 실행할 입력 포맷은 아래처럼 입력하도록 합니다.
 
-```
+```javascript
 /vote {제목} {항목1} "{공백을 포함한 항목}" ... {항목n}
 ```
 
