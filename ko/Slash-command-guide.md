@@ -71,7 +71,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 앱을 등록한 후, 슬래시 커맨드 영역의 '추가' 버튼을 누르면 커맨드를 추가할 수 있습니다.
 되도록 하나의 앱에는 서로 밀접하게 관계가 있는 커맨드를 추가하는 것을 권장합니다.
 
-미리 제작한 커맨드가 없다면, 다음 문서에서 예제로 설명할 `/hi` 커맨드를 입력하면 됩니다.
+미리 제작한 커맨드가 없다면, 아래의 예제대로 `/hi` 커맨드를 추가해 보세요.
 
 ![8](http://static.toastoven.net/prod_dooray_messenger/integration/8.png)
 
@@ -144,7 +144,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 ```javascript
 {
     "text": "Hello World!",
-    "responseType": "ephemeral" // 생략 가능
+    "responseType": "ephemeral"
 }
 ```
 위와 같이 응답하면 커맨드를 호출한 사용자에게만 보이는 메시지가 됩니다.
@@ -237,7 +237,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "text": "Message",
     "attachments": [
         {
-            "callbackId": "send-a1b2c3", // 사용자 interaction시 함께 전송됩니다. interaction이 일어난 Attachment를 식별할 때 쓸 수 있습니다.
+            "callbackId": "send-a1b2c3", // 사용자 상호 작용 시 함께 전송됩니다. 상호 작용이 일어난 attachment를 식별할 때 쓸 수 있습니다.
             "actions": [
                 {
                     "name": "send",
@@ -458,10 +458,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ## attachments 메시지 보내기
 
-커맨드는 attachments라는 특별한 형태의 메시지를 전송할 수 있습니다. attachments의 구성 요소에는 다른 문서에서 설명하였던 버튼과 드롭다운메뉴 외에도 다양한 것이 있습니다. attachments 메시지를 잘 사용하면 사용자의 눈에 잘 띌뿐 아니라 추가 정보를 요청하거나 회신하는 등의 행동을 능숙하게 유도할 수 있습니다.
-
-Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 제공합니다.
-기존에 Slack integration을 제작한 경험이 있다면 익숙하게 작업할 수 있습니다.
+커맨드는 attachments라는 특별한 형태의 메시지를 전송할 수 있습니다. attachments의 구성 요소에는 다른 문서에서 설명하였던 버튼과 드롭다운 메뉴 외에도 다양한 것이 있습니다. attachments 메시지를 잘 사용하면 사용자의 눈에 잘 띌뿐 아니라 추가 정보를 요청하거나 회신하는 등의 행동을 능숙하게 유도할 수 있습니다.
 
 ### attachments 메시지
 
@@ -618,7 +615,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ### 대화방에 커맨드를 등록
 
-커맨드는 자신이 참여하고 있는 1:1대화, 그룹 대화 등에 등록하여 활용할 수 있습니다.
+커맨드는 자신이 참여하고 있는 1:1 대화, 그룹 대화 등에 등록하여 활용할 수 있습니다.
 커맨드 추가 화면을 여는 방법은 두 가지가 있습니다.
 
 첫째, 메신저 우측 상단의 설정 메뉴를 통해 추가할 수 있습니다.
@@ -730,7 +727,7 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ``` javascript
 {
-    "responseType": "ephemeral", // 생략 가능
+    "responseType": "ephemeral",
     "text": "Click 'Submit' button to start the vote.",
     "attachments": [
         {
@@ -826,11 +823,8 @@ Dooray! 메신저는 Slack과 유사한 데이터 타입과 attachments UI를 �
 
 ``` javascript
 {
-    "responseType": "inChannel", // 대화방 멤버 모두에게 표시
-    "deleteOriginal": true, // true로 설정 시 기존 메시지를 삭제합니다. (기본값: false)
-    // "inChannel", "ephemeral" 메시지 간의 전환은 "deleteOriginal"이 true일 때만 가능합니다.
-    // replaceOriginal - true로 설정 시 기존 메시지를 업데이트 하고, false로 설정 시 새로운 메시지를 생성합니다. (기본값: true)
-    // 새로운 메시지를 생성한 경우에만 푸시/노티가 발생합니다.
+    "responseType": "inChannel", 
+    "deleteOriginal": true, 
     "text": "[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\") created the vote!",
     "attachments": [
         {
