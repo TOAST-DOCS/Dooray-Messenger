@@ -275,7 +275,6 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     },
     "user": {
         "id": "1234567891234567891",
-        "name": "홍길동"
     },
     "commandName": "/post",
     "command": "/post",
