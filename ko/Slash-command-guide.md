@@ -1,4 +1,4 @@
-## Dooray! > Messenger > 슬래시 커맨드 가이드
+# Dooray! > Messenger > 슬래시 커맨드 가이드
 ### 연동 서비스
 
 Dooray! 메신저에서는 사람이 아닌 다양한 도구에게 명령하고 메시지를 받으면서 더 효율적으로 업무를 할 수 있습니다.
@@ -42,7 +42,7 @@ Dooray! 메신저에서는 기본적으로 `/mute`, `/status`, `/search` 등의 
 
 Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스' 메뉴를 선택합니다.
 
-![4](http://static.toastoven.net/prod_dooray_messenger/integration/4_1.png)
+![4](http://static.toastoven.net/prod_dooray_messenger/integration/4_2.png)
 
 아래와 같이 빈 화면이 표시됩니다.
 
