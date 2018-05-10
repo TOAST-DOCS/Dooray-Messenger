@@ -114,7 +114,6 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "channelId": "1234567891234567891",
     "channelName": "커맨드 가이드 채널",
     "userId": "1234567891234567891",
-    "userName": "홍길동",
     "command": "/hi",
     "text": "/hi"
     "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -130,7 +129,6 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 |channelId|커맨드가 요청한 대화방의 ID|
 |channelName|커맨드를 요청한 대화방의 이름|
 |userId|커맨드를 요청한 사용자 ID|
-|userName|커맨드를 요청한 사용자 이름|
 |command|요청한 커맨드|
 |text|커맨드와 함께 입력한 텍스트|
 |responseUrl|커맨드 요청에 응답할 수 있는 웹 훅 URL|
@@ -695,7 +693,6 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     "channelId": "1234567891234567891",
     "channelName": "Command 가이드",
     "userId": "1234567891234567891",
-    "userName": "홍길동",
     "command": "/vote",
     "text": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
     "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -711,7 +708,6 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 |channelId|커맨드를 요청한 대화방의 ID|
 |channelName|커맨드를 요청한 대화방 제목|
 |userId|커맨드를 요청한 사용자 ID|
-|userName|커맨드를 요청한 사용자 이름|
 |command|커맨드 이름|
 |text|사용자가 입력한 전체 텍스트|
 |responseUrl|커맨드를 요청한 대화방의 Webhook URL|
@@ -825,10 +821,10 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 {
     "responseType": "inChannel", 
     "deleteOriginal": true, 
-    "text": "[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\") created the vote!",
+    "text": "(dooray://1234567891234567891/members/1234567891234567891 \"member\") created the vote!",
     "attachments": [
         {
-            "callbackId": "1525223162093-[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\")",
+            "callbackId": "1525223162093-(dooray://1234567891234567891/members/1234567891234567891 \"member\")",
             "title": "점심식사",
             "actions": [
                 {
@@ -853,7 +849,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
             "color": "#4286f4"
         },
         {
-            "callbackId": "1525223162093-[@홍길동](dooray://1234567891234567891/members/1234567891234567891 \"member\")",
+            "callbackId": "1525223162093-(dooray://1234567891234567891/members/1234567891234567891 \"member\")",
             "text": "",
             "actions": [
                 {
