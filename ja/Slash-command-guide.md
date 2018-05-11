@@ -275,7 +275,6 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     },
     "user": {
         "id": "1234567891234567891",
-        "name": "홍길동"
     },
     "commandName": "/post",
     "command": "/post",
@@ -654,6 +653,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ### 투표 커맨드
 
 예제로 대화방에 투표를 만들고 참여할 수 있는 투표 커맨드를 만들겠습니다.
+예제 코드는 [Github](https://github.com/nhnent/dooray.vote)에서 확인할 수 있습니다. 
 
 ![21](http://static.toastoven.net/prod_dooray_messenger/integration/21.png)
 
