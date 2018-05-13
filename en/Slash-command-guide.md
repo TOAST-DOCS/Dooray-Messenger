@@ -608,6 +608,159 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ---
 
+## Dialog
+별도의 영역에서 정보를 입력받을 수 있는 Dialog를 띄웁니다.
+
+### 요청 방법
+* URL: https://nhnent.dooray.com/messenger/api/channels/{channelId}/dialogs
+* Method: POST
+* Header
+    * token: {cmdToken}
+* Body
+    * triggerId: {triggerId}
+    * dialog: {Dialog Object}
+
+### 결과 반환
+* 성공 여부: header > isSuccessful
+* 실패 원인: header > resultMessage
+
+#### Dialog Object
+``` javascript
+{
+    callbackId: 'guide-a1b2c3',
+    title: 'Guide Dialog',
+    submitLabel: 'Send',
+    elements: [
+        {
+            type: 'text',
+            subtype: 'number',
+            label: 'Page Number',
+            name: 'page',
+            value: 0,
+            minLength: 1,
+            maxLength: 2,
+            placeholder: '0 ~ 50',
+            hint: 'Must in 0 ~ 50'
+        },
+        {
+            type: 'textarea',
+            label: 'Note',
+            name: 'note',
+            optional: true
+        },
+        {
+            type: 'select',
+            label: 'Is this important?',
+            name: 'important',
+            value: 'false',
+            options: [
+                {
+                    label: 'Yes',
+                    value: 'true'
+                },
+                {
+                    label: 'No',
+                    value: 'false'
+                }
+            ]
+        }
+    ]
+}
+```
+
+| 필드명 | 기본값 | 설명 |
+| --- | --- | --- |
+| callbackId |  | Submit할 때 함께 전달될 값(세션 유지 등의 용도로 사용) |
+| title |  | Dialog 제목 |
+| submitLabel | "Submit" | Submit 버튼 텍스트 지정 |
+| elements |  | **Element**의 배열 |
+
+#### Element Object
+| 필드명 | 기본값 | 설명 |
+| --- | --- | --- |
+| type |  | 필드 타입<br>"text": 텍스트 필드<br>"textarea": 장문 텍스트 필드<br>"select": 드롭 메뉴 |
+| subtype |  | type이 text일 때 모바일에서 출력할 키보드 타입<br>"number", "email", "tel", "url" |
+| label |  | 사용자에게 출력되는 필드명 |
+| name |  | 커맨드 서버에 전달되는 필드명 |
+| value |  | 필드에 기본으로 입력된 값(type이 select일 때 Option value로 지정해두면 자동 선택) |
+| options |  | type이 select일 때 출력되는 **Option**의 배열 |
+| dataSource |  | type이 select일 때 options 대신 출력할 데이터 |
+| minLength |  | 최소 입력 글자수 |
+| maxLength |  | 최대 입력 글자수 |
+| placeholder |  | 필드에 출력되는 힌트(입력 시 사라짐) |
+| hint |  | 필드 아래에 출력되는 힌트 |
+| optional | false | 해당 필드의 필수 입력 여부 설정(false로 하면 필수 입력) |
+
+#### Option Object
+[dooray\-메신저\-연동/55 Dooray 메시지 Object 필드 정리](dooray://1387695619080878080/tasks/2185421155992380184 "working")의 Option Object와 동일
+
+### Submit 처리
+위의 API를 활용해 사용자에게 Dialog를 띄웠습니다. 이후 사용자가 해당 Dialog를 작성해서 Submit을 하면 이를 적절하게 처리해줘야 합니다.
+
+#### 메신저 → 커맨드 요청
+``` javascript
+{
+    "type": "dialog_submission",
+    "tenant": {
+        "id": "1234567891234567891",
+        "domain": "guide.dooray.com"
+    },
+    "channel": {
+        "id": "1234567891234567891",
+        "name": "커맨드 가이드 채널"
+    },
+    "user": {
+        "id": "1234567891234567891"
+    },
+    "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "updateCmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "prevCmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "callbackId": "guide-a1b2c3",
+    "submission": {
+        "page": "100",
+        "note": "자주 봐야하는 부분",
+        "important": "true"
+    }
+}
+
+```
+
+|필드명|설명|
+|---|---|
+|type|발생한 이벤트의 타입(dialog_submission)|
+|tenant|커맨드를 호출한 사용자가 속한 테넌트의 정보|
+|channel|커맨드를 호출한 채널의 정보|
+|user|커맨드를 호출한 사용자의 정보|
+|responseUrl|커맨드를 호출에 응답하기 위한 Incoming Webhook URL|
+|cmdToken|API 호출 시에 사용하는 Token|
+|callbackId|Dialog에 지정된 Callback ID|
+|submission|Dialog에 지정된 element의 name과 사용자가 작성한 값을 Key와 Value로 한 Object|
+
+#### 커맨드 → 메신저 응답
+두 가지 경우가 존재합니다.
+
+* **사용자 입력값에 오류가 없을 경우**, Response Body를 비우고 HTTP 200 응답을 합니다.
+* **오류가 있을 경우**, HTTP 200 응답과 함께 errors로 응답합니다.
+
+``` javascript
+{
+    errors: [
+        {
+            name: 'page',
+            error: 'Page number는 50을 넘을 수 없습니다.'
+        }
+    ]
+}
+```
+
+|필드명|기본값|설명|
+|---|---|---|
+|name||오류를 찾은 element의 name|
+|error||출력할 오류 메시지|
+
+---
+
 ## 대화방에 커맨드 등록하기
 
 ### 대화방에 커맨드를 등록
