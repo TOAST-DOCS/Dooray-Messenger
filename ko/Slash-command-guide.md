@@ -609,11 +609,9 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ---
 
 ## Dialog
-
-사용자에게 Dialog를 띄웁니다.
+별도의 영역에서 정보를 입력받을 수 있는 Dialog를 띄웁니다.
 
 ### 요청 방법
-
 * URL: https://nhnent.dooray.com/messenger/api/channels/{channelId}/dialogs
 * Method: POST
 * Header
@@ -623,12 +621,10 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     * dialog: {Dialog Object}
 
 ### 결과 반환
-
 * 성공 여부: header > isSuccessful
 * 실패 원인: header > resultMessage
 
 #### Dialog Object
-
 ``` javascript
 {
     callbackId: 'guide-a1b2c3',
@@ -680,7 +676,6 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 | elements |  | **Element**의 배열 |
 
 #### Element Object
-
 | 필드명 | 기본값 | 설명 |
 | --- | --- | --- |
 | type |  | 필드 타입<br>"text": 텍스트 필드<br>"textarea": 장문 텍스트 필드<br>"select": 드롭 메뉴 |
@@ -697,15 +692,12 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 | optional | false | 해당 필드의 필수 입력 여부 설정(false로 하면 필수 입력) |
 
 #### Option Object
-
 [dooray\-메신저\-연동/55 Dooray 메시지 Object 필드 정리](dooray://1387695619080878080/tasks/2185421155992380184 "working")의 Option Object와 동일
 
 ### Submit 처리
-
 위의 API를 활용해 사용자에게 Dialog를 띄웠습니다. 이후 사용자가 해당 Dialog를 작성해서 Submit을 하면 이를 적절하게 처리해줘야 합니다.
 
 #### 메신저 → 커맨드 요청
-
 ``` javascript
 {
     "type": "dialog_submission",
@@ -746,7 +738,6 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 |submission|Dialog에 지정된 element의 name과 사용자가 작성한 값을 Key와 Value로 한 Object|
 
 #### 커맨드 → 메신저 응답
-
 두 가지 경우가 존재합니다.
 
 * **사용자 입력값에 오류가 없을 경우**, Response Body를 비우고 HTTP 200 응답을 합니다.
