@@ -230,11 +230,12 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 
 ### 요청 방법
 
-* URL: {responseUrl}
-* Method: POST
-* Body
-    * channelId: {channelId}
-    * {Message Object}
+|구분1|구분2|설명|
+|---|---|---|
+|URL||{responseUrl}
+|Method||POST|
+|Body|channelId|{channelId}|
+||{Message Object}||
 
 ### 결과 반환
 
