@@ -235,7 +235,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 |URL||{responseUrl}
 |Method||POST|
 |Body|channelId|{channelId}|
-||{Message Object}||
+|||{Message Object}|
 
 ### 결과 반환
 
