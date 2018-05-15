@@ -613,6 +613,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ### 요청 방법
 |구분1|구분2|설명|
+|---|---|---|
 |URL||https://nhnent.dooray.com/messenger/api/channels/{channelId}/dialogs|
 |Method||POST|
 |Header|token|{cmdToken}|
