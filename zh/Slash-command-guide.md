@@ -608,8 +608,8 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ---
 
-## Dialog
-별도의 영역에서 정보를 입력받을 수 있는 Dialog를 띄웁니다.
+## 대화 상자
+별도의 영역에서 정보를 입력받을 수 있는 대화 상자를 띄웁니다.
 
 ### 요청 방법
 * URL: https://nhnent.dooray.com/messenger/api/channels/{channelId}/dialogs
@@ -694,8 +694,8 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 #### Option Object
 [dooray\-메신저\-연동/55 Dooray 메시지 Object 필드 정리](dooray://1387695619080878080/tasks/2185421155992380184 "working")의 Option Object와 동일
 
-### Submit 처리
-위의 API를 활용해 사용자에게 Dialog를 띄웠습니다. 이후 사용자가 해당 Dialog를 작성해서 Submit을 하면 이를 적절하게 처리해줘야 합니다.
+### 전송 처리
+위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 하면 이를 적절하게 처리해줘야 합니다.
 
 #### 메신저 → 커맨드 요청
 ``` javascript
