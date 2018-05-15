@@ -612,13 +612,13 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 별도의 영역에서 정보를 입력받을 수 있는 대화 상자를 띄웁니다.
 
 ### 요청 방법
-* URL: https://nhnent.dooray.com/messenger/api/channels/{channelId}/dialogs
-* Method: POST
-* Header
-    * token: {cmdToken}
-* Body
-    * triggerId: {triggerId}
-    * dialog: {Dialog Object}
+|구분1|구분2|설명|
+|---|---|---|
+|URL||https://nhnent.dooray.com/messenger/api/channels/{channelId}/dialogs|
+|Method||POST|
+|Header|token|{cmdToken}|
+|Body|triggerId|{triggerId}|
+||dialog|{Dialog Object}|    
 
 ### 결과 반환
 * 성공 여부: header > isSuccessful
