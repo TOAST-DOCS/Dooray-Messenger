@@ -608,21 +608,21 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ---
 
-## 대화 상자
+## 대화 상자 사용하기
 별도의 영역에서 정보를 입력받을 수 있는 대화 상자를 띄웁니다.
 
 ### 요청 방법
 |구분1|구분2|설명|
 |---|---|---|
-|URL||https://nhnent.dooray.com/messenger/api/channels/{channelId}/dialogs|
+|URL||https://{domain}.dooray.com/messenger/api/channels/{channelId}/dialogs|
 |Method||POST|
 |Header|token|{cmdToken}|
 |Body|triggerId|{triggerId}|
 ||dialog|{Dialog Object}|    
 
 ### 결과 반환
-* 성공 여부: header > isSuccessful
-* 실패 원인: header > resultMessage
+* 성공 여부: $.header.isSuccessful
+* 실패 원인: $.header.resultMessage
 
 #### Dialog Object
 ``` javascript
@@ -670,9 +670,9 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 | 필드명 | 기본값 | 설명 |
 | --- | --- | --- |
-| callbackId |  | Submit할 때 함께 전달될 값(세션 유지 등의 용도로 사용) |
+| callbackId |  | 전송할 때 함께 전달될 값(세션 유지 등의 용도로 사용) |
 | title |  | Dialog 제목 |
-| submitLabel | "Submit" | Submit 버튼 텍스트 지정 |
+| submitLabel | "Submit" | 전송 버튼 텍스트 지정 |
 | elements |  | **Element**의 배열 |
 
 #### Element Object
@@ -695,7 +695,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 [dooray\-메신저\-연동/55 Dooray 메시지 Object 필드 정리](dooray://1387695619080878080/tasks/2185421155992380184 "working")의 Option Object와 동일
 
 ### 전송 처리
-위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 하면 이를 적절하게 처리해줘야 합니다.
+위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 하면 이를 처리해야 합니다.
 
 #### 메신저 → 커맨드 요청
 ``` javascript
@@ -732,16 +732,15 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 |tenant|커맨드를 호출한 사용자가 속한 테넌트의 정보|
 |channel|커맨드를 호출한 채널의 정보|
 |user|커맨드를 호출한 사용자의 정보|
-|responseUrl|커맨드를 호출에 응답하기 위한 Incoming Webhook URL|
+|responseUrl|커맨드를 호출에 응답하기 위한 인커밍 웹훅 URL|
 |cmdToken|API 호출 시에 사용하는 Token|
 |callbackId|Dialog에 지정된 Callback ID|
 |submission|Dialog에 지정된 element의 name과 사용자가 작성한 값을 Key와 Value로 한 Object|
 
 #### 커맨드 → 메신저 응답
 두 가지 경우가 존재합니다.
-
-* **사용자 입력값에 오류가 없을 경우**, Response Body를 비우고 HTTP 200 응답을 합니다.
-* **오류가 있을 경우**, HTTP 200 응답과 함께 errors로 응답합니다.
+* 사용자 입력값에 오류가 없을 경우, Response Body를 비우고 HTTP 200 응답을 합니다.
+* 오류가 있을 경우, HTTP 200 응답과 함께 errors로 응답합니다.
 
 ``` javascript
 {
@@ -923,7 +922,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ### 액션 실행 요청
 
-사용자가 'Submit' 버튼을 누르면 아래와 같은 데이터가 Interactive Message의 Request URL로 전송됩니다.
+사용자가 전송 버튼을 누르면 아래와 같은 데이터가 Interactive Message의 Request URL로 전송됩니다.
 
 ``` javascript
 {
