@@ -621,8 +621,9 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ||dialog|{Dialog Object}|    
 
 ### 결과 반환
-* 성공 여부: $.header.isSuccessful
-* 실패 원인: $.header.resultMessage
+
+* 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
+* 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
 
 #### Dialog Object
 ``` javascript
@@ -692,12 +693,16 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 | optional | false | 해당 필드의 필수 입력 여부 설정(false로 하면 필수 입력) |
 
 #### Option Object
-[dooray\-메신저\-연동/55 Dooray 메시지 Object 필드 정리](dooray://1387695619080878080/tasks/2185421155992380184 "working")의 Option Object와 동일
+
+|필드명|기본값|설명|
+|---|---|---|
+|text||Option 텍스트|
+|value||커맨드 서버에 전달되는 필드값|
 
 ### 전송 처리
 위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 하면 이를 처리해야 합니다.
 
-#### 메신저 → 커맨드 요청
+#### 메신저 서버에서 커맨드 서버로의 요청
 ``` javascript
 {
     "type": "dialog_submission",
@@ -737,9 +742,11 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 |callbackId|Dialog에 지정된 Callback ID|
 |submission|Dialog에 지정된 element의 name과 사용자가 작성한 값을 Key와 Value로 한 Object|
 
-#### 커맨드 → 메신저 응답
+#### 커맨드 서버에서 메신저 서버로의 응답
 두 가지 경우가 존재합니다.
-* 사용자 입력값에 오류가 없을 경우, Response Body를 비우고 HTTP 200 응답을 합니다.
+
+* 사용자 입력값에 오류가 없을 경우, 응답을 비우고 HTTP 200 응답을 합니다.
+
 * 오류가 있을 경우, HTTP 200 응답과 함께 errors로 응답합니다.
 
 ``` javascript
