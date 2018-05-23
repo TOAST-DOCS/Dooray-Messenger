@@ -621,6 +621,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ||dialog|{Dialog Object}|    
 
 ### 결과 반환
+
 * 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
 * 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
 
@@ -692,6 +693,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 | optional | false | 해당 필드의 필수 입력 여부 설정(false로 하면 필수 입력) |
 
 #### Option Object
+
 |필드명|기본값|설명|
 |---|---|---|
 |text||Option 텍스트|
@@ -744,6 +746,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 두 가지 경우가 존재합니다.
 
 * 사용자 입력값에 오류가 없을 경우, 응답을 비우고 HTTP 200 응답을 합니다.
+
 * 오류가 있을 경우, HTTP 200 응답과 함께 errors로 응답합니다.
 
 ``` javascript
