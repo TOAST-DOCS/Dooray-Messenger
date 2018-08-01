@@ -115,7 +115,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "channelName": "커맨드 가이드 채널",
     "userId": "1234567891234567891",
     "command": "/hi",
-    "text": "/hi"
+    "text": ""
     "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
