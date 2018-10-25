@@ -1,4 +1,4 @@
-## Dooray! > Messenger > 인커밍 훅 가이드
+## Dooray! > Messenger > Incoming Hook Guide
 
 ### 인커밍 훅
 
@@ -89,4 +89,4 @@ curl -H "Content-Type: application/json" -X POST -d '{"botName": "MyBot", "botIc
 }
 ```
 
-![hook3](http://static.toastoven.net/prod_dooray_messenger/hook2.png)
+![hook3](http://static.toastoven.net/prod_dooray_messenger/hook3.png)
