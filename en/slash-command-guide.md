@@ -1,118 +1,106 @@
-## Dooray! > Messenger > 슬래시 커맨드 가이드
-### 연동 서비스
+﻿## Dooray! > Messenger > Slash (/) Command Guide
+### Link Service
 
-Dooray! 메신저에서는 사람이 아닌 다양한 도구에게 명령하고 메시지를 받으면서 더 효율적으로 업무를 할 수 있습니다.
-메신저에서 제공하지 않는 기능을 직접 구현하고 싶을 때 이 기능을 활용하여 여러분도 자신의 업무를 좀 더 효율적으로 자동화 할 수 있습니다.
+Dooray! Messenger allows you to command various tools (not humans) and get messages from them for more efficient work. If you want to implement functions not provided by Messenger, you can use this function to automate your work more efficiently. The function to be introduced here is how to create a command yourself. Various link services, such as Bots and APIs, will be provided later.
 
-소개할 기능은 커맨드를 직접 생성하는 것에 대한 내용이며, 앞으로 봇, API 등 다양한 연동 서비스를 제공할 예정입니다.
+### Slash (/) Command
 
-### 슬래시 커맨드
-
-슬래시 커맨드(이하 커맨드)는 `/`문자 뒤에 덧붙여서 특정한 기능을 수행하도록 하는 명령어입니다.
-Dooray! 메신저에서는 기본적으로 `/mute`, `/status`, `/search` 등의 커맨드를 제공합니다.
-예컨대 메시지 내용을 찾거나, 자신의 상태를 바꾸는 등의 기능을 마우스의 클릭이나 다른 조작 없이 키보드 입력만으로 빠르게 실행할 수 있도록 도와줍니다.
+Slash(/) Command (hereafter, command) is a command coming after `/` to perform a specific function. Dooray! Messenger provides commands including `/mute`, `/status`, and `/search` by default. For example, these commands help you execute the functions quickly, such as searching the message contents or changing your status using the keyboard without a mouse or any other controls.
 
 ![2](http://static.toastoven.net/prod_dooray_messenger/integration/2.png)
 
-자신이 원하는 기능을 수행하는 커맨드를 직접 만들어 사용할 수 있습니다.
-예를 들어 매일 아침 교통 정보와 날씨를 메시지로 받아볼 수 있고, 간단한 명령어를 입력하여 투표를 생성할 수도 있습니다.
+You can create and use a command to perform a desired function by yourself. For example, you can get traffic information and weather every morning or create a vote by entering simple commands.
 
-아래 그림은 커맨드 서버와 메신저 서버 간의 통신 과정입니다.
+The following figure shows the communication process between the command and Messenger servers.
 
 ![3](http://static.toastoven.net/prod_dooray_messenger/integration/3.png)
 
-사용자는 `/`문자와 대화방에 등록된 커맨드를 입력합니다. 입력한 커맨드 정보는 메신저 서버를 통해 커맨드 서버로 전송이 됩니다. 커맨드 서버에서 처리한 결과를 메신저 서버로 전송합니다. 메신저 서버는 커맨드 서버로부터 받은 데이터를 기반으로 사용자에게 결과를 보여줍니다.
+Enter `/` followed by a command registered to the chatroom. The command entered is sent to the command server via Messenger server. The command server sends the processed result to the Messenger server. The Messenger server displays the result based on the data from the command server.
 
-### 사용 환경
+### Environment for Use
 
-사용자는 PC와 모바일에서 커맨드를 입력하고 결과를 확인할 수 있습니다. 그렇기 때문에 커맨드 제작자는 모바일 환경에서의 레이아웃도 신경써야 합니다.
-현재 대화방에 커맨드를 추가하는 기능은 PC에서만 제공합니다.
+Users can enter the command and view the result on PC or mobile. Therefore, the command creator must consider the layout in the mobile environment.
+Now, the function to add commands to a chatroom is supported for PC only.
 
-### 제작 가이드
+### Guide to Create a Command
 
-커맨드의 제작 및 등록 방법에 대해서는 아래의 문서에서 설명합니다.
+Please see the following documentation for how to create and register a command.
 
 ---
 
-## 커맨드 추가하기
+## Add a Command
 
-직접 만든 커맨드를 사용하기 위해서 Dooray! 메신저에 추가해야 합니다.
+To use your own command, you must add it to Dooray! Messenger.
 
-### 추가 화면으로 이동
+### Move to Add Screen
 
-Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스' 메뉴를 선택합니다.
+Dooray! Click your name at the top left of the Dooray! Messenger and select the 'Link Service' menu.
 
 ![4](http://static.toastoven.net/prod_dooray_messenger/integration/4_2.png)
 
-아래와 같이 빈 화면이 표시됩니다.
+An empty screen is displayed as shown below.
 
 ![5](http://static.toastoven.net/prod_dooray_messenger/integration/5.png)
 
-### 앱 추가
+### Add App
 
-우선 앱을 만들어야 합니다. 앱은 연동 서비스의 묶음 단위입니다.
-하나의 앱에 여러 개의 커맨드를 추가할 수 있습니다. 아래의 정보를 입력하여 앱을 만들어 봅니다.
-각 정보는 대화방에 공개된 커맨드를 등록할 때 목록에 노출됩니다.
+First, you must create an app. App is a bundle unit of linked services. You can add several new commands to one app. Create an app by entering the following information. Each piece of information is exposed when an open command is registered to the chatroom.
 ![6](http://static.toastoven.net/prod_dooray_messenger/integration/6.png)
 
-|구분|설명|
+|Classification|Description|
 |---|---|
-|Image|대화방에서 커맨드를 사용할 때 메시지의 전송자 아이콘으로 표시됩니다.|
-|Name|대화방에서 커맨드를 사용할 때 메시지의 전송자 이름으로 표시됩니다.|
-|Description|앱의 설명입니다.|
+|Image|Displayed as a submitter icon of a message when a command is used in a chatroom.|
+|Name|Displayed as a submitter name of a message when a command is used in a chatroom.|
+|Description|Description of the app.|
 
-이제 앱이 만들어졌습니다. 생성되어 있는 토큰과 비어 있는 커맨드 목록을 보실 수 있습니다.
-토큰은 커맨드 요청시 함께 전송되어 요청을 검증하는데에 사용합니다. 토큰이 외부에 유출되지 않도록 주의하시기 바랍니다. 만약 토큰이 외부에 유출된 경우에는 'Regenerate' 버튼을 이용해 기존 토큰을 파기하고 다시 발급해 사용하세요.
+Now, an app has been created. You can see the create token and an empty command list. The token is sent together when a command is requested and used to verify the request. Please be careful not to expose the token to the external. If the token has been exposed externally, use the 'Regenerate' button to remove the existing token and regenerate one.
 
 ![7](http://static.toastoven.net/prod_dooray_messenger/integration/7.png)
 
-### 커맨드 추가
+### Add a Command
 
-앱을 등록한 후, 슬래시 커맨드 영역의 '추가' 버튼을 누르면 커맨드를 추가할 수 있습니다.
-되도록 하나의 앱에는 서로 밀접하게 관계가 있는 커맨드를 추가하는 것을 권장합니다.
-
-미리 제작한 커맨드가 없다면, 아래의 예제대로 `/hi` 커맨드를 추가해 보세요.
+After registering an app, click the 'Add' button on the slash command area to add a command. It is recommended to add commands which are closely related to each other to one app. If you have no commands created in advance, add `/hi` command as shown in the following example.
 
 ![8](http://static.toastoven.net/prod_dooray_messenger/integration/8.png)
 
-|구분|설명|
+|Classification|Description|
 |---|---|
-|Command|`/`를 포함하여 대화방에서 입력할 명령어를 입력합니다.<br>명령어는 커맨드의 기능을 나타내는 직관적인 것이 좋습니다.|
-|Request URL|커맨드를 실행 시 요청할 커맨드 서버 URL을 입력합니다.|
-|Description|커맨드 사용할 때 표시될 설명입니다. 다른 사람이 커맨드의 기능을 쉽게 이해할 수 있도록 적어주세요.|
-|Parameter Hint|커맨드와 함께 어떤 파라미터를 적어야 하는지 설명해 주세요.<br>(지역, 시간, 사람, 날짜, 텍스트, 숫자 등의 정보를 입력할 수 있습니다.)|
-|Public|해당 커맨드를 다른 사람들도 대화방에 추가하여 사용할 수 있습니다.|
+|Command|Enter the command including `/` to be entered in the chatroom.<br>It is recommended to use intuitive command which shows the function of command.|
+|Request URL|Enter the command server URL to be requested when the command is executed.|
+|Description|Description to be displayed when the command is used. Enter the description to let others understand the function of a command easily.|
+|Parameter Hint|Describe the parameters which must be entered along with the command.<br>(You can enter the information such as location, time, person, date, text, and number.)|
+|Public|Other members can also be added to the chatroom and use the command.|
 
-커맨드가 추가되었습니다.
+The command has been added.
 
 ![9](http://static.toastoven.net/prod_dooray_messenger/integration/9.png)
 
-### Interactive Request URL 입력
+### Enter Interactive Request URL
 
-버튼과 드롭다운 메뉴를 통해 사용자의 액션을 받으려면 Interactive Message 처리를 위한 별도의 URL이 필요합니다.
+To get the user's action using buttons and drop-down menu, you need a separate URL to process the interactive message.
 
 ![10](http://static.toastoven.net/prod_dooray_messenger/integration/10.png)
 
-|구분|설명|
+|Classification|Description|
 |---|---|
-|Interactive Message Request URL|버튼과 드롭다운 메뉴 등 메시지를 통해서 유저와 상호 작용하는 경우, 유저의 요청을 전달할 URL을 입력합니다.|
-|Interactive Message Optional URL|메시지에 dataSource를 external로 설정한 메뉴 목록 등을 제공하는 경우, 메뉴 목록을 요청할 URL을 입력합니다.|
+|Interactive Message Request URL|When you interact with a user via messages such as buttons and drop-down menu, enter the URL to send the user's request.|
+|Interactive Message Optional URL|If you provide menu list of which dataSource is set to external, enter the URL to request the menu list.|
 
 ---
 
-## "Hello World!" 메시지 보내기
-대화방에서 `/hi`라고 입력하면, "Hello world!"라고 대답하는 아주 간단한 커맨드를 만들어 보겠습니다.
+## "Hello World!" Send a message
+Let's make a very simple command. When entering `/hi` in a chatroom, this command will return "Hello world!".
 
-### 커맨드 실행
+### Execute a command
 
-사용자가 Dooray! 메신저를 통해 `/hi` 커맨드를 실행하면 커맨드 서버는 아래와 같은 JSON 데이터를 전달받습니다.
+When a user executes the `/hi` command via Dooray! Messenger, the command server receives JSON data as follows.
 
 ```javascript
 {
     "tenantId": "1234567891234567891",
     "tenantDomain": "guide.dooray.com",
     "channelId": "1234567891234567891",
-    "channelName": "커맨드 가이드 채널",
+    "channelName": "Command Guide Channel",
     "userId": "1234567891234567891",
     "command": "/hi",
     "text": ""
@@ -122,22 +110,22 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-|필드명|설명|
+|Field Name|Description|
 |---|---|
-|tenantId|커맨드가 등록된 테넌트의 ID|
-|tenantDomain|커맨드가 등록된 테넌트의 도메인|
-|channelId|커맨드가 요청한 대화방의 ID|
-|channelName|커맨드를 요청한 대화방의 이름|
-|userId|커맨드를 요청한 사용자 ID|
-|command|요청한 커맨드|
-|text|커맨드와 함께 입력한 텍스트|
-|responseUrl|커맨드 요청에 응답할 수 있는 웹 훅 URL|
-|appToken|등록한 앱의 토큰. 정상 요청인지 검증할 때 사용|
-|triggerId|다이얼로그에 사용하는 값|
+|tenantId|The ID of tenant where the command has been registered|
+|tenantDomain|The domain of tenant where the command has been registered|
+|channelId|The ID of the chatroom that the command has requested|
+|channelName|The ID of the chatroom which has requested the command|
+|userId|The ID of the user who has requested the command|
+|command|Requested command|
+|text|Text entered with the command|
+|responseUrl|Web hook URL which can respond to the command request|
+|appToken|Token of the registered app. It is used to verify if the request is normal.|
+|triggerId|The value use for dialog|
 
-### 응답
+### Response
 
-커맨드 서버는 전달받은 데이터를 이용해 사용자에게 응답할 데이터를 만듭니다. 그리고 이 데이터를 요청에 대한 응답으로 보내야 합니다. `/hi` 커맨드는 특별한 데이터 처리 없이 `Hello World!`만 보내주면 됩니다.
+The command server creates response data by using the received data. And the data should be sent as the response to the request. `/hi` command should send only `Hello World!` without any special processing of data.
 
 ```javascript
 {
@@ -145,9 +133,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "responseType": "ephemeral"
 }
 ```
-위와 같이 응답하면 커맨드를 호출한 사용자에게만 보이는 메시지가 됩니다.
-
-만약 대화방 내의 멤버들에게 모두 보여주고 싶은 경우 `responseType`을 `inChannel`로 응답에 추가하면 됩니다.
+When the above response is sent, it becomes a message which can be seen only by the user who has called for the command. If you want to show the message to all members in the chatroom, add `responseType` as `inChannel` to the response.
 
 ```javascript
 {
@@ -155,25 +141,25 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "responseType": "inChannel"
 }
 ```
-|필드명|기본값|설명|
+|Field Name|Default|Description|
 |---|---|---|
-|responseType|ephemeral|메시지 게시 타입을 설정합니다.<br>- inChannel: 전체 사용자에게 표시<br>- ephemeral:  호출한 사용자에게만 표시|
-|text||메시지 내용|
+|responseType|ephemeral|Set the message post type.<br>- inChannel: Shows to all users<br>- ephemeral:  Shows only to users who called for it|
+|text||Message contents|
 
 ---
 
-## 메시지를 전송하는 네 가지 방법
+## Four ways to send a message
 
-커맨드 실행 시, 메신저 서버는 네 가지의 방식으로 메시지를 전송할 수 있습니다.
+When a command is executed, Messenger server can send a message in four ways.
 
-- 최초로 메시지를 전송
-- 메시지를 보낸 후 추가로 전송
-- 기존에 보낸 메시지를 업데이트
-- 기존에 보낸 메시지를 삭제하고 메시지를 새로 전송
+- Send a message for the first time
+- Send another message after sending one
+- Update a sent message
+- Delete a sent message and then send a new message
 
-### 메시지를 최초 전송
+### Send a message for the first time
 
-메시지를 새로 보내는 방법은 간단합니다.
+This is the simplest way to send a new message.
 
 ```javascript
 {
@@ -182,9 +168,9 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-### 메시지를 추가로 전송
+### Send another message
 
-`replaceOriginal`을 `false`로 하면 메시지를 새로 전송합니다.
+Set `replaceOriginal` to `false` to send a new message.
 
 ```javascript
 {
@@ -194,10 +180,9 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-### 기존에 보낸 메시지를 업데이트
+### Update a sent message
 
-`replaceOriginal`을 `true`로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
-기존 메시지의 `responseType`로 바꾸어 업데이트할 수 없습니다. `responseType`을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
+Set `replaceOriginal` to change only the contents while keeping the message location, and no notification is received. You cannot update `responseType` of the existing message. To change `responseType`, you must send a new message.
 
 ```javascript
 {
@@ -207,10 +192,9 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-### 기존에 보낸 메시지를 삭제하고 메시지를 새로 전송
+### Delete a sent message and then send a new message
 
-이 경우에는 대화방의 참여자에게 알림이 가기 때문에 대화방의 사람들이 변경되는 내용을 알게 하고 싶을 때 효과적입니다.
-`deleteOriginal`을 `true`로 하면 기존 메시지가 삭제되고 다시 전송됩니다.
+In this case, a notification is sent to the participants of the chatroom, so it is useful to notify them of the changes. Set `deleteOriginal' to `true` to delete the existing message and send a new message.
 
 ```javascript
 {
@@ -220,29 +204,29 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-필요한 기능에 맞는 메시지 전송 방법을 선택하여 커맨드를 제작하시기 바랍니다.
+Create a command by selecting an appropriate way to send a message for your needs.
 
 ---
 
-## 메시지에 버튼 넣기
+## Include a button in a message
 
-응답 메시지는 `attachments` 필드를 이용해 버튼을 표시할 수 있습니다. 메시지를 받은 사람은 버튼을 눌러 상호작용을 할 수 있습니다. 버튼을 넣는 방법과 버튼을 선택한 결과를 받아 처리하는 방법을 알아보겠습니다.
+A button can be displayed in a response message by using the `attachments` field. The person who received the message can interact by clicking the button. The following description shows how to include a button and how to receive and handle the result of clicking the button.
 
-아래는 입력한 메시지를 대화방에 전송할지 확인하는 attachments가 포함된 메시지입니다.
+The following message includes attachments and asks for confirmation whether to send the message typed below to the chatroom or not.
 
 ```javascript
 {
     "text": "Message",
     "attachments": [
         {
-            "callbackId": "send-a1b2c3", // 사용자 상호 작용 시 함께 전송됩니다. 상호 작용이 일어난 attachment를 식별할 때 쓸 수 있습니다.
+            "callbackId": "send-a1b2c3", // This is sent together when the user interaction occurs. This can be used to identify the attachment with the interaction.
             "actions": [
                 {
                     "name": "send",
                     "type": "button",
-                    "text": "Send", // 사용자에게 출력되는 버튼 텍스트
-                    "value": "posting", // Action 동작에 사용하는 (사용자에게 보이지 않는) 값
-                    "style": "primary" // 버튼의 스타일을 바꿀 수 있습니다. primary, danger, default
+                    "text": "Send", // The button text displayed to the user
+                    "value": "posting", // A value used for action (not visible to the user)
+                    "style": "primary" // You can change the button style. primary, danger, default
                 },
                 {
                     "name": "send",
@@ -256,22 +240,22 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-해당 메시지를 받으면, 아래와 같이 'Send'와 'Cancel' 버튼이 있는 메시지가 생성된 것을 확인할 수 있습니다.
+When the message is received, you can see that a message with 'Send' and 'Cancel' buttons has been created as shown below.
 
 ![11](http://static.toastoven.net/prod_dooray_messenger/integration/11.png)
 
-'Send' 버튼을 눌러봅시다. 아래와 같은 데이터가 커맨드 서버의 Interactive Request URL로 전송됩니다.
+Click the 'Send' button. The following data is sent to the Interactive Request URL of the command server.
 
 ```javascript
 {
-    // 테넌트, 채널, 멤버 정보가 제공됩니다.
+    // It provides tenant, channel, and member information.
     "tenant": {
         "id": "1234567891234567891",
         "domain": "guide.dooray.com"
     },
     "channel": {
         "id": "1234567891234567891",
-        "name" "커맨드 가이드 채널"
+        "name" "Command Guide Channel"
     },
     "user": {
         "id": "1234567891234567891",
@@ -279,34 +263,32 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "commandName": "/post",
     "command": "/post",
     "text": "",
-    "callbackId": "send-a1b2c3", // 사용자가 선택한 Action이 속해있는 Attachment의 callbackId입니다.
-    "actionText": "Send", // actionText - 사용자가 선택한 Action의 Text입니다.
-    "actionValue": "posting", // actionValue - 사용자가 선택한 Action의 Value입니다.
+    "callbackId": "send-a1b2c3", // The callbackId of the attachment where the user-selected action belongs.
+    "actionText": "Send", // actionText - The text of user-selected action.
+    "actionValue": "posting", // actionValue - The value of user-selected action.
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "",
     "commandRequestUrl": "https://command.example.com/req",
     "channelLogId": "-7386965175150134411",
-    "originalMessage": { /* action이 발생한 메시지가 포함됩니다. */ }
+    "originalMessage": { /* Includes the message where the action occurred. */ }
     }
 }
 ```
 
-사용자가 버튼을 눌렀을 때의 처리는 커맨드 서버에서 구현해야 합니다.
+Processing when the user has clicked the button should be implemented in the command server.
 
 ---
 
-## 메시지에 드롭다운 메뉴 넣기
+## Include a drop-down menu in the message
 
-attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
-드롭다운 메뉴로 채널 목록, 테넌트의 멤버 목록, 또는 임의의 목록에서 하나를 선택할 수 있습니다.
+You can include a drop-down menu in the attachments message. You can select either channel list, tenant member list, or random list from the drop-down menu.
 
-아래 예시에서는 팀원들이 가장 좋아하는 보드 게임을 뽑아서 함께 플레이하려고 합니다.
-아래의 메시지처럼 보드 게임 목록이 있는 드롭다운 메뉴를 활용하여 투표를 받아봅시다.
+In the following example, you will try to choose the board game most liked by your team members and play it with them. As shown in the following message, create a vote with the drop-down menu which has a list of board games.
 
-### 정적 드롭다운 메뉴
+### Static drop-down menu
 
-`options` 필드를 이용해 목록을 구성할 수 있습니다.
+Configure a list by using the `options` field.
 
 ```javascript
 "attachments": [
@@ -344,30 +326,30 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ]
 ```
 
-위 attachments를 통해 아래 화면과 같은 드롭다운 메뉴를 보여줄 수 있습니다.
+You can show the drop-down menu through the above attachments as shown on the following screen.
 
 ![12](http://static.toastoven.net/prod_dooray_messenger/integration/12.png)
 
-### 동적 드롭다운 메뉴
+### Dynamic drop-down menu
 
-동적 드롭다운 메뉴는 `options` 대신 `dataSource`를 이용합니다. `dataSource`는 값에 따라 멤버, 대화방, 외부 데이터를 보여줄 수 있습니다.
+Dynamic drop-down menu uses `dataSource` instead of `options`. Depending on the value, `dataSource` can show members, chatroom, or external data.
 
-|구분|설명|
+|Classification|Description|
 |---|---|
-|dataSource|목록|
-|users|멤버|
-|channels|대화방|
-|external|외부 데이터|
+|dataSource|List|
+|users|Member|
+|channels|Chatroom|
+|external|External data|
 
-#### 멤버 목록
-`dataSource`에 `users`로 메시지를 구성해 전송하면 현재 대화방의 멤버 목록을 보여줄 수 있습니다. 사용자가 드롭다운 메뉴에 검색어를 입력해 테넌트 전체 멤버를 검색 할 수 있습니다.
+#### Member List
+If configuring a message with `dataSource` of `users`, you can show the member list of the current chatroom. The user can enter the keyword in the drop-down menu to search all tenant members.
 
 ```javascript
 "attachments": [
     {
         "type": "select",
         "name": "sel_users",
-        "text": "사용자 출력",
+        "text": "User output",
         "dataSource": "users"
     }
 ]
@@ -375,15 +357,15 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ![13](http://static.toastoven.net/prod_dooray_messenger/integration/13.png)
 
-#### 대화방 목록
-`dataSource`에 `channels`로 메시지를 구성해 전송하면 사용자가 속한 대화방 목록을 보여줄 수 있습니다.
+#### Chatroom List
+By configuring and sending a message with `channels` of `dataSource`, you can show the chatroom list where the user belongs.
 
 ```javascript
 "attachments": [
     {
         "type": "select",
         "name": "sel_channels",
-        "text": "대화방 출력",
+        "text": "Chatroom output",
         "dataSource": "channels"
     }
 ]
@@ -391,21 +373,21 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ![14](http://static.toastoven.net/prod_dooray_messenger/integration/14.png)
 
-#### 외부 데이터 목록
-`dataSource`에 `external`로 메시지를 구성해 전송하면 외부 데이터 목록을 보여줄 수 있습니다. 외부 데이터 목록은 앱 설정시 등록한 Interactive Optional URL로 데이터를 요청해 받아옵니다.
+#### External Data List
+If configuring the message with `dataSource` of `external`, you can show the external data list. The external data list is requested via the Interactive Optional URL registered while setting the app.
 
 ``` javascript
 "attachments": [
     {
         "type": "select",
         "name": "sel_external",
-        "text": "외부 데이터",
+        "text": "External data",
         "dataSource": "external"
     }
 ]
 ```
 
-클라이언트는 Interactive Optional URL로 아래 메시지와 함께 외부 데이터 목록을 요청합니다.
+The client requests the external data list along with the following message using the Interactive Optional URL.
 
 ```javascript
 {
@@ -416,11 +398,11 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     },
     "channel": {
         "id": "1234567891234567891",
-        "name": "Command 가이드 채널"
+        "name": "Command Guide Channel"
     },
     "user": {
         "id": "1234567891234567891",
-        "name": "홍길동"
+        "name": "Hong Gil Dong"
     },
     "callbackId": "sample",
     "actionName": "sel_externel",
@@ -428,7 +410,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 }
 ```
 
-커맨드 서버에서 위 메시지를 이용해 드롭다운 메뉴의 목록을 응답해 줍니다.
+The command server sends the drop down list as a response by using the above message.
 
 ```javascript
 {
@@ -453,32 +435,32 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ---
 
-## attachments 메시지 보내기
+## Send an attachments message
 
-커맨드는 attachments라는 특별한 형태의 메시지를 전송할 수 있습니다. attachments의 구성 요소에는 다른 문서에서 설명하였던 버튼과 드롭다운 메뉴 외에도 다양한 것이 있습니다. attachments 메시지를 잘 사용하면 사용자의 눈에 잘 띌뿐 아니라 추가 정보를 요청하거나 회신하는 등의 행동을 능숙하게 유도할 수 있습니다.
+A command can send a specific message type called attachments. The component of attachments are various including buttons and drop-down menu described in other documents. With this attachments message, you can make the message attract user's attentions and guide behaviors such as requests or replies easily.
 
-### attachments 메시지
+### Attachments message
 
-아래의 보시는 메시지의 블록 하나 하나가 타이틀, 설명, 이미지, 링크, 버튼, 드롭다운 메뉴 등을 가질 수 있는 attachment입니다. 최대 20개의 attachment 블록이 모여 attachments 메시지를 구성합니다.
+Each message block shown below is an attachment which can have a title, a description, an image, a link, a button, a drop-down menu, etc. Up to 20 attachment blocks can configure an attachments message.
 
 ![16](http://static.toastoven.net/prod_dooray_messenger/integration/16.png)
 
-|번호|이름|설명|
+|No.|Name|Description|
 |---|---|---|
-|1|text|메시지의 내용입니다.|
-|2|attachment|메시지에 첨부한 내용입니다. 여러 개의 attachment를 합쳐서 attachments라고 부릅니다.|
-|3|authorName|작성자 이름입니다. authorLink로 링크를 걸 수 있습니다.|
-|4|title|attachment의 제목입니다.|
-|5|text|attachment의 내용입니다.|
-|6|thumbUrl|attachment에 넣을 섬네일 이미지입니다.|
-|7|imageUrl|attachment에 넣을 이미지 URL입니다.|
-|8|field|short의 값에 따라 한 줄에 하나 또는 두 개씩 표시되는 필드입니다.|
-|10|Interactive Menu|드롭다운 메뉴입니다.|
-|11|Interactive Button|버튼입니다.
+|1|text|The message contents.|
+|2|attachment|The contents attached to the message. Attachments refers to several attachments.|
+|3|authorName|The author's name. You can link with authorLink.|
+|4|title|The title of attachment.|
+|5|text|The text of attachment.|
+|6|thumbUrl|The thumbnail image to insert in the attachment.|
+|7|imageUrl|An image URL to be attached to the attachment.|
+|8|field|One or two fields are displayed according to the value of short.|
+|10|Interactive Menu|A drop-down menu.|
+|11|Interactive Button|A button.
 
-### 데이터
+### Data
 
-데이터의 포맷은 아래와 같습니다.
+The data format is as follows.
 
 ```javascript
 {
@@ -486,8 +468,8 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     "attachments": [
         {
             "callbackId": "guide-a1b2c3",
-            "text": "애플은 오늘 오전 2시에 WWDC를 통해 아이폰X 출시를 알렸다.",
-            "title": "아이폰 X 출시",
+            "text": "On 2 a.m. today, Apple has announced release of iPhone X at the WWDC.",
+            "title": "Release of iPhone X",
             "titleLink": "https://dooray.com/",
             "authorName": "NHN News",
             "authorLink": "https://dooray.com/",
@@ -497,13 +479,13 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
         {
             "fields": [
                 {
-                    "title": "출시 예정일",
-                    "value": "2018년 겨울",
+                    "title": "Release date",
+                    "value": "Winter in 2018",
                     "short": true
                 },
                 {
-                    "title": "예상 가격",
-                    "value": "125만원",
+                    "title": "Expected price",
+                    "value": "KRW 1.25 million won",
                     "short": true
                 }
             ]
@@ -511,8 +493,8 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
         {
             "fields": [
                 {
-                    "title": "설명",
-                    "value": "한국 미출시",
+                    "title": "Description",
+                    "value": "Not released in Korea",
                 }
             ]
         },
@@ -528,7 +510,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
             "actions": [
                 {
                     "type": "select",
-                    "text": "채널선택",
+                    "text": "Select the Channel",
                     "name": "guide-sel",
                     "dataSource": "channels"
                 }
@@ -538,13 +520,13 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
             "actions": [
                 {
                     "type": "button",
-                    "text": "공유하기",
+                    "text": "Share",
                     "name": "guide-btn",
                     "value": "btnValue"
                 },
                 {
                     "type": "button",
-                    "text": "다음 뉴스",
+                    "text": "Next news",
                     "name": "guide-btn",
                     "value": "btnValue"
                 },
@@ -554,65 +536,65 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 }
 ```
 
-### 구성 요소 분석
+### Components Analysis
 
-데이터의 구성 요소를 좀 더 자세히 살펴 보겠습니다.
+Now, we will look into the components of the data.
 
 #### Message Object
-|필드명|기본값|설명|
+|Field Name|Default|Description|
 |---|---|---|
-|text||메시지 텍스트|
-|attachments||Attachment의 배열|
-|responseType|"ephemeral"|메시지 표시 대상<br>- "ephemeral": Command를 실행한 사용자에게만 표시<br>- "inChannel": 채널 내 전체 사용자에게 표시
-|replaceOriginal|true|Interactive Message에 대한 응답 시 기존 메시지 수정 여부|
-|deleteOriginal|false|Interactive Message에 대한 응답 시 기존 메시지 삭제 여부|
+|text||Message text|
+|attachments||Array of the Attachment|
+|responseType|"ephemeral"|The target to whom a message will be displayed <br>- "ephemeral": Displays a message only to the user who has executed the command<br>- "inChannel": Displays a message to all users in the channel
+|replaceOriginal|true|Whether to modify the existing message when responding to the Interactive Message|
+|deleteOriginal|false|Whether to delete the existing message when responding to the Interactive Message|
 
 #### Attachment Object
-|필드명|기본값|설명|
+|Field Name|Default|Description|
 |---|---|---|
-|text||Attachment 텍스트|
-|title||Attachment 제목|
-|titleLink||Attachment 제목 클릭 시 이동할 링크|
-|authorName||Attachment 작성자|
-|authorLink||Attachment 작성자 클릭 시 이동할 링크|
-|fields||Field의 배열|
-|actions||Action의 배열|
-|callbackId||Action 요소 작동 시 함께 전달될 값(세션 유지 등의 용도로 사용)|
-|imageUrl||이미지 주소|
-|thumbUrl||섬네일 주소|
-|color|#4757C4|Attachment 세로줄 색상(HTML 색상코드)|
+|text||Attachment text|
+|title||Attachment title|
+|titleLink||Link to jump to by clicking the Attachment title|
+|authorName||Attachment author|
+|authorLink||Link to jump to by clicking the Attachment author|
+|fields||Array of the Field|
+|actions||Array of the Action|
+|callbackId||The value to be sent when the Action element is executed(Used for keeping the session)|
+|imageUrl||Image address|
+|thumbUrl||Thumbnail address|
+|color|#4757C4|Attachment vertical line color (HTML color code)|
 
 #### Field Object
-|필드명|기본값|설명|
+|Field Name|Default|Description|
 |---|---|---|
-|title||Field 제목|
-|value||Field 텍스트|
-|short|false|Field 너비 설정(true로 설정 시 절반 너비)|
+|title||Field title|
+|value||Field text|
+|short|false|Sets the field width (half of the width if true)|
 
 #### Action Object
-|필드명|기본값|설명|
+|Field Name|Default|Description|
 |---|---|---|
-|type||Actiontype<br>- "button": 버튼<br>- "select": 드롭다운 메뉴|
-|text||버튼, 드롭다운 메뉴에 표시될 텍스트|
-|name||커맨드 서버에 전달되는 필드명|
-|value||커맨드 서버에 전달되는 필드값|
-|style|"default"|버튼 색상<br>- "primary": 강조 색상<br>- "default": 기본 색상|
-|options||Option의 배열|
-|dataSource||'options' 대신 지정할 수 있는 option 값<br>- "users": 사용자 목록<br>- "channels": 채널 목록<br>- "external": Interactive Message Optional URL에서 가져오기
+|type||Actiontype<br>- "button": button<br>- "select": Drop-down menu|
+|text||Button, text to be displayed on the drop-down menu|
+|name||The field name to be sent to the command server|
+|value||The field value to be sent to the command server|
+|style|"default"|Button color<br>- "primary": Highlight color<br>- "default": Default color|
+|options||Array of the Option|
+|dataSource||The option value which can be allocated instead of 'options'<br>- "users": User list<br>- "channels": Channel list<br>- "external": Gets the Interactive Message from the optional URL
 
 #### Option Object
-|필드명|기본값|설명|
+|Field Name|Default|Description|
 |---|---|---|
-|text||Option 텍스트|
-|value||커맨드 서버에 전달되는 필드값|
+|text||Option text|
+|value||The field value to be sent to the command server|
 
 ---
 
-## 대화 상자 사용하기
-별도의 영역에서 정보를 입력받을 수 있는 대화 상자를 띄웁니다.
+## Use a dialog box
+A dialog box is displayed, which allows you to input information on a separated area.
 
-### 요청 방법
-|구분1|구분2|설명|
+### How to request
+|Classification 1|Classification 2|Description|
 |---|---|---|
 |URL||https://{domain}.dooray.com/messenger/api/channels/{channelId}/dialogs|
 |Method||POST|
@@ -620,9 +602,10 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 |Body|triggerId|{triggerId}|
 ||dialog|{Dialog Object}|    
 
-### 결과 반환
-* 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
-* 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
+### Returns the result
+
+* Success or Fail: Returns true or false with $.header.isSuccessful.
+* Cause of failure: Returns the code value with $.header.resultCode and the detailed failure information with $.header.resultMessage.
 
 #### Dialog Object
 ``` javascript
@@ -668,39 +651,40 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 }
 ```
 
-| 필드명 | 기본값 | 설명 |
+| Field Name | Default | Description |
 | --- | --- | --- |
-| callbackId |  | 전송할 때 함께 전달될 값(세션 유지 등의 용도로 사용) |
-| title |  | Dialog 제목 |
-| submitLabel | "Submit" | 전송 버튼 텍스트 지정 |
-| elements |  | **Element**의 배열 |
+| callbackId |  | The value to be sent along with submission(Used for keeping the session) |
+| title |  | Dialog title |
+| submitLabel | "Submit" | Assign the text for the Submit button |
+| elements |  | Array of the **Element** |
 
 #### Element Object
-| 필드명 | 기본값 | 설명 |
+| Field Name | Default | Description |
 | --- | --- | --- |
-| type |  | 필드 타입<br>"text": 텍스트 필드<br>"textarea": 장문 텍스트 필드<br>"select": 드롭 메뉴 |
-| subtype |  | type이 text일 때 모바일에서 출력할 키보드 타입<br>"number", "email", "tel", "url" |
-| label |  | 사용자에게 출력되는 필드명 |
-| name |  | 커맨드 서버에 전달되는 필드명 |
-| value |  | 필드에 기본으로 입력된 값(type이 select일 때 Option value로 지정해두면 자동 선택) |
-| options |  | type이 select일 때 출력되는 **Option**의 배열 |
-| dataSource |  | type이 select일 때 options 대신 출력할 데이터 |
-| minLength |  | 최소 입력 글자수 |
-| maxLength |  | 최대 입력 글자수 |
-| placeholder |  | 필드에 출력되는 힌트(입력 시 사라짐) |
-| hint |  | 필드 아래에 출력되는 힌트 |
-| optional | false | 해당 필드의 필수 입력 여부 설정(false로 하면 필수 입력) |
+| type |  | The field type<br>"text": Text field<br>"textarea": Long text<br>"select": Drop-down menu |
+| subtype |  | The keyboard type to be displayed when the type is text<br>"number", "email", "tel", "url" |
+| label |  | The field name displayed to the user |
+| name |  | The field name to be sent to the command server |
+| value |  | Default value in the field (automatically selected when it is set to an option value if the type is select) |
+| options |  | The array of **Option** output when the type is select |
+| dataSource |  | The data to be output instead of options when the type is select |
+| minLength |  | The minimum number of input characters |
+| maxLength |  | The maximum number of input characters |
+| placeholder |  | A hint shown in the field (disappears when text is typed in the field) |
+| hint |  | A hint shown under the field |
+| optional | false | Set whether the field is mandatory or not (if false, the field is mandatory) |
 
 #### Option Object
-|필드명|기본값|설명|
+
+|Field Name|Default|Description|
 |---|---|---|
-|text||Option 텍스트|
-|value||커맨드 서버에 전달되는 필드값|
+|text||Option text|
+|value||The field value to be sent to the command server|
 
-### 전송 처리
-위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 하면 이를 처리해야 합니다.
+### Submit processing
+With the above API, a dialog has been displayed to the user. Then the user fills the dialog and the dialog must be processed.
 
-#### 메신저 서버에서 커맨드 서버로의 요청
+#### Request from Messenger server to the command server
 ``` javascript
 {
     "type": "dialog_submission",
@@ -710,7 +694,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     },
     "channel": {
         "id": "1234567891234567891",
-        "name": "커맨드 가이드 채널"
+        "name": "Command Guide Channel"
     },
     "user": {
         "id": "1234567891234567891"
@@ -722,160 +706,156 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     "callbackId": "guide-a1b2c3",
     "submission": {
         "page": "100",
-        "note": "자주 봐야하는 부분",
+        "note": "Part to be noted frequently",
         "important": "true"
     }
 }
 
 ```
 
-|필드명|설명|
+|Field Name|Description|
 |---|---|
-|type|발생한 이벤트의 타입(dialog_submission)|
-|tenant|커맨드를 호출한 사용자가 속한 테넌트의 정보|
-|channel|커맨드를 호출한 채널의 정보|
-|user|커맨드를 호출한 사용자의 정보|
-|responseUrl|커맨드를 호출에 응답하기 위한 인커밍 웹훅 URL|
-|cmdToken|API 호출 시에 사용하는 Token|
-|callbackId|Dialog에 지정된 Callback ID|
-|submission|Dialog에 지정된 element의 name과 사용자가 작성한 값을 Key와 Value로 한 Object|
+|type|The type of event which has occurred (dialog_submission)|
+|tenant|Information of the tenant where the command-calling user belongs|
+|channel|Information of the channel where the command has been called|
+|user|Information of the user who has called the command|
+|responseUrl|The incoming web hook URL to respond to the command call|
+|cmdToken|The token used to call API|
+|callbackId|The callback ID assigned to the dialog|
+|submission|The object of which key and value are the element name assigned to the dialog and the user-written value, respectively|
 
-#### 커맨드 서버에서 메신저 서버로의 응답
-두 가지 경우가 존재합니다.
+#### Response from the command server to Messenger server
+There are two cases:
 
-* 사용자 입력값에 오류가 없을 경우, 응답을 비우고 HTTP 200 응답을 합니다.
-* 오류가 있을 경우, HTTP 200 응답과 함께 errors로 응답합니다.
+* When there is no error in the user input value, clears the response and then responds with HTTP 200.
+
+* When there is any error, responds with errors including HTTP 200.
 
 ``` javascript
 {
     errors: [
         {
             name: 'page',
-            error: 'Page number는 50을 넘을 수 없습니다.'
+            error: 'The page number cannot exceed 50.'
         }
     ]
 }
 ```
 
-|필드명|기본값|설명|
+|Field Name|Default|Description|
 |---|---|---|
-|name||오류를 찾은 element의 name|
-|error||출력할 오류 메시지|
+|name||The name of element where errors have been found|
+|error||The error message to be output|
 
 ---
 
-## 대화방에 커맨드 등록하기
+## Register a command to a chatroom
 
-### 대화방에 커맨드를 등록
+### Register a command to a chatroom
 
-커맨드는 자신이 참여하고 있는 1:1 대화, 그룹 대화 등에 등록하여 활용할 수 있습니다.
-커맨드 추가 화면을 여는 방법은 두 가지가 있습니다.
+You can register a command to the 1:1 chat or the group chat where you are participating. There are two ways to open the Add Command window:
 
-첫째, 메신저 우측 상단의 설정 메뉴를 통해 추가할 수 있습니다.
+First, add a command through the Setting menu on the right top of the Messenger.
 
 ![17](http://static.toastoven.net/prod_dooray_messenger/integration/17.png)
 
-둘째, 대화방의 입력창에 `/`를 입력 후 나타나는 화면에서 '연동 서비스' 버튼을 통해 추가할 수 있습니다.
+Second, input `/` in the input line of the chatroom and click the 'Link Service' button to add a command.
 
 ![18](http://static.toastoven.net/prod_dooray_messenger/integration/18.png)
 
-커맨드 추가 화면에는 공개된 커맨드나 자신이 생성한 커맨드가 표시됩니다. 원하는 커맨드 우측의 '추가' 버튼을 눌러 대화방에 커맨드를 추가하세요. 만약 커맨드가 없다면 본 문서의 처음으로 돌아가 커맨드를 만들어 보세요.
+The Add Command window shows the open command or the command you have created. Click 'Add' button on the right side of the desired command to add the command to the chatroom. If there is no command, return to the start page of this document and create a command.
 
 ![19](http://static.toastoven.net/prod_dooray_messenger/integration/19.png)
 
 ![20](http://static.toastoven.net/prod_dooray_messenger/integration/20.png)
 
-### 커맨드 공개
+### Open a command
 
-만약 자신이 만든 커맨드의 멋진 기능을 조직 내의 다른 사람들과 공유하고 싶다면 공개로 설정해 주세요.
-조직 내의 다른 사람들도 자유롭게 대화방에 추가하여 사용할 수 있습니다.
-
-비공개로 변경해도 이미 추가한 커맨드는 다른 사람이 계속 사용할 수 있으니, 다른 사람들이 더 이상 커맨드를 사용하지 못하게 하려면 등록한 커맨드를 삭제해 주세요.
+If you want to share cool functions of your commands, set the command to Open. Other members in your organization can add and use the command in the chatroom freely. Even if you change the setting to Private, the command which has already been added can be used by others. If you don't want others to use the command any more, delete the registered command.
 
 ---
 
-## 예제: 투표 커맨드 
+## Example: Vote command 
 
-### 커맨드 서버 요구사항
+### Requirements of the command server
 
-커맨드 서버는 등록한 커맨드대로 동작하는 REST API를 제공해야 합니다.
+The command server must provide REST API which is operated by command as registered.
 
-|API 종류|설명|필수 |메소드|
+|API types|Description|Required |Method|
 |------|---|---|---|
-|커맨드 Request URL|사용자의 커맨드 실행 요청을 처리할 URL|O|POST|
-|Interactive Message의 Request URL|사용자의 액션(버튼 클릭, 드롭다운 메뉴 선택)을 처리할 URL|X|POST|
-|Interactive Message의Optional URL|드롭다운 메뉴에서 외부 데이터 제공할 URL|X|POST|
+|Command Request URL|The URL which will process the command execution request from the user|O|POST|
+|Request URL of the Interactive Message|The URL which processes the user's action (button click, drop-down menu selection)|X|POST|
+|Optional URL of the Interactive Message|The URL which provides external data through the drop-down menu|X|POST|
 
-### 투표 커맨드
+### Vote command
 
-예제로 대화방에 투표를 만들고 참여할 수 있는 투표 커맨드를 만들겠습니다.
-예제 코드는 [Github](https://github.com/nhnent/dooray.vote)에서 확인할 수 있습니다. 
+As an example, create a vote command which can create a vote in a chatroom and allow users to participate in the vote.
+For the example code, see [Github](https://github.com/nhnent/dooray.vote). 
 
 ![21](http://static.toastoven.net/prod_dooray_messenger/integration/21.png)
 
 #### API
 
-커맨드 Request URL과 Interactive Message의 Request URL만 사용합니다.
+Use the command request URL and the request URL of the interactive message only.
 
-#### 커맨드 실행 포맷
+#### Command execution format
 
-사용자가 투표 커맨드를 실행할 입력 포맷은 아래처럼 입력하도록 합니다.
+Enter the input format for the user to execute the vote command as follows.
 
 ```javascript
-/vote {제목} {항목1} "{공백을 포함한 항목}" ... {항목n}
+/vote {Title} {Item 1} "{Item including blank}" ... {Item n}
 ```
 
-#### 시나리오
+#### Scenario
 
-1. 사용자가 커맨드 실행
-2. 커맨드를 실행한 사용자에게만 보이는 투표 생성 확인 메시지 출력
-3. 생성 버튼을 눌러서 대화방 멤버에게 모두 보이는 투표 메시지 출력
-4. 대화방 멤버들이 투표 버튼으로 투표 참여
-5. 투표를 생성한 사용자가 투표 종료
-6. 투표 결과 출력
+1. The user executes a command
+2. Displays a confirmation message that a vote has been created is displayed; this message is visible only to the user who has executed the command
+3. Click the Create button to display the vote message which can be seen by all members in the chatroom
+4. The members in the chatroom will vote by clicking the Vote button
+5. The user who has created vote will close the vote
+6. Display the vote result
 
-### 투표 커맨드 실행 요청
+### Request to execute the vote command
 
-사용자가 투표 커맨드를 아래와 같이 실행합니다.
+The user executes the vote command as follows.
 
 ![22](http://static.toastoven.net/prod_dooray_messenger/integration/22_1.png)
 
-커맨드 서버는 커맨드 Request URL로 사용자가 입력한 값을 포함한 JSON 데이터를 받게 됩니다.
+The command server receives the JSON data, which include the user-input value, via the command request URL.
 
 ``` javascript
 {
     "tenantId": "1234567891234567891",
     "tenantDomain": "guide.dooray.com",
     "channelId": "1234567891234567891",
-    "channelName": "Command 가이드",
+    "channelName": "Command Guide",
     "userId": "1234567891234567891",
     "command": "/vote",
-    "text": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
+    "text": "Lunch Jajangmyeon Jjamppong\"Sichuan-style sweet and sour pork\"",
     "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
 }
 ```
 
-|필드명|설명|
+|Field Name|Description|
 |----|---|
-|tenantId|커맨드가 등록된 테넌트의 ID|
-|tenantDomain|커맨드가 등록된 테넌트 도메인|
-|channelId|커맨드를 요청한 대화방의 ID|
-|channelName|커맨드를 요청한 대화방 제목|
-|userId|커맨드를 요청한 사용자 ID|
-|command|커맨드 이름|
-|text|사용자가 입력한 전체 텍스트|
-|responseUrl|커맨드를 요청한 대화방의 Webhook URL|
-|appToken|커맨드를 등록한 앱의 토큰(요청 검증으로 활용)|
-|triggerId|다이얼로그 실행 ID|
+|tenantId|The ID of tenant where the command has been registered|
+|tenantDomain|The domain of tenant where the command has been registered|
+|channelId|The ID of the chatroom which requests the command|
+|channelName|The title of the chatroom which requests the command|
+|userId|The ID of the user who has requested the command|
+|command|The command name|
+|text|The entire text typed by the user|
+|responseUrl|The Webhook URL of the chatroom which requests the command|
+|appToken|The token of app which registered the command(Used for verifying the request)|
+|triggerId|Dialog execution ID|
 
-### 커맨드 실행 요청에 대한 응답
+### Response to the command execution request
 
 ![23](http://static.toastoven.net/prod_dooray_messenger/integration/23_1.png)
 
-커맨드 실행 요청에 대한 응답으로 실행 사용자에게만 보이는 확인 메시지를 보냅니다.
-투표를 생성하거나 취소할 수 있는 버튼을 사용자에게 제공하기 위해 아래와 같이 메시지를 전송합니다.
+As a response to the command execution request, a confirmation message is sent and this is only visible to the user who has executed the command. The message is sent the following message to the user in order to provide a button that creates or cancels voting.
 
 ``` javascript
 {
@@ -883,21 +863,21 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     "text": "Click 'Submit' button to start the vote.",
     "attachments": [
         {
-            "title": "점심식사",
+            "title": "Lunch",
             "fields": [
                 {
                     "title": "Item 1",
-                    "value": "짜장면",
+                    "value": "Jajangmyeon",
                     "short": true
                 },
                 {
                     "title": "Item 2",
-                    "value": "짬뽕",
+                    "value": "Jjamppong",
                     "short": true
                 },
                 {
                     "title": "Item 3",
-                    "value": "사천 탕수육",
+                    "value": "Sichuan-style sweet and sour pork",
                     "short": true
                 }
             ]
@@ -909,7 +889,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
                     "name": "vote",
                     "type": "button",
                     "text": "Submit",
-                    "value": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
+                    "value": "Lunch Jajangmyeon Jjamppong\"Sichuan-style sweet and sour pork\"",
                     "style": "primary"
                 },
                 {
@@ -924,9 +904,9 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 }
 ```
 
-### 액션 실행 요청
+### Request the execution of the action
 
-사용자가 전송 버튼을 누르면 아래와 같은 데이터가 Interactive Message의 Request URL로 전송됩니다.
+When the user click the Submit button, the following data is sent to the Request URL of the interactive message.
 
 ``` javascript
 {
@@ -936,18 +916,18 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     },
     "channel": {
         "id": "1234567891234567891",
-        "name": "Command 가이드 채널"
+        "name": "Command Guide Channel"
     },
     "user": {
         "id": "1234567891234567891",
-        "name": "홍길동"
+        "name": "Hong Gil Dong"
     },
     "commandName": "/vote",
     "command": "/vote",
-    "text": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
+    "text": "Lunch Jajangmyeon Jjamppong\"Sichuan-style sweet and sour pork\"",
     "callbackId": "vote",
     "actionText": "Submit",
-    "actionValue": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
+    "actionValue": "Lunch Jajangmyeon Jjamppong\"Sichuan-style sweet and sour pork\"",
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx",
@@ -957,21 +937,20 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 }
 ```
 
-|필드명|설명|
+|Field Name|Description|
 |----|---|
-|callbackId|사용자가 선택한 액션이 속해있는 Attachment의 ID|
-|actionText|사용자가 선택한 액션 텍스트|
-|actionValue|사용자가 선택한 액션 값|
-|commandRequestUrl|커맨드 Request URL|
-|channelLogId|메시지 ID|
-|originalMessage|이전 응답으로 받은 메시지|
+|callbackId|The ID of the attachment where the user-selected action belongs|
+|actionText|The action text selected by the user|
+|actionValue|The action value selected by the user|
+|commandRequestUrl|Command Request URL|
+|channelLogId|Message ID|
+|originalMessage|Message received as a previous response|
 
-### 액션 실행에 대한 응답
+### Response to action execution
 
 ![24](http://static.toastoven.net/prod_dooray_messenger/integration/24_1.png)
 
-'Submit' 버튼에 대한 응답으로 투표 생성 메시지를 전송합니다.
-생성 확인 메시지는 더 이상 필요가 없기 때문에 삭제하고 메시지를 새로 생성합니다.
+As a response to the 'Submit' button, the vote creation message is sent. Since the creation confirmation message is not necessary any more, it will be deleted and a new message will be created.
 
 ``` javascript
 {
@@ -981,24 +960,24 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     "attachments": [
         {
             "callbackId": "1525223162093-(dooray://1234567891234567891/members/1234567891234567891 \"member\")",
-            "title": "점심식사",
+            "title": "Lunch",
             "actions": [
                 {
                     "name": "vote",
                     "type": "button",
-                    "text": "짜장면",
+                    "text": "Jajangmyeon",
                     "value": 0
                 },
                 {
                     "name": "vote",
                     "type": "button",
-                    "text": "짬뽕",
+                    "text": "Jjamppong",
                     "value": 1
                 },
                 {
                     "name": "vote",
                     "type": "button",
-                    "text": "사천 탕수육",
+                    "text": "Sichuan-style sweet and sour pork",
                     "value": 2
                 }
             ],
@@ -1020,9 +999,9 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 }
 ```
 
-|필드명|기본값|설명|
+|Field Name|Default|Description|
 |----|---|---|
-|deleteOriginal|false|새 메시지를 생성하기 전 기존 메시지 삭제 여부|
-|replaceOriginal|true|기존 메시지 업데이트 여부|
+|deleteOriginal|false|Whether to delete a previous message or not before creating a new message|
+|replaceOriginal|true|Whether to update a previous message or not|
 
-이 후 사용자가 누르는 버튼은 액션 실행 요청과 그에 따른 응답의 반복입니다.
+After that, the buttons which the user will click are repetition of the action execution request and the response to that request.

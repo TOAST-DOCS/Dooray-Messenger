@@ -95,6 +95,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 
 사용자가 Dooray! 메신저를 통해 `/hi` 커맨드를 실행하면 커맨드 서버는 아래와 같은 JSON 데이터를 전달받습니다.
 
+#### POST [Request URL]
 ```javascript
 {
     "tenantId": "1234567891234567891",
@@ -106,6 +107,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "text": ""
     "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
 }
 ```
@@ -121,6 +123,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 |text|커맨드와 함께 입력한 텍스트|
 |responseUrl|커맨드 요청에 응답할 수 있는 웹 훅 URL|
 |appToken|등록한 앱의 토큰. 정상 요청인지 검증할 때 사용|
+|cmdToken|API 호출 시에 사용하는 Token|
 |triggerId|다이얼로그에 사용하는 값|
 
 ### 응답
@@ -157,6 +160,8 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 - 기존에 보낸 메시지를 업데이트
 - 기존에 보낸 메시지를 삭제하고 메시지를 새로 전송
 
+위 4가지 방식으로 메시지를 전송하고 싶으면, 아래의 페이로드와 같이 커맨드 실행 요청에 대한 응답을 해주면 됩니다.
+
 ### 메시지를 최초 전송
 
 메시지를 새로 보내는 방법은 간단합니다.
@@ -182,7 +187,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 
 ### 기존에 보낸 메시지를 업데이트
 
-`replaceOriginal`을 `true`로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다. 기존 메시지의 `responseType`로 바꾸어 업데이트할 수 없습니다. `responseType`을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
+`replaceOriginal`을 `true`로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다. 기존 메시지의 `responseType`을 바꾸어 업데이트할 수 없습니다. `responseType`을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
 
 ```javascript
 {
@@ -264,7 +269,7 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "command": "/post",
     "text": "",
     "callbackId": "send-a1b2c3", // 사용자가 선택한 Action이 속해있는 Attachment의 callbackId입니다.
-    "actionText": "Send", // actionText - 사용자가 선택한 Action의 Text입니다.
+    "actionName": "Send", // actionName - 사용자가 선택한 Action의 Name입니다.
     "actionValue": "posting", // actionValue - 사용자가 선택한 Action의 Value입니다.
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -334,9 +339,8 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
 
 동적 드롭다운 메뉴는 `options` 대신 `dataSource`를 이용합니다. `dataSource`는 값에 따라 멤버, 대화방, 외부 데이터를 보여줄 수 있습니다.
 
-|구분|설명|
-|---|---|
 |dataSource|목록|
+|---|---|
 |users|멤버|
 |channels|대화방|
 |external|외부 데이터|
@@ -347,10 +351,14 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
 ```javascript
 "attachments": [
     {
-        "type": "select",
-        "name": "sel_users",
-        "text": "사용자 출력",
-        "dataSource": "users"
+        "actions": [
+            {
+                "type": "select",
+                "name": "sel_users",
+                "text": "사용자 출력",
+                "dataSource": "users"
+            }
+        ]
     }
 ]
 ```
@@ -363,10 +371,14 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
 ```javascript
 "attachments": [
     {
-        "type": "select",
-        "name": "sel_channels",
-        "text": "대화방 출력",
-        "dataSource": "channels"
+        "actions" : [
+            {
+                "type": "select",
+                "name": "sel_channels",
+                "text": "대화방 출력",
+                "dataSource": "channels"
+            }
+        ]
     }
 ]
 ```
@@ -379,10 +391,14 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
 ``` javascript
 "attachments": [
     {
-        "type": "select",
-        "name": "sel_external",
-        "text": "외부 데이터",
-        "dataSource": "external"
+        "actions": [
+            {
+                "type": "select",
+                "name": "sel_external",
+                "text": "외부 데이터",
+                "dataSource": "external"
+            }
+        ]
     }
 ]
 ```
@@ -590,73 +606,136 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
 
 ---
 
-## 대화 상자 사용하기
-별도의 영역에서 정보를 입력받을 수 있는 대화 상자를 띄웁니다.
+## Incoming Webhook(responseUrl)
+슬래시 커맨드의 특성에 따라 임의의 시간에 메시지를 보내야 하는 경우가 있습니다.(예시: 매일 특정 시간에 오늘의 일정을 알려주는 슬래시 커맨드) 이 경우에는 responseUrl을 활용해 메시지를 전송합니다.
 
 ### 요청 방법
-|구분1|구분2|설명|
-|---|---|---|
-|URL||https://{domain}.dooray.com/messenger/api/channels/{channelId}/dialogs|
-|Method||POST|
-|Header|token|{cmdToken}|
-|Body|triggerId|{triggerId}|
-||dialog|{Dialog Object}|    
+#### POST https://{tenantDomain}/messenger/api/commands/hook/{cmdToken}
 
-### 결과 반환
-
-* 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
-* 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
-
-#### Dialog Object
-``` javascript
+##### request body
+attachments 메시지 보내기의 Message Object를 참조
+```javascript
 {
-    callbackId: 'guide-a1b2c3',
-    title: 'Guide Dialog',
-    submitLabel: 'Send',
-    elements: [
+    "responseType": "ephemeral", 
+    "text": "Click 'Submit' button to start the vote.",
+    "attachments": [
         {
-            type: 'text',
-            subtype: 'number',
-            label: 'Page Number',
-            name: 'page',
-            value: 0,
-            minLength: 1,
-            maxLength: 2,
-            placeholder: '0 ~ 50',
-            hint: 'Must in 0 ~ 50'
-        },
-        {
-            type: 'textarea',
-            label: 'Note',
-            name: 'note',
-            optional: true
-        },
-        {
-            type: 'select',
-            label: 'Is this important?',
-            name: 'important',
-            value: 'false',
-            options: [
+            "title": "점심식사",
+            "fields": [
                 {
-                    label: 'Yes',
-                    value: 'true'
+                    "title": "Item 1",
+                    "value": "짜장면",
+                    "short": true
                 },
                 {
-                    label: 'No',
-                    value: 'false'
+                    "title": "Item 2",
+                    "value": "짬뽕",
+                    "short": true
+                },
+                {
+                    "title": "Item 3",
+                    "value": "탕수육",
+                    "short": true
+                }
+            ]
+        },
+        {
+            "callbackId": "vote",
+            "actions": [
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Submit",
+                    "value": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+                    "style": "primary"
+                },
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Cancel",
+                    "value": "cancel"
                 }
             ]
         }
     ]
 }
 ```
+### 결과 반환
+* 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
+* 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
+
+## 대화 상자 사용하기
+별도의 영역에서 정보를 입력받을 수 있는 대화 상자를 띄웁니다.
+
+### 요청 방법
+#### POST https://{tenantDomain}/messenger/api/channels/{channelId}/dialogs
+
+##### request header
+* token: cmdToken
+
+##### request body
+```javascript
+{
+    token: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    triggerId: "1111111111111.xxxxxxxxxxxxxxxxxxxx.3333333333333",
+    callbackId: "guide-a1b2c3",
+    dialog: {
+        callbackId: 'guide-a1b2c3',
+        title: 'Guide Dialog',
+        submitLabel: 'Send',
+        elements: [
+            {
+                type: 'text',
+                subtype: 'number',
+                label: 'Page Number',
+                name: 'page',
+                value: 0,
+                minLength: 1,
+                maxLength: 2,
+                placeholder: '0 ~ 50',
+                hint: 'Must in 0 ~ 50'
+            },
+            {
+                type: 'textarea',
+                label: 'Note',
+                name: 'note',
+                optional: true
+            },
+            {
+                type: 'select',
+                label: 'Is this important?',
+                name: 'important',
+                value: 'false',
+                options: [
+                    {
+                        label: 'Yes',
+                        value: 'true'
+                    },
+                    {
+                        label: 'No',
+                        value: 'false'
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
 
 | 필드명 | 기본값 | 설명 |
 | --- | --- | --- |
+| triggerId | | 어떤 커맨드 요청에서 유발된 Dialog인지 구분해주는 값 |
 | callbackId |  | 전송할 때 함께 전달될 값(세션 유지 등의 용도로 사용) |
 | title |  | Dialog 제목 |
 | submitLabel | "Submit" | 전송 버튼 텍스트 지정 |
 | elements |  | **Element**의 배열 |
+
+### 결과 반환
+
+* 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
+* 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
+
+
 
 #### Element Object
 | 필드명 | 기본값 | 설명 |
@@ -678,11 +757,11 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
 
 |필드명|기본값|설명|
 |---|---|---|
-|text||Option 텍스트|
+|label||Option 텍스트|
 |value||커맨드 서버에 전달되는 필드값|
 
-### 전송 처리
-위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 하면 이를 처리해야 합니다.
+### 대화 상자 전송 처리
+위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 전송하면 이를 처리해야 합니다.
 
 #### 메신저 서버에서 커맨드 서버로의 요청
 ``` javascript
@@ -834,6 +913,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
     "text": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
     "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
 }
 ```
@@ -849,6 +929,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
 |text|사용자가 입력한 전체 텍스트|
 |responseUrl|커맨드를 요청한 대화방의 Webhook URL|
 |appToken|커맨드를 등록한 앱의 토큰(요청 검증으로 활용)|
+|cmdToken|API 호출 시에 사용하는 Token|
 |triggerId|다이얼로그 실행 ID|
 
 ### 커맨드 실행 요청에 대한 응답
