@@ -21,7 +21,8 @@ Doorayメッセンジャーはリアルタイムコミュニケーションの�
 
 #### メンバー招待/退出
 - チャットルーム右上のギアアイコンから、新しいメンバーの招待と、各メンバーの詳細機能を活用できます。
-![servide_guide1](http://static.toastoven.net/prod_dooray_messenger/service_guide_1.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_1_jp.png)
+<center>[図1]</center>
 
 #### メッセージ送信
 - チャットルーム下段の入力ウィンドウから、様々なメッセージを送信できます。
@@ -32,48 +33,56 @@ Doorayメッセンジャーはリアルタイムコミュニケーションの�
 - @メンションは参加者が多いチャットルームでも特定の相手を指名して会話ができる便利な機能です。「@」の後に相手の名前を入力すればメンションできます。
 - メッセンジャーモバイルアプリには、自分が@メンションされたメッセージのみ通知する機能があり、重要なメッセージだけを簡単に確認することができます。
 - また「@channel」を入力すると、チャットルームのすべてのメンバーにメンションされます。
-![servide_guide3](http://static.toastoven.net/prod_dooray_messenger/service_guide_16.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_2_jp.png)
+<center>[図2]</center>
 
 #### メッセージ検索/まとめて表示
 - チャットルーム内では、メッセージを検索したり、同じタイプのメッセージを集めて見ることができます。
 - チャットルーム右側の拡声器アイコンを選択すると、告知されたメッセージをまとめて確認できます。@メンションアイコンを選択すると、自分がメンションされたメッセージが確認できます。また、ファイルとリンクのアイコンを選択すると、それぞれのタイプのメッセージだけをまとめて確認することができます。
 - チャットルーム右側の虫眼鏡アイコンを選択すると、キーワードが含まれるメッセージを検索することができます。検索結果が十分ではない場合、検索範囲を「すべてのチャット」に広げて検索してみてください。
-![servide_guide4](http://static.toastoven.net/prod_dooray_messenger/service_guide_17.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_3_jp.png)
+<center>[図3]</center>
 
 #### 翻訳
 - Doorayメッセンジャーはリアルタイムで会話が翻訳される翻訳機能を提供しています。
 - 左上の名前の部分にある「ドロップダウンボタン > 設定」から会話で使用する言語が正しく適用されているか確認します。
 - Doorayメッセンジャーは、会話に参加している相手と使用する言語が異なる場合に備えて、会話時に使用する言語をあらかじめ設定することができます。お互いの言語が違っていても、自分が指定した言語で会話ができます。
-![servide_guide5](http://static.toastoven.net/prod_dooray_messenger/service_guide_5.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_4_jp.png)
+<center>[図4]</center>
 - チャットルームのギアアイコンから自動翻訳を設定できます。設定後に受信したメッセージは自動で翻訳されます。自動翻訳が必要なければ、自動翻訳をオフに設定してください。
 
 ### 情報変更
 #### プロフィール
 - プロフィールメニューから、プロフィール画像、名前、部署、役職、勤務時間などの情報を変更することができます。変更された情報は公開され、チャットルームで相手の名前やプロフィール画像をクリックすると、内容を確認できます。
-![servide_guide8](http://static.toastoven.net/prod_dooray_messenger/service_guide_8.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_5_jp.png)
+<center>[図5]</center>
 
 #### ステータス変更
 - ステータスは「オンライン/オフライン/退席中/取り込み中」の4種類があります。オンラインの状態では新しいメッセージが届いてもメッセンジャーモバイルアプリにプッシュ通知されません。一定期間、PCが使用されていなければ、自動で「退席中」に変更し、メッセンジャーモバイルアプリにプッシュを送信します。邪魔されたくない場合は「取り込み中」に変更しておくと、他のメンバーにも表示されます。
 
 ### 通知設定
 新しいメッセージが届くと、PC画面に新しいメッセージを表示します。表示させたくない場合は、設定画面から通知を「off」にするか、チャットルームのベルアイコンをクリックして、チャットルーム別に通知をオフにしてください。
-![servide_guide9](http://static.toastoven.net/prod_dooray_messenger/service_guide_9.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_6_jp.png)
+<center>[図6]</center>
 
 #### Dooray News!
 - Doorayプロジェクトで新しいタスクやコメントが登録されたり、メールを受信した際、Dooray! Newsで通知を行います。
 - 通知が必要ない場合は、設定画面からDooray! Newsを無効にしたり、受信する通知内容を選択することができます。詳細は、Dooray共通メニュー「設定 > 通知」を参考にしてください。
-![servide_guide10](http://static.toastoven.net/prod_dooray_messenger/service_guide_10.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_7_jp.png)
+<center>[図7]</center>
 
 ### その他
 #### Webフック/プロジェクト通知を受信する
 - チャットルームはそれぞれURLを持っています。このURLを登録すると、他のサービスからチャットルームにメッセージを送信できます。
 - Dooray共通メニュー「設定 > サービス連動 > サービス追加」から連動追加をクリックすると、連動URLを確認することができます。
 
-![servide_guide11](http://static.toastoven.net/prod_dooray_messenger/service_guide_11.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_8_jp.png)
+<center>[図8]</center>
 - Doorayの特定プロジェクトに新規追加されたタスクやコメントをチャットルームで確認したい場合は、Webフックを設定してください。
 - Dooray共通メニュー「設定 > サービス連動」で「incoming」の連動追加を選択します。
 
-![servide_guide11](http://static.toastoven.net/prod_dooray_messenger/service_guide_11.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_9_jp.png)
+<center>[図9]</center>
 -	連動したいチャットルームを選択して、連動URLをコピーしてください。
 * 名前が設定されているチャットルームのみ連動チャットリストに表示されます。
 -	コピーされたチャットルームのURLを利用して、プロジェクト設定からWebフックを追加します。
@@ -81,18 +90,21 @@ Doorayメッセンジャーはリアルタイムコミュニケーションの�
     - 送信メッセージフォーマットと通知項目を選択して追加ボタンをクリックします。
     - Webフックを追加すると、選択した通知項目に該当するアクションがあったとき、チャットルームで通知を受信できます。
     -	該当のWebフックを使用しない場合は、ステータスを「使用しない」に設定してください。
-![servide_guide11](http://static.toastoven.net/prod_dooray_messenger/service_guide_11.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_10_jp.png)
+<center>[図10]</center>
 
 #### 複数アカウントで同時にログインする
 1. ログインした状態で左上の「ファイル」メニューをクリックします。
 2. 「アカウントの追加」をクリックして、他の組職ドメインとアカウントを入力すれば、複数のアカウントで同時にログインできます。
-![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/service_guide_14.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_11_jp.png)
+<center>[図11]</center>
 3. 左側に青いバーが表示されるので、「+」ボタンをクリックして簡単にアカウントを切り替えることができます。
 
 #### 組職図を活用したメッセージ送信
 他部署のメンバーや部署にメッセージを送信したい場合、組職管理者が設定した部署を選択して送信することができます。組職図アイコンからテナント内の部署別にメンバーを選択し、メッセージを送信してください。
 組職図を活用するには、あらかじめ組職管理者が、「組職管理 > 部署/メンバー管理 > 組職図管理」から組織図を設定する必要があります。
-![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/service_guide_14.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_12_jp.png)
+<center>[図12]</center>
 - 新規メンバーの登録や、外部ユーザーと協業する際に、組職図から新規メンバーを招待できます。
 -	メンバーを招待するには対象ユーザーのメールアドレスが必要です。
 
