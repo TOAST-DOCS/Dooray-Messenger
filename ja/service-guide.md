@@ -63,12 +63,14 @@ Doorayメッセンジャーはリアルタイムコミュニケーションの�
 
 ### 通知設定
 新しいメッセージが届くと、PC画面に新しいメッセージを表示します。表示させたくない場合は、設定画面から通知を「off」にするか、チャットルームのベルアイコンをクリックして、チャットルーム別に通知をオフにしてください。
+
 ![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_6_jp.png)
 <center>[図6]</center>
 
 #### Dooray News!
 - Doorayプロジェクトで新しいタスクやコメントが登録されたり、メールを受信した際、Dooray! Newsで通知を行います。
 - 通知が必要ない場合は、設定画面からDooray! Newsを無効にしたり、受信する通知内容を選択することができます。詳細は、Dooray共通メニュー「設定 > 通知」を参考にしてください。
+
 ![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_7_jp.png)
 <center>[図7]</center>
 
