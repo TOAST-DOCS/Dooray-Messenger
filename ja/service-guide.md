@@ -55,6 +55,7 @@ Doorayメッセンジャーはリアルタイムコミュニケーションの�
 ### 情報変更
 #### プロフィール
 - プロフィールメニューから、プロフィール画像、名前、部署、役職、勤務時間などの情報を変更することができます。変更された情報は公開され、チャットルームで相手の名前やプロフィール画像をクリックすると、内容を確認できます。
+
 ![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_5_jp.png)
 <center>[図5]</center>
 
