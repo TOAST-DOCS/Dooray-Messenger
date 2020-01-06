@@ -1,99 +1,123 @@
-## Dooray! > Messenger > Service Guide
-### 소개
-Dooray! Messenger는 실시간 커뮤니케이션을 위한 메신저 서비스입니다. 같은 테넌트의 멤버 / 손님은 물론 서비스에 가입하지 않은 사람과도 대화할 수 있습니다. 여러 협업 도구를 연결하여 사용할 수 있습니다.
-### 접속
-[*https://dooray.com/messenger/orgs*](https://dooray.com/messenger/orgs) 에 접속하거나 [*https://dooray.com*](https://dooray.com) 에서 PC의 운영체제에 맞는 클라이언트를 설치하고 실행합니다.
-모바일 애플리케이션은 앱스토어 / 구글플레이에서 ‘Dooray 메신저를 검색하여 설치할 수 있습니다. 
+## Dooray! > Messenger > サービスガイド
+### 紹介
+Doorayメッセンジャーはリアルタイムコミュニケーションのためのメッセンジャーサービスです。同じテナントのメンバーはもちろん、ゲストとも会話ができます。また、多くの協業ツールと連動させて利用することができます。
 
-[앱스토어 바로가기](https://itunes.apple.com/kr/app/dooray-messenger/id1273636061?mt=8)<br>
-[구글 플레이 바로가기](https://play.google.com/store/apps/details?id=com.dooray.messenger)
+### 接続
+[*https://dooray.com/messenger/orgs*](https://dooray.com/messenger/orgs) から接続してください。または、[*https://dooray.com*](https://dooray.com) のダウンロードメニューからメッセンジャーをインストールすることができます。
+モバイルアプリは、App Store/Google Playから「Dooray メッセンジャー」で検索してインストールできます。
 
-### 대화
-#### 1:1 대화 시작
-- 좌측의 검색창에서 대화하고 싶은 상대의 이름을 검색하고 선택하면 대화할 수 있습니다. 만약 조직의 멤버/손님이 없다면 먼저 조직에 초대해야 합니다. 초대 방법은 “Dooray! Project의 테넌트, 조직 관리자 가이드 > 조직 관리자 > 멤버 관리”를 참고하시면 됩니다.
+[App Storeショートカット](https://itunes.apple.com/kr/app/dooray-messenger/id1273636061?mt=8)<br>
+[Google Playショートカット](https://play.google.com/store/apps/details?id=com.dooray.messenger)
 
-#### 대화방 생성
-- 하단의 버튼을 눌러 그룹 대화방을 생성할 수 있습니다. \[새 대화하기\]를 선택하면 대화 상대부터 선택할 수 있고, \[새 주제대화 만들기\]를 선택하면
-대화방의 주제 / 설명부터 입력하고 나중에 대화 상대를 초대할 수 있습니다.
+### 会話
+メッセンジャーを活用するには、あらかじめ組職管理者が管理画面にメンバーを登録する必要があります。自分たちの組職のメンバーに登録されたユーザーと会話ができます。またメッセンジャーで組職図を活用したい場合は、「組職管理 > 部署/メンバー管理 > 組職図管理」に組職図を設定してください。
+設定が完了したら下記のようにメッセンジャーがご利用いただけます。
 
-#### 대화방으로 초대/제외
-- 대화 상대를 대화방으로 초대할 수 있습니다. 대화방 화면에서 톱니 바퀴 모양의 아이콘을 누르고 “초대 및 관리” 버튼을 누르세요.
-![servide_guide1](http://static.toastoven.net/prod_dooray_messenger/service_guide_1.png)
+#### 1:1会話
+- 左側の検索ウィンドウから相手の名前を検索して選択すると会話が開始できます。
 
-- 원하는 상대를 선택한 후 “확인”을 누르면 대화방에 초대됩니다. 대화방에 참여하고 있는 상대를 제외할 수도 있습니다.
-![servide_guide2](http://static.toastoven.net/prod_dooray_messenger/service_guide_2.png)
+#### チャットルーム作成
+- 下段の吹き出しボタンからチャットルームを作成できます。「新しいチャット」を選択すると、相手を選択して会話を始めることができます。「トピックチャット作成」を選択すると、チャットルームのタイトルと説明を入力してチャットルームを作成した後、対象のチャットルームに相手を招待することができます。
 
-#### 메시지 전송
-- 대화방 하단의 입력창에서 여러 가지 유형의 메시지를 전송할 수 있습니다.
-- 텍스트와 URL, 이미지, 동영상, 이모지, 스티커를 전송할 수 있습니다.
-- Youtube나 Slideshare의 링크를 전송하면 대화방에서 내용을 미리 확인할 수 있습니다.
+#### メンバー招待/退出
+- チャットルーム右上のギアアイコンから、新しいメンバーの招待と、各メンバーの詳細機能を活用できます。
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_1_jp.png)
+<center>[図1]</center>
 
-#### 멘션
-- @멘션은 참여자가 많은 대화방에서도 특정한 상대를 지명하여 말을 걸 수 있는 유용한 기능입니다. ‘@’뒤에 해당 상대의 이름을 입력하면 됩니다.
-- 메신저 모바일 앱에는 자신을 @멘션한 메시지만 푸시를 주는 기능이 있어 중요한 메시지만 확인할 수 있습니다. 
-- 또한 ‘@channel’을 입력하면 대화방의 모든 상대가 @멘션됩니다.
-![servide_guide3](http://static.toastoven.net/prod_dooray_messenger/service_guide_16.png)
+#### メッセージ送信
+- チャットルーム下段の入力ウィンドウから、様々なメッセージを送信できます。
+- テキスト、URL、画像、動画、顔文字、ステッカーを送信できます。
+- YouTubeなどのリンクを送信するとチャットルームで内容をあらかじめ確認することができます。
 
-#### 메시지 검색/모아보기
-- 대화방 내에서는 메시지를 검색하거나 같은 유형의 메시지만 모아서 볼 수 있습니다.
-- 대화방 우측의 돋보기 버튼을 누르면 특정 단어가 포함된 메시지를 검색할 수 있습니다. 만약 검색 결과가 충분하지 않아 더 넓은 범위에서 검색이 필요하다면 붉게 표시한 부분을 눌러 검색 범위를 “모든 대화방”으로 변경하세요.
-![servide_guide4](http://static.toastoven.net/prod_dooray_messenger/service_guide_17.png)
-- @, 문서, 링크 모양의 버튼을 누르면 각각 멘션받은 메시지, 문서, 링크가 포함된 메시지만 모아서 확인할 수 있습니다.
+#### メンション
+- @メンションは参加者が多いチャットルームでも特定の相手を指名して会話ができる便利な機能です。「@」の後に相手の名前を入力すればメンションできます。
+- メッセンジャーモバイルアプリには、自分が@メンションされたメッセージのみ通知する機能があり、重要なメッセージだけを簡単に確認することができます。
+- また「@channel」を入力すると、チャットルームのすべてのメンバーにメンションされます。
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_2_jp.png)
+<center>[図2]</center>
 
-#### 번역
-- Dooray! 메신저는 실시간 대화 번역 기능을 지원합니다.
-- 우선 좌측 상단의 자신의 이름 부분을 누른 후 설정 메뉴를 선택하여 나오는 설정 화면에서 대화 시에 사용할 언어가 바르게 적용되어 있는지 확인합니다.
-- Dooray! Messenger는 대화에 참여한 상대가 서로 언어가 다른 경우, 자동으로 해당 언어에 맞는 번역을 제공합니다.
-![servide_guide5](http://static.toastoven.net/prod_dooray_messenger/service_guide_5.png)
-![servide_guide6](http://static.toastoven.net/prod_dooray_messenger/service_guide_6.png)
-- 대화방의 톱니 바퀴 버튼을 눌러 자동 번역 설정을 켭니다. 이후로 수신되는 메시지는 자동으로 번역됩니다. 더 이상 번역이 필요하지 않다면 동일한 방법으로 자동 번역 설정을 끄면 됩니다.
-![servide_guide7](http://static.toastoven.net/prod_dooray_messenger/service_guide_7.png)
+#### メッセージ検索/まとめて表示
+- チャットルーム内では、メッセージを検索したり、同じタイプのメッセージを集めて見ることができます。
+- チャットルーム右側の拡声器アイコンを選択すると、告知されたメッセージをまとめて確認できます。@メンションアイコンを選択すると、自分がメンションされたメッセージが確認できます。また、ファイルとリンクのアイコンを選択すると、それぞれのタイプのメッセージだけをまとめて確認することができます。
+- チャットルーム右側の虫眼鏡アイコンを選択すると、キーワードが含まれるメッセージを検索することができます。検索結果が十分ではない場合、検索範囲を「すべてのチャット」に広げて検索してみてください。
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_3_jp.png)
+<center>[図3]</center>
 
-### 정보 변경
+#### 翻訳
+- Doorayメッセンジャーはリアルタイムで会話が翻訳される翻訳機能を提供しています。
+- 左上の名前の部分にある「ドロップダウンボタン > 設定」から会話で使用する言語が正しく適用されているか確認します。
+- Doorayメッセンジャーは、会話に参加している相手と使用する言語が異なる場合に備えて、会話時に使用する言語をあらかじめ設定することができます。お互いの言語が違っていても、自分が指定した言語で会話ができます。
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_4_jp.png)
+<center>[図4]</center>
 
-#### 프로필
-- 아래의 프로필 메뉴를 누르면 프로필 이미지, 이름, 부서, 직급, 출근 시간 등의 정보를 변경할 수 있습니다. 변경된 정보는 공개되며, 대화방에서 다른 사람의 이름 또는 프로필 이미지를 누르면 프로필을 확인할 수 있습니다.
-![servide_guide8](http://static.toastoven.net/prod_dooray_messenger/service_guide_8.png)
+- チャットルームのギアアイコンから自動翻訳を設定できます。設定後に受信したメッセージは自動で翻訳されます。自動翻訳が必要なければ、自動翻訳をオフに設定してください。
 
-#### 상태 변경
-- 자신의 상태는 “온라인 / 오프라인 / 자리비움 / 바쁨”의 4가지로 구분됩니다. 온라인 상태일 경우에는 새 메시지가 오더라도 메신저 모바일 앱으로 푸시가 오지 않습니다. 일정 시간 동안 PC를 사용하지 않을 경우 자동으로 상태를 “자리비움”으로 변경하며 메신저 모바일 앱으로 푸시를 보내줍니다. 방해받고 싶지 않은 경우 자신의 상태를 “바쁨”으로 변경하면 다른 사람들에게 표시됩니다.
+### 情報変更
+#### プロフィール
+- プロフィールメニューから、プロフィール画像、名前、部署、役職、勤務時間などの情報を変更することができます。変更された情報は公開され、チャットルームで相手の名前やプロフィール画像をクリックすると、内容を確認できます。
 
-### 설정
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_5_jp.png)
+<center>[図5]</center>
 
-#### 알림
-- 새 메시지가 도착했을 때, PC의 화면에서 새 메시지를 표시해줍니다. 보지 않으려면 아래의 설정 화면에서 전체 알림을 끄거나, 대화방의 종 모양 아이콘을 클릭하여 대화방별로 알림을 끄세요.
-![servide_guide9](http://static.toastoven.net/prod_dooray_messenger/service_guide_9.png)
+#### ステータス変更
+- ステータスは「オンライン/オフライン/退席中/取り込み中」の4種類があります。オンラインの状態では新しいメッセージが届いてもメッセンジャーモバイルアプリにプッシュ通知されません。一定期間、PCが使用されていなければ、自動で「退席中」に変更し、メッセンジャーモバイルアプリにプッシュを送信します。邪魔されたくない場合は「取り込み中」に変更しておくと、他のメンバーにも表示されます。
+
+### 通知設定
+新しいメッセージが届くと、PC画面に新しいメッセージを表示します。表示させたくない場合は、設定画面から通知を「off」にするか、チャットルームのベルアイコンをクリックして、チャットルーム別に通知をオフにしてください。
+
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_6_jp.png)
+<center>[図6]</center>
 
 #### Dooray News!
-- Dooray News!에서는 Dooray! Project의 새 글 / 새 댓글이 등록되거나, 메일을 받았을 경우 알려줍니다.
-- 메시지를 받지 않으려면 아래의 화면에서 전체 Dooray! News를 끄거나, 메시지를 받을 내용을 선택할 수 있습니다. 자세한 내용은 “Dooray! 공통 > 스트림/알림 설정”을 참고하세요.
-![servide_guide10](http://static.toastoven.net/prod_dooray_messenger/service_guide_10.png)
+- Doorayプロジェクトで新しいタスクやコメントが登録されたり、メールを受信した際、Dooray! Newsで通知を行います。
+- 通知が必要ない場合は、設定画面からDooray! Newsを無効にしたり、受信する通知内容を選択することができます。詳細は、Dooray共通メニュー「設定 > 通知」を参考にしてください。
 
-### 기타
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_7_jp.png)
+<center>[図7]</center>
 
-#### 웹훅/프로젝트 알림 받기
-- 각 대화방은 URL을 가지고 있습니다. 이 URL을 등록하면 다른 서비스에서 대화방으로 메시지를 보내도록 할 수 있습니다.
-- “설정 > 서비스 연동”에서 연동 추가를 누르면 임의의 URL을 확인할 수 있습니다.
-![servide_guide11](http://static.toastoven.net/prod_dooray_messenger/service_guide_11.png)
+### その他
+#### Webフック/プロジェクト通知を受信する
+- チャットルームはそれぞれURLを持っています。このURLを登録すると、他のサービスからチャットルームにメッセージを送信できます。
+- Dooray共通メニュー「設定 > サービス連動 > サービス追加」から連動追加をクリックすると、連動URLを確認することができます。
 
-- 만약 Dooray!의 특정 Project에서 새로 추가된 글 / 댓글을 대화방에서 확인하고 싶다면 다음과 같이 할 수 있습니다.
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_8_jp.png)
+<center>[図8]</center>
 
-1. “설정 > 서비스 연동”에서 incoming의 연동 추가를 누릅니다. 임의의 URL을 복사합니다.
+- Doorayの特定プロジェクトに新規追加されたタスクやコメントをチャットルームで確認したい場合は、Webフックを設定してください。
+- Dooray共通メニュー「設定 > サービス連動」で「incoming」の連動追加を選択します。
 
-2. Dooray! Project 화면에서 Project 명 옆의 톱니 바퀴 아이콘을 눌러 설정을 열고 웹훅 탭에서 웹훅을 추가합니다.
-![servide_guide12](http://static.toastoven.net/prod_dooray_messenger/service_guide_12.png)
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_9_jp.png)
+<center>[図9]</center>
 
-3. URL을 붙여 넣습니다.
-![servide_guide13](http://static.toastoven.net/prod_dooray_messenger/service_guide_13.png)
+-	連動したいチャットルームを選択して、連動URLをコピーしてください。
+* 名前が設定されているチャットルームのみ連動チャットリストに表示されます。
+-	コピーされたチャットルームのURLを利用して、プロジェクト設定からWebフックを追加します。
+    -「プロジェクト設定 > タスク > Webフック」で、URL入力欄にコピーしたチャットルームの URLをペーストします。
+    - 送信メッセージフォーマットと通知項目を選択して追加ボタンをクリックします。
+    - Webフックを追加すると、選択した通知項目に該当するアクションがあったとき、チャットルームで通知を受信できます。
+    -	該当のWebフックを使用しない場合は、ステータスを「使用しない」に設定してください。
 
-Dooray! 외에도 Jenjins, Github, JIRA, IFTTT 등을 지원합니다.
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_10_jp.png)
+<center>[図10]</center>
 
-#### 여러 계정으로 동시에 로그인하기
+#### 複数アカウントで同時にログインする
+1. ログインした状態で左上の「ファイル」メニューをクリックします。
+2. 「アカウントの追加」をクリックして、他の組職ドメインとアカウントを入力すれば、複数のアカウントで同時にログインできます。
 
-1. 로그인한 상태에서 상단의 \[메뉴\] 버튼을 클릭합니다.
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_11_jp.png)
+<center>[図11]</center>
 
-2. \[계정 추가\] 버튼을 누르고 다른 조직명과 계정을 입력하면 여러 개의 계정으로 동시에 로그인할 수 있습니다.
-![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/service_guide_14.png)
+3. 左側に青いバーが表示されるので、「+」ボタンをクリックして簡単にアカウントを切り替えることができます。
 
-3. 좌측에 파란색 바가 나타나고, 테넌트 버튼을 클릭해서 간편하게 계정을 전환할 수 있습니다.
-![servide_guide15](http://static.toastoven.net/prod_dooray_messenger/service_guide_15.png)
+#### 組職図を活用したメッセージ送信
+他部署のメンバーや部署にメッセージを送信したい場合、組職管理者が設定した部署を選択して送信することができます。組職図アイコンからテナント内の部署別にメンバーを選択し、メッセージを送信してください。
+組職図を活用するには、あらかじめ組職管理者が、「組職管理 > 部署/メンバー管理 > 組職図管理」から組織図を設定する必要があります。
+
+![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_12_jp.png)
+<center>[図12]</center>
+
+- 新規メンバーの登録や、外部ユーザーと協業する際に、組職図から新規メンバーを招待できます。
+-	メンバーを招待するには対象ユーザーのメールアドレスが必要です。
+
+
+

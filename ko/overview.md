@@ -12,7 +12,7 @@
 ### 다양한 협업 도구를 연결
 Dooray! Project, Mail, Calendar 등의 알림을 Messenger로 받아볼 수 있습니다.
 GitHub, Bitbucket, Jenkins, IFTTT 등과 연동을 지원하며, 그 외의 서비스와도 훅을 활용하여 서비스를 확장할 수 있습니다.
-다양한 Command Bot을 생성하여 대화방에서 활용할 수 있습니다.(예정)
+다양한 Command Bot을 생성하여 대화방에서 활용할 수 있습니다.
 
 ### 똑똑한 알림
 PC의 상태를 체크하여 자리를 비운 경우에만 모바일 앱으로 푸시 알림을 전송하여 업무에 더 집중할 수 있도록 합니다.
