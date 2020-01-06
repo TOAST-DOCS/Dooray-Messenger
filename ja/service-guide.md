@@ -82,11 +82,13 @@ Doorayメッセンジャーはリアルタイムコミュニケーションの�
 
 ![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_8_jp.png)
 <center>[図8]</center>
+
 - Doorayの特定プロジェクトに新規追加されたタスクやコメントをチャットルームで確認したい場合は、Webフックを設定してください。
 - Dooray共通メニュー「設定 > サービス連動」で「incoming」の連動追加を選択します。
 
 ![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_9_jp.png)
 <center>[図9]</center>
+
 -	連動したいチャットルームを選択して、連動URLをコピーしてください。
 * 名前が設定されているチャットルームのみ連動チャットリストに表示されます。
 -	コピーされたチャットルームのURLを利用して、プロジェクト設定からWebフックを追加します。
@@ -94,21 +96,26 @@ Doorayメッセンジャーはリアルタイムコミュニケーションの�
     - 送信メッセージフォーマットと通知項目を選択して追加ボタンをクリックします。
     - Webフックを追加すると、選択した通知項目に該当するアクションがあったとき、チャットルームで通知を受信できます。
     -	該当のWebフックを使用しない場合は、ステータスを「使用しない」に設定してください。
+
 ![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_10_jp.png)
 <center>[図10]</center>
 
 #### 複数アカウントで同時にログインする
 1. ログインした状態で左上の「ファイル」メニューをクリックします。
 2. 「アカウントの追加」をクリックして、他の組職ドメインとアカウントを入力すれば、複数のアカウントで同時にログインできます。
+
 ![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_11_jp.png)
 <center>[図11]</center>
+
 3. 左側に青いバーが表示されるので、「+」ボタンをクリックして簡単にアカウントを切り替えることができます。
 
 #### 組職図を活用したメッセージ送信
 他部署のメンバーや部署にメッセージを送信したい場合、組職管理者が設定した部署を選択して送信することができます。組職図アイコンからテナント内の部署別にメンバーを選択し、メッセージを送信してください。
 組職図を活用するには、あらかじめ組職管理者が、「組職管理 > 部署/メンバー管理 > 組職図管理」から組織図を設定する必要があります。
+
 ![servide_guide](http://static.toastoven.net/prod_dooray_messenger/service_guide_12_jp.png)
 <center>[図12]</center>
+
 - 新規メンバーの登録や、外部ユーザーと協業する際に、組職図から新規メンバーを招待できます。
 -	メンバーを招待するには対象ユーザーのメールアドレスが必要です。
 
