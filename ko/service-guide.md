@@ -97,14 +97,14 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
     - 웹 훅을 추가하면, 내가 선택한 알림 항목에 해당하는 액션이 있을 때, 대화방으로 알림이 옵니다.
     - 해당 웹 훅을 사용하지 않을 때는 사용 안 함으로 설정해 놓으면 됩니다. 
     
-![servide_guide13](http://static.toastoven.net/prod_dooray_messenger/service_guide_11.png)
+![servide_guide13](http://static.toastoven.net/prod_dooray_messenger/Messenger_11_ko.png)
 
 #### 여러 계정으로 동시에 로그인하기
 1. 로그인한 상태에서 상단의 [파일] 버튼을 클릭합니다.
 
 2. [계정 추가] 버튼을 누르고 다른 조직명과 계정을 입력하면 여러 개의 계정으로 동시에 로그인할 수 있습니다.
 
-![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/service_guide_12.png)
+![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/Messenger_12_ko.png)
 
 3. 좌측에 파란색 바가 나타나면, (+) 버튼을 클릭해서 간편하게 계정을 전환할 수 있습니다.
 
@@ -112,7 +112,7 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 다른 부서의 멤버 또는 부서에 메시지를 발송하고자 할 때 조직 관리자가 세팅해 놓은 부서를 선택하여 발송할 수 있습니다.  조직도 아이콘을 선택하여 테넌트 내 부서별 멤버를 확인하고 선택하여 메시지를 발송해주세요.
 조직도 활용을 위해서는 미리 조직 관리자가 [조직 관리 > 부서/멤버 관리 > 조직도 관리]에 세팅해 놓아야 합니다. 
 
-![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/service_guide_13.png)
+![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/Messenger_13_ko.png)
 
 -	신규로 멤버를 등록하거나, 외부 사용자와 협업하고자 할 경우, 조직도에서 신규 멤버를 초대할 수 있습니다.
 -	멤버를 초대하기 위해서는 초대하고자 하는 사용자의 이메일 주소가 필요합니다.   
