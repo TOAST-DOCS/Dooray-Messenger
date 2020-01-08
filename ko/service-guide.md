@@ -64,7 +64,6 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 ![servide_guide4](http://static.toastoven.net/prod_dooray_messenger/Messenger_07_ko.png)
 
 ### 정보 변경
-
 #### 프로필
 - 아래의 프로필 메뉴를 누르면 프로필 이미지, 이름, 부서, 직급, 출근 시간 등의 정보를 변경할 수 있습니다. 변경된 정보는 공개되며, 대화방에서 다른 사람의 이름 또는 프로필 이미지를 누르면 프로필을 확인할 수 있습니다.
 
@@ -74,7 +73,6 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 - 자신의 상태는 “온라인 / 오프라인 / 자리비움 / 다른 업무” 4가지로 구분됩니다. 온라인 상태일 경우에는 새 메시지가 오더라도 메신저 모바일 앱으로 푸시가 오지 않습니다. 일정 시간 동안 PC를 사용하지 않을 경우 자동으로 상태가 “자리비움”으로 변경되며 메신저 모바일 앱으로 푸시를 보내줍니다. 방해받고 싶지 않은 경우 자신의 상태를 “다른 업무”로 변경하면 다른 사람들에게 표시됩니다.
 
 ### 설정
-
 #### 알림
 - 새 메시지가 도착했을 때, PC의 화면에서 새 메시지를 표시해줍니다. 보지 않으려면 아래의 설정 화면에서 전체 알림을 끄거나, 대화방의 종 모양 아이콘을 클릭하여 대화방별로 알림을 끄세요.
 
@@ -87,7 +85,6 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 ![servide_guide10](http://static.toastoven.net/prod_dooray_messenger/Messenger_10_ko.png)
 
 ### 기타
-
 #### 웹훅/프로젝트 알림 받기
 - 각 대화방은 URL을 가지고 있습니다. 이 URL을 등록하면 다른 서비스에서 대화방으로 메시지를 보내도록 할 수 있습니다.
 - “웹 설정 > 서비스 연동”에서 연동 추가를 누르면 임의의 URL을 확인할 수 있습니다.
