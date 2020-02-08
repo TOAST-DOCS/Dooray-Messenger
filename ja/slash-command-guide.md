@@ -368,7 +368,7 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
     {
         "type": "select",
         "name": "sel_channels",
-        "text": "대화방 출력",
+        "text": "チャットルーム出力",
         "dataSource": "channels"
     }
 ]
@@ -401,11 +401,11 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
     },
     "channel": {
         "id": "1234567891234567891",
-        "name": "Command 가이드 채널"
+        "name": "Command Guide"
     },
     "user": {
         "id": "1234567891234567891",
-        "name": "홍길동"
+        "name": "山田太郎"
     },
     "callbackId": "sample",
     "actionName": "sel_externel",
