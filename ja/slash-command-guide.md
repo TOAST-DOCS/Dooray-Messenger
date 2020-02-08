@@ -1,111 +1,99 @@
-## Dooray! > Messenger > 슬래시 커맨드 가이드
-### 연동 서비스
+## Dooray! > Messenger > スラッシュコマンドガイド
+### 連動サービス
 
-Dooray! 메신저에서는 사람이 아닌 다양한 도구에게 명령하고 메시지를 받으면서 더 효율적으로 업무를 할 수 있습니다.
-메신저에서 제공하지 않는 기능을 직접 구현하고 싶을 때 이 기능을 활용하여 여러분도 자신의 업무를 좀 더 효율적으로 자동화 할 수 있습니다.
+Doorayメッセンジャーでは、人とのコミュニケーション以外にも、さまざまなツールへ向けてコマンドを作成し、メッセージを受信しながら、より効率的に業務を行うことができます。メッセンジャーで提供していない機能を直接実装したいときは、この機能を使って自分の仕事をさらに効率的に自動化することができます。ここで紹介する機能は、直接作成できるコマンドとその説明です。今後、ボット(BOT)はAPIなど、さまざまな連動サービスを提供する予定です。
 
-소개할 기능은 커맨드를 직접 생성하는 것에 대한 내용이며, 앞으로 봇, API 등 다양한 연동 서비스를 제공할 예정입니다.
+### スラッシュコマンド
 
-### 슬래시 커맨드
-
-슬래시 커맨드(이하 커맨드)는 `/`문자 뒤에 덧붙여서 특정한 기능을 수행하도록 하는 명령어입니다.
-Dooray! 메신저에서는 기본적으로 `/mute`, `/status`, `/search` 등의 커맨드를 제공합니다.
-예컨대 메시지 내용을 찾거나, 자신의 상태를 바꾸는 등의 기능을 마우스의 클릭이나 다른 조작 없이 키보드 입력만으로 빠르게 실행할 수 있도록 도와줍니다.
+スラッシュコマンド(以降コマンド)は、メッセージ入力欄に/(スラッシュ)をつけて特定の機能を実行させるコマンドです。Doorayメッセンジャーでは、基本的に/mute、/status、/searchなどのコマンドを提供しています。例えば、メッセージの内容を検索したり、自分のステータスを変更したりするなどの機能を、マウスのクリックや他の操作をすることなく、キーボード入力だけで実行できるようにサポートします。
 
 ![2](http://static.toastoven.net/prod_dooray_messenger/integration/2.png)
 
-자신이 원하는 기능을 수행하는 커맨드를 직접 만들어 사용할 수 있습니다.
-예를 들어 매일 아침 교통 정보와 날씨를 메시지로 받아볼 수 있고, 간단한 명령어를 입력하여 투표를 생성할 수도 있습니다.
-
-아래 그림은 커맨드 서버와 메신저 서버 간의 통신 과정입니다.
+自分が望む機能を実行するコマンドを直接入力して使用することができます。例えば、毎朝の交通情報や天気予報をメッセージとして受け取ったり、簡単なコマンドを入力して投票を作成したりすることもできます。
+下図は、コマンドサーバーとメッセンジャーサーバー間の通信プロセスです。
 
 ![3](http://static.toastoven.net/prod_dooray_messenger/integration/3.png)
 
-사용자는 `/`문자와 대화방에 등록된 커맨드를 입력합니다. 입력한 커맨드 정보는 메신저 서버를 통해 커맨드 서버로 전송이 됩니다. 커맨드 서버에서 처리한 결과를 메신저 서버로 전송합니다. 메신저 서버는 커맨드 서버로부터 받은 데이터를 기반으로 사용자에게 결과를 보여줍니다.
+ユーザーは/(スラッシュ)とチャットルームに登録されているコマンドを入力します。入力したコマンド情報は、メッセンジャーサーバーを通じてコマンドサーバーに送信され、コマンドサーバーで処理した結果をメッセンジャーサーバーに送信します。メッセンジャーサーバーは、コマンドサーバーから受信したデータに基づいて、ユーザーに結果を表示します。
 
-### 사용 환경
+### 使用環境
 
-사용자는 PC와 모바일에서 커맨드를 입력하고 결과를 확인할 수 있습니다. 그렇기 때문에 커맨드 제작자는 모바일 환경에서의 레이아웃도 신경써야 합니다.
-현재 대화방에 커맨드를 추가하는 기능은 PC에서만 제공합니다.
+ユーザーは、PCとモバイルでコマンドを入力して結果を確認することができます。そのため、コマンドの作成者は、モバイル環境でのレイアウトにも気を配る必要があります。現在、チャットルームにコマンドを追加する機能は、PC上でのみ提供しています。
 
-### 제작 가이드
+### 作成ガイド
 
-커맨드의 제작 및 등록 방법에 대해서는 아래의 문서에서 설명합니다.
+コマンドの作成と登録方法について、ご案内します。
 
 ---
 
-## 커맨드 추가하기
+## コマンドの追加
 
-직접 만든 커맨드를 사용하기 위해서 Dooray! 메신저에 추가해야 합니다.
+自作コマンドを使用するにはDoorayメッセンジャーに追加する必要があります。
 
-### 추가 화면으로 이동
+### 追加画面に移動
 
-Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스' 메뉴를 선택합니다.
+Doorayメッセンジャー左上の自分の名前を選択し「スラッシュコマンド連動」メニューを選択します。
 
 ![4](http://static.toastoven.net/prod_dooray_messenger/integration/4_2.png)
 
-아래와 같이 빈 화면이 표시됩니다.
+下記のように空白の画面が表示されます。
 
 ![5](http://static.toastoven.net/prod_dooray_messenger/integration/5.png)
 
-### 앱 추가
+### アプリ追加
 
-우선 앱을 만들어야 합니다. 앱은 연동 서비스의 묶음 단위입니다.
-하나의 앱에 여러 개의 커맨드를 추가할 수 있습니다. 아래의 정보를 입력하여 앱을 만들어 봅니다.
-각 정보는 대화방에 공개된 커맨드를 등록할 때 목록에 노출됩니다.
+まずアプリを作成します。アプリは連動サービスをひとまとめにしたユニットです。1つのアプリに複数のコマンドを追加することができます。下記の情報を入力してアプリを作成します。各情報は、チャットルームに公開されたコマンドを登録する際、リストに表示されます。
+
 ![6](http://static.toastoven.net/prod_dooray_messenger/integration/6.png)
 
-|구분|설명|
+|区分|説明|
 |---|---|
-|Image|대화방에서 커맨드를 사용할 때 메시지의 전송자 아이콘으로 표시됩니다.|
-|Name|대화방에서 커맨드를 사용할 때 메시지의 전송자 이름으로 표시됩니다.|
-|Description|앱의 설명입니다.|
+|Image|チャットルームでコマンドを使用すると、メッセージ送信者のアイコンに表示されます。|
+|Name|チャットルームでコマンドを使用すると、メッセージ送信者の名前に表示されます。|
+|Description|アプリの説明|
 
-이제 앱이 만들어졌습니다. 생성되어 있는 토큰과 비어 있는 커맨드 목록을 보실 수 있습니다.
-토큰은 커맨드 요청시 함께 전송되어 요청을 검증하는데에 사용합니다. 토큰이 외부에 유출되지 않도록 주의하시기 바랍니다. 만약 토큰이 외부에 유출된 경우에는 'Regenerate' 버튼을 이용해 기존 토큰을 파기하고 다시 발급해 사용하세요.
+アプリが作成されると、作成されたトークンと空のコマンドリストが確認できます。トークンは、コマンド発行時に送信され、リクエストを検証するために使用します。トークンが外部に流出しないように注意しましょう。トークンが外部に流出してしまった場合は、「Regenerate」ボタンから既存のトークンを破棄し、再発行してご使用ください。
 
 ![7](http://static.toastoven.net/prod_dooray_messenger/integration/7.png)
 
-### 커맨드 추가
+### コマンド追加
 
-앱을 등록한 후, 슬래시 커맨드 영역의 '추가' 버튼을 누르면 커맨드를 추가할 수 있습니다.
-되도록 하나의 앱에는 서로 밀접하게 관계가 있는 커맨드를 추가하는 것을 권장합니다.
-
-미리 제작한 커맨드가 없다면, 아래의 예제대로 `/hi` 커맨드를 추가해 보세요.
+アプリ登録後、スラッシュコマンド領域の「追加」ボタンを押すと、コマンドを追加することができます。なるべく1つのアプリには、相互に密接に関係するコマンドを追加することをお勧めします。事前に作成したコマンドがない場合は、下のサンプルのように  /hiコマンドを追加してみましょう。
 
 ![8](http://static.toastoven.net/prod_dooray_messenger/integration/8.png)
 
-|구분|설명|
+|区分|説明|
 |---|---|
-|Command|`/`를 포함하여 대화방에서 입력할 명령어를 입력합니다.<br>명령어는 커맨드의 기능을 나타내는 직관적인 것이 좋습니다.|
-|Request URL|커맨드를 실행 시 요청할 커맨드 서버 URL을 입력합니다.|
-|Description|커맨드 사용할 때 표시될 설명입니다. 다른 사람이 커맨드의 기능을 쉽게 이해할 수 있도록 적어주세요.|
-|Parameter Hint|커맨드와 함께 어떤 파라미터를 적어야 하는지 설명해 주세요.<br>(지역, 시간, 사람, 날짜, 텍스트, 숫자 등의 정보를 입력할 수 있습니다.)|
-|Public|해당 커맨드를 다른 사람들도 대화방에 추가하여 사용할 수 있습니다.|
+|Command|`/`を含むチャットルームで入力するコマンドを入力します。コマンドは、コマンドの機能を表す直感的なものがよいでしょう。|
+|Request URL|コマンド実行時にリクエストするコマンドサーバーのURLを入力します。|
+|Description|コマンドを使用するときに表示される説明です。<br> 他のユーザーがコマンドの機能を簡単に理解できるように記入しましょう。|
+|Parameter Hint|コマンドとともに、どのようなパラメータを記載する必要があるか説明してください。<br>(地域、時間、人物、日付、テキスト、数字などの情報を入力できます。)|
+|Public|このコマンドを他のユーザーもチャットルームに追加して使用することができます。|
 
-커맨드가 추가되었습니다.
+コマンドが追加されました。
 
 ![9](http://static.toastoven.net/prod_dooray_messenger/integration/9.png)
 
-### Interactive Request URL 입력
+### Interactive Request URLを入力
 
-버튼과 드롭다운 메뉴를 통해 사용자의 액션을 받으려면 Interactive Message 처리를 위한 별도의 URL이 필요합니다.
+ボタンとドロップダウンメニューを通じてユーザーのアクションを受け取るには対話的メッセージ(Interactive Message)処理のため、別途URLが必要です。
 
 ![10](http://static.toastoven.net/prod_dooray_messenger/integration/10.png)
 
-|구분|설명|
+|区分|説明|
 |---|---|
-|Interactive Message Request URL|버튼과 드롭다운 메뉴 등 메시지를 통해서 유저와 상호 작용하는 경우, 유저의 요청을 전달할 URL을 입력합니다.|
-|Interactive Message Optional URL|메시지에 dataSource를 external로 설정한 메뉴 목록 등을 제공하는 경우, 메뉴 목록을 요청할 URL을 입력합니다.|
+|Interactive Message Request URL|ボタンとドロップダウンメニューなどのメッセージを通じてユーザーと対話する場合、ユーザーのリクエストを伝えるURLを入力します。|
+|Interactive Message Optional URL|メッセージにdataSourceをexternalで設定したメニューリストなどを提供する場合、メニューリストをリクエストするURLを入力します。|
 
 ---
 
-## "Hello World!" 메시지 보내기
-대화방에서 `/hi`라고 입력하면, "Hello world!"라고 대답하는 아주 간단한 커맨드를 만들어 보겠습니다.
+## 「Hello World!」メッセージを送る
 
-### 커맨드 실행
+チャットルームで `/hi`と入力すると、「Hello World!」と答える、ごく簡単なコマンドを作成してみましょう。
 
-사용자가 Dooray! 메신저를 통해 `/hi` 커맨드를 실행하면 커맨드 서버는 아래와 같은 JSON 데이터를 전달받습니다.
+### コマンド実行
+
+ユーザーがDoorayメッセンジャーから/hiコマンドを実行すると、コマンドサーバーは、下記のようなJSONデータを受け取ります。
 
 ```javascript
 {
@@ -122,22 +110,23 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-|필드명|설명|
+|フィールド名|説明|
 |---|---|
-|tenantId|커맨드가 등록된 테넌트의 ID|
-|tenantDomain|커맨드가 등록된 테넌트의 도메인|
-|channelId|커맨드가 요청한 대화방의 ID|
-|channelName|커맨드를 요청한 대화방의 이름|
-|userId|커맨드를 요청한 사용자 ID|
-|command|요청한 커맨드|
-|text|커맨드와 함께 입력한 텍스트|
-|responseUrl|커맨드 요청에 응답할 수 있는 웹 훅 URL|
-|appToken|등록한 앱의 토큰. 정상 요청인지 검증할 때 사용|
-|triggerId|다이얼로그에 사용하는 값|
+|tenantId|コマンドが登録されているテナントID|
+|tenantDomain|コマンドが登録されているテナントのドメイン|
+|channelId|コマンドを発行したチャットルームID|
+|channelName|コマンドを発行したチャットルーム名|
+|userId|コマンドを発行したユーザーID|
+|command|発行したコマンド|
+|text|コマンドとともに入力したテキスト|
+|responseUrl|コマンドリクエストに応答するWebフックURL|
+|appToken|登録したアプリのトークン、正常なリクエストか検証する際に使用|
+|cmdToken|API呼び出し時に使用するトークン|
+|triggerId|ダイアログに使用する値|
 
-### 응답
+### 応答
 
-커맨드 서버는 전달받은 데이터를 이용해 사용자에게 응답할 데이터를 만듭니다. 그리고 이 데이터를 요청에 대한 응답으로 보내야 합니다. `/hi` 커맨드는 특별한 데이터 처리 없이 `Hello World!`만 보내주면 됩니다.
+コマンドサーバーは、配信されたデータを利用してユーザーに応答するデータを作成します。そして、このデータをリクエストに対する応答として送信します。 `/hi` コマンドは、特別なデータ処理はなく `Hello World!`のみ送信します。
 
 ```javascript
 {
@@ -145,9 +134,9 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "responseType": "ephemeral"
 }
 ```
-위와 같이 응답하면 커맨드를 호출한 사용자에게만 보이는 메시지가 됩니다.
 
-만약 대화방 내의 멤버들에게 모두 보여주고 싶은 경우 `responseType`을 `inChannel`로 응답에 추가하면 됩니다.
+上記のように応答すると、コマンドを呼び出したユーザーにのみメッセージが表示されます。チャットルーム内のメンバーにすべて表示させたい場合は、
+ `responseType`を `inChannel`で応答に追加します。
 
 ```javascript
 {
@@ -155,25 +144,26 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "responseType": "inChannel"
 }
 ```
-|필드명|기본값|설명|
+
+|フィールド名|デフォルト|説明|
 |---|---|---|
-|responseType|ephemeral|메시지 게시 타입을 설정합니다.<br>- inChannel: 전체 사용자에게 표시<br>- ephemeral:  호출한 사용자에게만 표시|
-|text||메시지 내용|
+|responseType|ephemeral|メッセージの投稿タイプを設定します。<br>- inChannel: 全ユーザーに表示 <br>- ephemeral:  呼び出したユーザーにのみ表示|
+|text||メッセージの内容|
 
 ---
 
-## 메시지를 전송하는 네 가지 방법
+## メッセージを送信する4つの方法
 
-커맨드 실행 시, 메신저 서버는 네 가지의 방식으로 메시지를 전송할 수 있습니다.
+コマンド実行時、メッセンジャーサーバーは、4種類の方法でメッセージを送信することができます。
 
-- 최초로 메시지를 전송
-- 메시지를 보낸 후 추가로 전송
-- 기존에 보낸 메시지를 업데이트
-- 기존에 보낸 메시지를 삭제하고 메시지를 새로 전송
+- 最初のメッセージを送信
+- メッセージ送信後に追加送信
+- 既存の送信メッセージを更新
+- 既存の送信メッセージを削除し、新規メッセージを送信
 
-### 메시지를 최초 전송
+### 最初のメッセージを送信
 
-메시지를 새로 보내는 방법은 간단합니다.
+メッセージを新規に送信する方法は簡単です。
 
 ```javascript
 {
@@ -182,9 +172,9 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-### 메시지를 추가로 전송
+### メッセージの追加送信
 
-`replaceOriginal`을 `false`로 하면 메시지를 새로 전송합니다.
+`replaceOriginal`を `false`にすると、メッセージを新規に送信します。
 
 ```javascript
 {
@@ -194,10 +184,9 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-### 기존에 보낸 메시지를 업데이트
+### 既存の送信メッセージを更新
 
-`replaceOriginal`을 `true`로 하면 기존에 보낸 메시지의 위치에 그대로 내용만 변경되며, 알림도 오지 않습니다.
-기존 메시지의 `responseType`로 바꾸어 업데이트할 수 없습니다. `responseType`을 바꾸기 위해선 메시지를 새로 전송해야 합니다.
+`replaceOriginal`を `true`にすると、既存の送信メッセージの位置で内容だけを変更し、通知も行いません。また、既存のメッセージの `responseType`を切り替えて更新することはできません。`responseType`を切り替えるには、メッセージを新規に送信する必要があります。
 
 ```javascript
 {
@@ -207,10 +196,10 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-### 기존에 보낸 메시지를 삭제하고 메시지를 새로 전송
+### 既存の送信メッセージを削除し、新規メッセージを送信
 
-이 경우에는 대화방의 참여자에게 알림이 가기 때문에 대화방의 사람들이 변경되는 내용을 알게 하고 싶을 때 효과적입니다.
-`deleteOriginal`을 `true`로 하면 기존 메시지가 삭제되고 다시 전송됩니다.
+この場合は、チャットルームの参加者に通知が届くので、参加者に内容が変更されたことを伝えるのに効果的です。
+`deleteOriginal`を `true`にすると、既存のメッセージが削除され、再送信されます。
 
 ```javascript
 {
@@ -220,29 +209,28 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-필요한 기능에 맞는 메시지 전송 방법을 선택하여 커맨드를 제작하시기 바랍니다.
+必要に応じてメッセージの送信方法を選択し、コマンドを作成しましょう。
 
 ---
 
-## 메시지에 버튼 넣기
+## メッセージにボタン挿入
 
-응답 메시지는 `attachments` 필드를 이용해 버튼을 표시할 수 있습니다. 메시지를 받은 사람은 버튼을 눌러 상호작용을 할 수 있습니다. 버튼을 넣는 방법과 버튼을 선택한 결과를 받아 처리하는 방법을 알아보겠습니다.
-
-아래는 입력한 메시지를 대화방에 전송할지 확인하는 attachments가 포함된 메시지입니다.
+応答メッセージは、 `attachments` フィールドを利用してボタンを表示することができます。メッセージを受信したユーザーは、ボタンを押して双方向コミュニケーションができます。ボタンの挿入方法と、ボタンの選択結果を受信して処理する方法を説明します。
+下記は、入力したメッセージをチャットルームに送信するかどうかを確認するattachmentsを含むメッセージです。
 
 ```javascript
 {
     "text": "Message",
     "attachments": [
         {
-            "callbackId": "send-a1b2c3", // 사용자 상호 작용 시 함께 전송됩니다. 상호 작용이 일어난 attachment를 식별할 때 쓸 수 있습니다.
+            "callbackId": "send-a1b2c3", //ユーザーの双方向コミュニケーション時に送信されます。 双方向コミュニケーションが起きたattachmentを識別するときに使用できます。
             "actions": [
                 {
                     "name": "send",
                     "type": "button",
-                    "text": "Send", // 사용자에게 출력되는 버튼 텍스트
-                    "value": "posting", // Action 동작에 사용하는 (사용자에게 보이지 않는) 값
-                    "style": "primary" // 버튼의 스타일을 바꿀 수 있습니다. primary, danger, default
+                    "text": "Send", // ユーザーに出力されるボタンテキスト
+                    "value": "posting", // アクション動作に使用する(ユーザーに見えない)値
+                    "style": "primary" // ボタンのスタイルを変更できます。primary, danger, default
                 },
                 {
                     "name": "send",
@@ -256,15 +244,15 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
 }
 ```
 
-해당 메시지를 받으면, 아래와 같이 'Send'와 'Cancel' 버튼이 있는 메시지가 생성된 것을 확인할 수 있습니다.
+そのメッセージを受け取ると、次のような「Send」と「Cancel」ボタンがあるメッセージが作成されます。
 
 ![11](http://static.toastoven.net/prod_dooray_messenger/integration/11.png)
 
-'Send' 버튼을 눌러봅시다. 아래와 같은 데이터가 커맨드 서버의 Interactive Request URL로 전송됩니다.
+「Send」ボタンを押してみましょう。下記のようなデータがコマンドサーバーのInteractive Request URLに転送されます。
 
 ```javascript
 {
-    // 테넌트, 채널, 멤버 정보가 제공됩니다.
+    // テナント、チャンネル、メンバー情報が提供されます。
     "tenant": {
         "id": "1234567891234567891",
         "domain": "guide.dooray.com"
@@ -279,34 +267,32 @@ Dooray! 메신저 좌측 상단의 자신의 이름을 선택 '연동 서비스'
     "commandName": "/post",
     "command": "/post",
     "text": "",
-    "callbackId": "send-a1b2c3", // 사용자가 선택한 Action이 속해있는 Attachment의 callbackId입니다.
-    "actionText": "Send", // actionText - 사용자가 선택한 Action의 Text입니다.
-    "actionValue": "posting", // actionValue - 사용자가 선택한 Action의 Value입니다.
+    "callbackId": "send-a1b2c3", // ユーザーが選択したアクションが属するattachmentのコールバックID
+    "actionText": "Send", // aactionName - ユーザーが選択したアクション名
+    "actionValue": "posting", // actionValue - ユーザーが選択したアクションの値
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "",
     "commandRequestUrl": "https://command.example.com/req",
     "channelLogId": "-7386965175150134411",
-    "originalMessage": { /* action이 발생한 메시지가 포함됩니다. */ }
+    "originalMessage": { /* アクションが発生したメッセージが含まれます。*/ }
     }
 }
 ```
 
-사용자가 버튼을 눌렀을 때의 처리는 커맨드 서버에서 구현해야 합니다.
+ユーザーがボタンを押したときの処理は、コマンドサーバーで実装する必要があります。
 
 ---
 
-## 메시지에 드롭다운 메뉴 넣기
+## メッセージにドロップダウンメニュー挿入
 
-attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
-드롭다운 메뉴로 채널 목록, 테넌트의 멤버 목록, 또는 임의의 목록에서 하나를 선택할 수 있습니다.
+aattachmentsメッセージの中にはドロップダウンメニューを置くことができます。ドロップダウンメニューでチャンネルリスト、テナントのメンバーリスト、または任意のリストから1つを選択することができます。
 
-아래 예시에서는 팀원들이 가장 좋아하는 보드 게임을 뽑아서 함께 플레이하려고 합니다.
-아래의 메시지처럼 보드 게임 목록이 있는 드롭다운 메뉴를 활용하여 투표를 받아봅시다.
+次のサンプルでは、チームのメンバーが最も好きなボードゲームを選んで一緒にプレイしようとしています。下記メッセージのようなボードゲームのリストを、ドロップダウンメニューを使って投票してみましょう。
 
-### 정적 드롭다운 메뉴
+### 静的ドロップダウンメニュー
 
-`options` 필드를 이용해 목록을 구성할 수 있습니다.
+`options` フィールドを利用してリストを構成できます。
 
 ```javascript
 "attachments": [
@@ -344,30 +330,29 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 ]
 ```
 
-위 attachments를 통해 아래 화면과 같은 드롭다운 메뉴를 보여줄 수 있습니다.
+上記のattachmentsを用いて下図のようなドロップダウンメニューを表示することができます。
 
 ![12](http://static.toastoven.net/prod_dooray_messenger/integration/12.png)
 
-### 동적 드롭다운 메뉴
+### 動的ドロップダウンメニュー
 
-동적 드롭다운 메뉴는 `options` 대신 `dataSource`를 이용합니다. `dataSource`는 값에 따라 멤버, 대화방, 외부 데이터를 보여줄 수 있습니다.
+動的ドロップダウンメニューは、`options` の代わりに `dataSource`を使用します。`dataSource`は、値に基づいて、メンバー、チャットルーム、外部データを表示することができます。
 
-|구분|설명|
+|dataSource|リスト|
 |---|---|
-|dataSource|목록|
-|users|멤버|
-|channels|대화방|
-|external|외부 데이터|
+|users|メンバー|
+|channels|チャットルーム|
+|external|外部データ|
 
-#### 멤버 목록
-`dataSource`에 `users`로 메시지를 구성해 전송하면 현재 대화방의 멤버 목록을 보여줄 수 있습니다. 사용자가 드롭다운 메뉴에 검색어를 입력해 테넌트 전체 멤버를 검색 할 수 있습니다.
+#### メンバーリスト
+`dataSource`に `users`でメッセージを構成して送信すると、現在のチャットルームのメンバーリストを表示することができます。ユーザーがドロップダウンメニューに検索語を入力すると、テナント全体のメンバーを検索できます。
 
 ```javascript
 "attachments": [
     {
         "type": "select",
         "name": "sel_users",
-        "text": "사용자 출력",
+        "text": "ユーザー出力",
         "dataSource": "users"
     }
 ]
@@ -375,8 +360,8 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ![13](http://static.toastoven.net/prod_dooray_messenger/integration/13.png)
 
-#### 대화방 목록
-`dataSource`에 `channels`로 메시지를 구성해 전송하면 사용자가 속한 대화방 목록을 보여줄 수 있습니다.
+#### チャットルームのリスト
+`dataSource`に `channels`でメッセージを構成して送信すると、ユーザーが属しているチャットルームのリストを表示することができます。
 
 ```javascript
 "attachments": [
@@ -391,21 +376,21 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ![14](http://static.toastoven.net/prod_dooray_messenger/integration/14.png)
 
-#### 외부 데이터 목록
-`dataSource`에 `external`로 메시지를 구성해 전송하면 외부 데이터 목록을 보여줄 수 있습니다. 외부 데이터 목록은 앱 설정시 등록한 Interactive Optional URL로 데이터를 요청해 받아옵니다.
+#### 外部データのリスト
+`dataSource`に `external`でメッセージを構成して送信すると、外部データのリストを表示することができます。外部データのリストは、アプリ設定時に登録したInteractive Optional URLにデータをリクエストして受信します。
 
 ``` javascript
 "attachments": [
     {
         "type": "select",
         "name": "sel_external",
-        "text": "외부 데이터",
+        "text": "チャットルーム出力",
         "dataSource": "external"
     }
 ]
 ```
 
-클라이언트는 Interactive Optional URL로 아래 메시지와 함께 외부 데이터 목록을 요청합니다.
+クライアントは、Interactive Optional URLで次のメッセージとともに、外部データのリストをリクエストします。
 
 ```javascript
 {
@@ -428,7 +413,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 }
 ```
 
-커맨드 서버에서 위 메시지를 이용해 드롭다운 메뉴의 목록을 응답해 줍니다.
+コマンドサーバーでは、上記のメッセージを利用して、ドロップダウンメニューのリストを返します。
 
 ```javascript
 {
@@ -453,32 +438,32 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 
 ---
 
-## attachments 메시지 보내기
+## attachmentsメッセージの送信
 
-커맨드는 attachments라는 특별한 형태의 메시지를 전송할 수 있습니다. attachments의 구성 요소에는 다른 문서에서 설명하였던 버튼과 드롭다운 메뉴 외에도 다양한 것이 있습니다. attachments 메시지를 잘 사용하면 사용자의 눈에 잘 띌뿐 아니라 추가 정보를 요청하거나 회신하는 등의 행동을 능숙하게 유도할 수 있습니다.
+コマンドは、attachmentsという特別な形式のメッセージを送信することができます。attachmentsのコンポーネントには、先述したボタンとドロップダウンメニューの他にもさまざまなものがあります。attachmentsメッセージをうまく使用すると、ユーザーの目に留まるだけでなく、追加情報をリクエストしたり、返信したりするなどの行動を巧み誘導することができます。
 
-### attachments 메시지
+### attachmentsメッセージ
 
-아래의 보시는 메시지의 블록 하나 하나가 타이틀, 설명, 이미지, 링크, 버튼, 드롭다운 메뉴 등을 가질 수 있는 attachment입니다. 최대 20개의 attachment 블록이 모여 attachments 메시지를 구성합니다.
+下記メッセージの各ブロックが、タイトル、説明、画像、リンク、ボタン、ドロップダウンメニューなどを持つことができるattachmentです。最大20個のattachmentブロックが集まってattachmentsメッセージを構成します。
 
 ![16](http://static.toastoven.net/prod_dooray_messenger/integration/16.png)
 
-|번호|이름|설명|
+|番号|名前|説明|
 |---|---|---|
-|1|text|메시지의 내용입니다.|
-|2|attachment|메시지에 첨부한 내용입니다. 여러 개의 attachment를 합쳐서 attachments라고 부릅니다.|
-|3|authorName|작성자 이름입니다. authorLink로 링크를 걸 수 있습니다.|
-|4|title|attachment의 제목입니다.|
-|5|text|attachment의 내용입니다.|
-|6|thumbUrl|attachment에 넣을 섬네일 이미지입니다.|
-|7|imageUrl|attachment에 넣을 이미지 URL입니다.|
-|8|field|short의 값에 따라 한 줄에 하나 또는 두 개씩 표시되는 필드입니다.|
-|10|Interactive Menu|드롭다운 메뉴입니다.|
-|11|Interactive Button|버튼입니다.
+|1|text|メッセージの内容|
+|2|attachment|メッセージに添付したもの。複数のattachmentをまとめてattachmentsと呼びます。|
+|3|authorName|作成者の名前。authorLinkへのリンクをかけることができます。|
+|4|title|attachmentのタイトル|
+|5|text|attachmentの内容|
+|6|thumbUrl|attachmentに入れるサムネイル画像|
+|7|imageUrl|attachmentに入れる画像のURL|
+|8|field|shortの値によって1行に1または2つずつ表示されるフィールド|
+|10|Interactive Menu|ドロップダウンメニュー|
+|11|Interactive Button|ボタン
 
-### 데이터
+### データ
 
-데이터의 포맷은 아래와 같습니다.
+データのフォーマットは下記のとおりです。
 
 ```javascript
 {
@@ -486,8 +471,8 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
     "attachments": [
         {
             "callbackId": "guide-a1b2c3",
-            "text": "애플은 오늘 오전 2시에 WWDC를 통해 아이폰X 출시를 알렸다.",
-            "title": "아이폰 X 출시",
+            "text": "Appleは本日午前2時、WWDCを通じてiPhoneXの発売を公示した。",
+            "title": "iPhoneX 発売",
             "titleLink": "https://dooray.com/",
             "authorName": "NHN News",
             "authorLink": "https://dooray.com/",
@@ -497,13 +482,13 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
         {
             "fields": [
                 {
-                    "title": "출시 예정일",
-                    "value": "2018년 겨울",
+                    "title": "発売予定日",
+                    "value": "2018年冬",
                     "short": true
                 },
                 {
-                    "title": "예상 가격",
-                    "value": "125만원",
+                    "title": "予想価格",
+                    "value": "125,000円",
                     "short": true
                 }
             ]
@@ -511,8 +496,8 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
         {
             "fields": [
                 {
-                    "title": "설명",
-                    "value": "한국 미출시",
+                    "title": "説明",
+                    "value": "日本未発売",
                 }
             ]
         },
@@ -528,7 +513,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
             "actions": [
                 {
                     "type": "select",
-                    "text": "채널선택",
+                    "text": "チャンネル選択",
                     "name": "guide-sel",
                     "dataSource": "channels"
                 }
@@ -538,13 +523,13 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
             "actions": [
                 {
                     "type": "button",
-                    "text": "공유하기",
+                    "text": "共有",
                     "name": "guide-btn",
                     "value": "btnValue"
                 },
                 {
                     "type": "button",
-                    "text": "다음 뉴스",
+                    "text": "次へ",
                     "name": "guide-btn",
                     "value": "btnValue"
                 },
@@ -554,57 +539,62 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다.
 }
 ```
 
-### 구성 요소 분석
+### コンポーネント分析
 
-데이터의 구성 요소를 좀 더 자세히 살펴 보겠습니다.
+データのコンポーネントを詳しく見てみましょう。
 
 #### Message Object
-|필드명|기본값|설명|
+
+|フィールド名|デフォルト|説明|
 |---|---|---|
-|text||메시지 텍스트|
-|attachments||Attachment의 배열|
-|responseType|"ephemeral"|메시지 표시 대상<br>- "ephemeral": Command를 실행한 사용자에게만 표시<br>- "inChannel": 채널 내 전체 사용자에게 표시
-|replaceOriginal|true|Interactive Message에 대한 응답 시 기존 메시지 수정 여부|
-|deleteOriginal|false|Interactive Message에 대한 응답 시 기존 메시지 삭제 여부|
+|text||メッセージテキスト|
+|attachments||attachmentの配列|
+|responseType|"ephemeral"|メッセージ表示対象<br>- "ephemeral": コマンドを実行したユーザーにのみ表示 <br>- "inChannel": チャンネル内の全ユーザーに表示
+|replaceOriginal|true|対話的メッセージ(Interactive Message)応答時において、既存メッセージの修正するか否か|
+|deleteOriginal|false|対話的メッセージ(Interactive Message)応答時において、既存メッセージの削除するか否か|
 
 #### Attachment Object
-|필드명|기본값|설명|
+
+|フィールド名|デフォルト|説明|
 |---|---|---|
-|text||Attachment 텍스트|
-|title||Attachment 제목|
-|titleLink||Attachment 제목 클릭 시 이동할 링크|
-|authorName||Attachment 작성자|
-|authorLink||Attachment 작성자 클릭 시 이동할 링크|
-|fields||Field의 배열|
-|actions||Action의 배열|
-|callbackId||Action 요소 작동 시 함께 전달될 값(세션 유지 등의 용도로 사용)|
-|imageUrl||이미지 주소|
-|thumbUrl||섬네일 주소|
-|color|#4757C4|Attachment 세로줄 색상(HTML 색상코드)|
+|text||attachmentのテキスト|
+|title||attachmentのタイトル|
+|titleLink||attachmentのタイトルをクリックすると移動するリンク|
+|authorName||attachmentの作成者|
+|authorLink||attachmentの作成者をクリックすると移動するリンク|
+|fields||フィールドの配列|
+|actions||アクションの配列|
+|callbackId||アクションエレメントの作動時に一緒に伝達される値(セッション維持などの用途に使用)|
+|imageUrl||画像アドレス|
+|thumbUrl||サムネイルアドレス|
+|color|#4757C4|attachmentの縦線の色(HTML色コード)|
 
 #### Field Object
-|필드명|기본값|설명|
+
+|フィールド名|デフォルト|説明|
 |---|---|---|
-|title||Field 제목|
-|value||Field 텍스트|
-|short|false|Field 너비 설정(true로 설정 시 절반 너비)|
+|title||フィールドのタイトル|
+|value||フィールドのテキスト|
+|short|false|フィールド幅の設定(trueで設定時、半分の幅)|
 
 #### Action Object
-|필드명|기본값|설명|
+
+|フィールド名|デフォルト|説明|
 |---|---|---|
-|type||Actiontype<br>- "button": 버튼<br>- "select": 드롭다운 메뉴|
-|text||버튼, 드롭다운 메뉴에 표시될 텍스트|
-|name||커맨드 서버에 전달되는 필드명|
-|value||커맨드 서버에 전달되는 필드값|
-|style|"default"|버튼 색상<br>- "primary": 강조 색상<br>- "default": 기본 색상|
-|options||Option의 배열|
-|dataSource||'options' 대신 지정할 수 있는 option 값<br>- "users": 사용자 목록<br>- "channels": 채널 목록<br>- "external": Interactive Message Optional URL에서 가져오기
+|type||アクションタイプ<br>- "button": ボタン<br>- "select": ドロップダウンメニュー|
+|text||ボタン、ドロップダウンメニューに表示されるテキスト|
+|name||コマンドサーバーに配信されるフィールド名|
+|value||コマンドサーバーに配信されるフィールド値|
+|style|"default"|ボタンの色<br>- "primary": ハイライトカラー<br>- "default": 基本色|
+|options||オプションの配列|
+|dataSource||「options」の代わりに指定できるオプション値<br>- "users": ユーザーリスト<br>- "channels": チャンネルリスト<br>- "external": Interactive Message Optional URLからもってくる
 
 #### Option Object
-|필드명|기본값|설명|
+
+|フィールド名|デフォルト|説明|
 |---|---|---|
-|text||Option 텍스트|
-|value||커맨드 서버에 전달되는 필드값|
+|text||オプションのテキスト|
+|value||コマンドサーバーに送信されるフィールドの値|
 
 ---
 
