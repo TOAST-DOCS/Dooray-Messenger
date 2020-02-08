@@ -1,38 +1,38 @@
-## Dooray! > Messenger > Incoming Hook Guide
+## Dooray! > Messenger > 着信フックガイド
 
-### 인커밍 훅
+### 着信フック
 
-Dooray!에서는 특정 대화방으로 메시지를 전송할 수 있는 인커밍 훅(incoming hook)을 제공합니다.
+Doorayは、特定のチャットルームにメッセージを送信できる着信フック(incoming hook)を提供しています。
 
-### 대화방에 메시지 전송하기
+### チャットルームにメッセージ送信
 
-터미널 환경에서 다음과 같은 스크립트를 작성합니다. Linux, macOS 기준이고, `curl`이 설치되어 있다고 가정합니다.
+端末環境で次のようなスクリプトを作成します。Linux、macOS基準で、`curl`がインストールされていると仮定します。
 
 ```bash
 hook_url=
 curl -H "Content-Type: application/json" -X POST -d '{"botName": "MyBot", "botIconImage": "https://static.dooray.com/static_images/dooray-bot.png", "text":"Dooray!"}' $hook_url
 ```
 
-위 스크립트에서 `hook_url`에 특정 대화방을 지칭할 URL을 적어야 합니다. 
+上記のスクリプトで `hook_url`に特定のチャットルームを指すURLを記載する必要があります。 
 
-'설정' 메뉴에서 '서비스 연동'을 선택하고 '서비스 추가' 탭에서 'incoming'의 '연동 추가' 버튼을 누릅니다. 화면에서 연동하고 싶은 대화방을 체크하고 '저장' 버튼을 누르면 해당 주소가 클립보드에 복사됩니다.
+「設定」メニューから「サービス連動」または「着信Webフック連動」を選択し、「サービス追加」タブから「Incoming」の「連動追加」ボタンを押します。画面で連動したいチャットルームをチェックして、「保存」ボタンを押すと、そのアドレスがクリップボードにコピーされます。
 
-그 주소를 위 스크립트에서 `hook_url` 다음에 붙입니다.
+そのアドレスを上記のスクリプトで `hook_url` の次に貼り付けます。
 
 ```bash
 hook_url=https://hook.dooray.com/services/...
 curl -H "Content-Type: application/json" -X POST -d '{"botName": "MyBot", "botIconImage": "https://static.dooray.com/static_images/dooray-bot.png", "text":"Dooray!"}' $hook_url
 ```
 
-이 내용을 `simple.sh`라고 저장하고 명령행에서 실행하면 대화방에 메시지가 전송되는 것을 확인할 수 있습니다.
+この内容を `simple.sh`で保存してコマンドラインから実行すると、チャットルームにメッセージが送信されることを確認できます。
 
 
 ![hook1](http://static.toastoven.net/prod_dooray_messenger/hook1.png)
 
 
-### 데이터 포맷
+### データフォーマット
 
-앞서 실행한 프로그램에서 JSON 부분만 보면 다음과 같습니다.
+先に実行したプログラムでJSON部分だけを見ると、次のようになります。
 
 ```json
 {
@@ -42,7 +42,7 @@ curl -H "Content-Type: application/json" -X POST -d '{"botName": "MyBot", "botIc
 }
 ```
 
-`text` 영역 이외에 `attachments` 영역을 이용하면 본문 외에 제목을 추가할 수 있고, 색이 있는 사각형으로 감쌀 수도 있습니다. 
+`text` 領域以外に `attachments` の領域を使用すると、本文のほかにタイトルを追加することができ、色が付いた四角形で包むこともできます。
 
 ```json
 {
@@ -60,12 +60,12 @@ curl -H "Content-Type: application/json" -X POST -d '{"botName": "MyBot", "botIc
 }
 ```
 
-이 내용을 전송하면 다음 같이 나오게 됩니다. 위의 내용을 `simple.sh`로 옮길 때 줄바꿈을 없애야 합니다.
+この内容を送信すると、次のように表示されます。上記の内容を `simple.sh`に移すとき、改行を取り除く必要があります。
 
 ![hook2](http://static.toastoven.net/prod_dooray_messenger/hook2.png)
 
 
-필요하다면 `attachments` 영역은 여러 번 반복 할 수 있습니다.
+`attachments` 領域は、複数回繰り返すことができます。.
 
 ```json
 {
