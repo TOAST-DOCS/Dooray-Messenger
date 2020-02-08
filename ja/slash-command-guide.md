@@ -1069,9 +1069,9 @@ Command Request URLとInteractive Message Request URLのみ使用します。
 }
 ```
 
-|필드명|기본값|설명|
+|フィールド名|デフォルト|説明|
 |----|---|---|
-|deleteOriginal|false|새 메시지를 생성하기 전 기존 메시지 삭제 여부|
-|replaceOriginal|true|기존 메시지 업데이트 여부|
+|deleteOriginal|false|新規メッセージ作成前に既存メッセージを削除するか否か|
+|replaceOriginal|true|既存メッセージを更新するか否か|
 
-이 후 사용자가 누르는 버튼은 액션 실행 요청과 그에 따른 응답의 반복입니다.
+この後、ユーザーが押すボタンは、アクションの実行リクエストとそれに伴うレスポンスの繰り返しです。
