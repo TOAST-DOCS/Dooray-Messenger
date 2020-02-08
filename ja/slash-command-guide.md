@@ -598,72 +598,136 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
 
 ---
 
-## 대화 상자 사용하기
-별도의 영역에서 정보를 입력받을 수 있는 대화 상자를 띄웁니다.
+## Incoming Webhook(responseUrl)
+슬래시 커맨드의 특성에 따라 임의의 시간에 메시지를 보내야 하는 경우가 있습니다.(예시: 매일 특정 시간에 오늘의 일정을 알려주는 슬래시 커맨드) 이 경우에는 responseUrl을 활용해 메시지를 전송합니다.
 
 ### 요청 방법
-|구분1|구분2|설명|
-|---|---|---|
-|URL||https://{domain}.dooray.com/messenger/api/channels/{channelId}/dialogs|
-|Method||POST|
-|Header|token|{cmdToken}|
-|Body|triggerId|{triggerId}|
-||dialog|{Dialog Object}|    
+#### POST https://{tenantDomain}/messenger/api/commands/hook/{cmdToken}
 
-### 결과 반환
-* 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
-* 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
-
-#### Dialog Object
-``` javascript
+##### request body
+attachments 메시지 보내기의 Message Object를 참조
+```javascript
 {
-    callbackId: 'guide-a1b2c3',
-    title: 'Guide Dialog',
-    submitLabel: 'Send',
-    elements: [
+    "responseType": "ephemeral", 
+    "text": "Click 'Submit' button to start the vote.",
+    "attachments": [
         {
-            type: 'text',
-            subtype: 'number',
-            label: 'Page Number',
-            name: 'page',
-            value: 0,
-            minLength: 1,
-            maxLength: 2,
-            placeholder: '0 ~ 50',
-            hint: 'Must in 0 ~ 50'
-        },
-        {
-            type: 'textarea',
-            label: 'Note',
-            name: 'note',
-            optional: true
-        },
-        {
-            type: 'select',
-            label: 'Is this important?',
-            name: 'important',
-            value: 'false',
-            options: [
+            "title": "점심식사",
+            "fields": [
                 {
-                    label: 'Yes',
-                    value: 'true'
+                    "title": "Item 1",
+                    "value": "짜장면",
+                    "short": true
                 },
                 {
-                    label: 'No',
-                    value: 'false'
+                    "title": "Item 2",
+                    "value": "짬뽕",
+                    "short": true
+                },
+                {
+                    "title": "Item 3",
+                    "value": "탕수육",
+                    "short": true
+                }
+            ]
+        },
+        {
+            "callbackId": "vote",
+            "actions": [
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Submit",
+                    "value": "\"점심식사\" \"짜장면\" \"짬뽕\" \"탕수육\"",
+                    "style": "primary"
+                },
+                {
+                    "name": "vote",
+                    "type": "button",
+                    "text": "Cancel",
+                    "value": "cancel"
                 }
             ]
         }
     ]
 }
 ```
+### 결과 반환
+* 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
+* 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
+
+## 대화 상자 사용하기
+별도의 영역에서 정보를 입력받을 수 있는 대화 상자를 띄웁니다.
+
+### 요청 방법
+#### POST https://{tenantDomain}/messenger/api/channels/{channelId}/dialogs
+
+##### request header
+* token: cmdToken
+
+##### request body
+```javascript
+{
+    token: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    triggerId: "1111111111111.xxxxxxxxxxxxxxxxxxxx.3333333333333",
+    callbackId: "guide-a1b2c3",
+    dialog: {
+        callbackId: 'guide-a1b2c3',
+        title: 'Guide Dialog',
+        submitLabel: 'Send',
+        elements: [
+            {
+                type: 'text',
+                subtype: 'number',
+                label: 'Page Number',
+                name: 'page',
+                value: 0,
+                minLength: 1,
+                maxLength: 2,
+                placeholder: '0 ~ 50',
+                hint: 'Must in 0 ~ 50'
+            },
+            {
+                type: 'textarea',
+                label: 'Note',
+                name: 'note',
+                optional: true
+            },
+            {
+                type: 'select',
+                label: 'Is this important?',
+                name: 'important',
+                value: 'false',
+                options: [
+                    {
+                        label: 'Yes',
+                        value: 'true'
+                    },
+                    {
+                        label: 'No',
+                        value: 'false'
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
 
 | 필드명 | 기본값 | 설명 |
 | --- | --- | --- |
+| triggerId | | 어떤 커맨드 요청에서 유발된 Dialog인지 구분해주는 값 |
 | callbackId |  | 전송할 때 함께 전달될 값(세션 유지 등의 용도로 사용) |
 | title |  | Dialog 제목 |
 | submitLabel | "Submit" | 전송 버튼 텍스트 지정 |
 | elements |  | **Element**의 배열 |
+
+### 결과 반환
+
+* 성공 여부: $.header.isSuccessful에 true, false 값을 반환합니다.
+* 실패 원인: $.header.resultCode에 코드 값을 $.header.resultMessage에 상세 실패 정보를 반환합니다.
+
+
 
 #### Element Object
 | 필드명 | 기본값 | 설명 |
@@ -682,13 +746,14 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
 | optional | false | 해당 필드의 필수 입력 여부 설정(false로 하면 필수 입력) |
 
 #### Option Object
+
 |필드명|기본값|설명|
 |---|---|---|
-|text||Option 텍스트|
+|label||Option 텍스트|
 |value||커맨드 서버에 전달되는 필드값|
 
-### 전송 처리
-위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 하면 이를 처리해야 합니다.
+### 대화 상자 전송 처리
+위의 API를 활용해 사용자에게 대화 상자를 띄웠습니다. 이후 사용자가 해당 대화 상자를 작성해서 전송하면 이를 처리해야 합니다.
 
 #### 메신저 서버에서 커맨드 서버로의 요청
 ``` javascript
@@ -734,6 +799,7 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
 두 가지 경우가 존재합니다.
 
 * 사용자 입력값에 오류가 없을 경우, 응답을 비우고 HTTP 200 응답을 합니다.
+
 * 오류가 있을 경우, HTTP 200 응답과 함께 errors로 응답합니다.
 
 ``` javascript
@@ -758,8 +824,7 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
 
 ### 대화방에 커맨드를 등록
 
-커맨드는 자신이 참여하고 있는 1:1 대화, 그룹 대화 등에 등록하여 활용할 수 있습니다.
-커맨드 추가 화면을 여는 방법은 두 가지가 있습니다.
+커맨드는 자신이 참여하고 있는 1:1 대화, 그룹 대화 등에 등록하여 활용할 수 있습니다. 커맨드 추가 화면을 여는 방법은 두 가지가 있습니다.
 
 첫째, 메신저 우측 상단의 설정 메뉴를 통해 추가할 수 있습니다.
 
@@ -777,10 +842,7 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
 
 ### 커맨드 공개
 
-만약 자신이 만든 커맨드의 멋진 기능을 조직 내의 다른 사람들과 공유하고 싶다면 공개로 설정해 주세요.
-조직 내의 다른 사람들도 자유롭게 대화방에 추가하여 사용할 수 있습니다.
-
-비공개로 변경해도 이미 추가한 커맨드는 다른 사람이 계속 사용할 수 있으니, 다른 사람들이 더 이상 커맨드를 사용하지 못하게 하려면 등록한 커맨드를 삭제해 주세요.
+만약 자신이 만든 커맨드의 멋진 기능을 조직 내의 다른 사람들과 공유하고 싶다면 공개로 설정해 주세요. 조직 내의 다른 사람들도 자유롭게 대화방에 추가하여 사용할 수 있습니다. 비공개로 변경해도 이미 추가한 커맨드는 다른 사람이 계속 사용할 수 있으니, 다른 사람들이 더 이상 커맨드를 사용하지 못하게 하려면 등록한 커맨드를 삭제해 주세요.
 
 ---
 
@@ -843,6 +905,7 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
     "text": "점심식사 짜장면 짬뽕 \"사천 탕수육\"",
     "responseUrl": "https://guide.dooray.com/messenger/api/commands/hook/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "appToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "cmdToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "triggerId": "1234567891234.xxxxxxxxxxxxxxxxxxxx"
 }
 ```
@@ -858,14 +921,14 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
 |text|사용자가 입력한 전체 텍스트|
 |responseUrl|커맨드를 요청한 대화방의 Webhook URL|
 |appToken|커맨드를 등록한 앱의 토큰(요청 검증으로 활용)|
+|cmdToken|API 호출 시에 사용하는 Token|
 |triggerId|다이얼로그 실행 ID|
 
 ### 커맨드 실행 요청에 대한 응답
 
 ![23](http://static.toastoven.net/prod_dooray_messenger/integration/23_1.png)
 
-커맨드 실행 요청에 대한 응답으로 실행 사용자에게만 보이는 확인 메시지를 보냅니다.
-투표를 생성하거나 취소할 수 있는 버튼을 사용자에게 제공하기 위해 아래와 같이 메시지를 전송합니다.
+커맨드 실행 요청에 대한 응답으로 실행 사용자에게만 보이는 확인 메시지를 보냅니다. 투표를 생성하거나 취소할 수 있는 버튼을 사용자에게 제공하기 위해 아래와 같이 메시지를 전송합니다.
 
 ``` javascript
 {
@@ -960,8 +1023,7 @@ aattachmentsメッセージの中にはドロップダウンメニューを置�
 
 ![24](http://static.toastoven.net/prod_dooray_messenger/integration/24_1.png)
 
-'Submit' 버튼에 대한 응답으로 투표 생성 메시지를 전송합니다.
-생성 확인 메시지는 더 이상 필요가 없기 때문에 삭제하고 메시지를 새로 생성합니다.
+'Submit' 버튼에 대한 응답으로 투표 생성 메시지를 전송합니다. 생성 확인 메시지는 더 이상 필요가 없기 때문에 삭제하고 메시지를 새로 생성합니다.
 
 ``` javascript
 {
