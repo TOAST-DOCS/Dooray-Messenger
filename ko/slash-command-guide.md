@@ -616,6 +616,7 @@ attachments 메시지 안에는 드롭다운 메뉴를 넣을 수 있습니다. 
 attachments 메시지 보내기의 Message Object를 참조
 ```javascript
 {
+    "channelId": "1234567891234567891",
     "responseType": "ephemeral", 
     "text": "Click 'Submit' button to start the vote.",
     "attachments": [
