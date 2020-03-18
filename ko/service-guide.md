@@ -107,7 +107,6 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 - 메신저 대화방 설정 화면에서 서비스 연동 메뉴를 선택한 후, 서비스 추가 탭으로 이동합니다.
 - incoming 서비스 추가 버튼을 클릭합니다.
 - 서비스 추가를 했으면, 연동중인 서비스 탭에서 연동 URL 복사 버튼을 활용하여 URL 복사를 합니다.
-![servide_guide20](http://static.toastoven.net/prod_dooray_messenger/Messenger_19_ko.png)
 ![servide_guide21](http://static.toastoven.net/prod_dooray_messenger/Messenger_20_ko.png)
 
 알림을 받고자하는 프로젝트의 [설정>업무>웹 훅>웹 훅 추가]에서 복사한 연동 url을 웹 훅 url 부분에 넣어주세요.
