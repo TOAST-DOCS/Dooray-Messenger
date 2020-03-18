@@ -56,27 +56,24 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 
 - 대화방의 톱니 바퀴 버튼을 눌러 자동 번역 설정을 켭니다. 이후로 수신되는 메시지는 자동으로 번역됩니다. 더 이상 번역이 필요하지 않다면 대화 시 사용할 언어를 변경해 주세요. 
 
-★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 #### 메시지 전달하기
 - 대화방 간 메시지 전달하기를 할 수 있습니다. 
 - 메시지 옆의 더보기 버튼을 클릭 후, 전달하기 메뉴를 선택합니다.
 - 메시지를 전달할 대화방을 선택 후 메시지 전송을 합니다.
-<<이미지 필요함>>
-<<이미지 필요함>>
+![servide_guide15](http://static.toastoven.net/prod_dooray_messenger/Messenger_14_ko.png)
+![servide_guide16](http://static.toastoven.net/prod_dooray_messenger/Messenger_15_ko.png)
 
 #### 메시지 답장하기
 - 특정 메시지에 답장하는 기능을 이용할 수 있습니다.
 - 메시지 옆의 더보기 버튼을 클릭 후, 답장하기 메뉴를 선택합니다.
 - 답장할 내용을 입력 후, 메시지를 전송합니다.
-<<이미지 필요함>>
+![servide_guide17](http://static.toastoven.net/prod_dooray_messenger/Messenger_16_ko.png)
 
 #### 대화방 숨기기
 - 특정 대화방을 대화방 목록에서 숨기기 할 수 있습니다.
 - 대화방 이름 우측의 더보기 메뉴를 클릭 후, 숨기기 메뉴를 선택합니다.
 - 숨긴 대화방은 검색으로 찾을 수 있고, 대화방에서 대화를 하면 다시 대화방 목록에서 보이게 됩니다.
-<<이미지 필요함>>
-
-★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+![servide_guide18](http://static.toastoven.net/prod_dooray_messenger/Messenger_17_ko.png)
 
 ### 정보 변경
 #### 프로필
@@ -102,27 +99,20 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 ### 기타
 #### 웹훅/프로젝트 알림 받기
 - 각 대화방은 URL을 가지고 있습니다. 이 URL을 등록하면 다른 서비스에서 대화방으로 메시지를 보내도록 할 수 있습니다.
-
-★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
-
 - 메신저 대화방의 설정 화면으로 들어가서, 서비스 추가 탭을 선택합니다.
 - 서비스 추가 버튼을 클릭하면, 임의의 URL을 확인할 수 있습니다.
-<<이미지 수정 및 추가 필요함>>
-
-★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+![servide_guide19](http://static.toastoven.net/prod_dooray_messenger/Messenger_18_ko.png)
 
 - Dooray!의 특정 Project에서 새로 추가된 글 / 댓글을 대화방에서 확인하고 싶다면 웹 훅을 설정해 주세요. 
-
-★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 - 메신저 대화방 설정 화면에서 서비스 연동 메뉴를 선택한 후, 서비스 추가 탭으로 이동합니다.
 - incoming 서비스 추가 버튼을 클릭합니다.
 - 서비스 추가를 했으면, 연동중인 서비스 탭에서 연동 URL 복사 버튼을 활용하여 URL 복사를 합니다.
-<<이미지 수정 및 추가 필요함>>
+![servide_guide20](http://static.toastoven.net/prod_dooray_messenger/Messenger_19_ko.png)
+![servide_guide21](http://static.toastoven.net/prod_dooray_messenger/Messenger_20_ko.png)
 
 알림을 받고자하는 프로젝트의 [설정>업무>웹 훅>웹 훅 추가]에서 복사한 연동 url을 웹 훅 url 부분에 넣어주세요.
 받고자 하는 메시지의 포맷은 Dooray! 포맷과 Slack 2가지를 지원합니다.
 연동 대화방에서 확인하고자 하는 업무 항목을 선택 후 추가 버튼을 누르면 선택된 연동 대화방으로 해당 프로젝트의 웹 훅을 받을 수 있습니다.   
-★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
 
 ![servide_guide13](http://static.toastoven.net/prod_dooray_messenger/Messenger_11_ko.png)
 
