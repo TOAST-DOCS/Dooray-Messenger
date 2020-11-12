@@ -141,69 +141,70 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 * 메신저에서 화상채팅을 클릭합니다.
 ![video_guide001](http://static.toastoven.net/prod_dooray_messenger/video_001.png)
 * 화상채팅을 클릭하면 화상회의에 참여할 수 있는 메세지가 메신저방에 전달됩니다.
-* 화상회의에 참여를 원하는 사용자는 [joine meeting]을 클릭하여 화상회의에 입장할 수 있습니다. 
+* 화상회의에 참여를 원하는 사용자는 [Join meeting]을 클릭하여 화상회의에 입장할 수 있습니다. 
 
 #### 화상회의 입장 
 * 화상회의 입장하기 전 화면을 통해 내 상태를 확인할 수 있습니다.
 * 화상회의에서 사용할 이름과 카메라, 마이크를 설정할 수 있습니다.
-* 모든 상태 체크가 끝나면, [enter meeting]을 클릭하여 화상회의에 참여합니다. 
+* 모든 상태 체크가 끝나면, [Enter meeting]을 클릭하여 화상회의에 참여합니다. 
 ![video_guide002](http://static.toastoven.net/prod_dooray_messenger/video_002.png)
 
-* 화상회의 입장 시, 화면을 통해 다른 사용자를 확인할 수 있습니다.
+* 화상회의 입장  화면을 통해 다른 사용자를 확인할 수 있습니다.
 * 최대 30명까지 동시접속하여 회의를 진행할 수 있습니다.
 ![video_guide003](http://static.toastoven.net/prod_dooray_messenger/video_003.png)
 
 
 #### 새 사용자 초대하기
-* 화면 하단 [invite]를 눌러, 새로운 사람을 초대할 수 있습니다.
+* 화면 하단 [invite]를 눌러 새로운 사람을 초대할 수 있습니다.
 ![video_guide004](http://static.toastoven.net/prod_dooray_messenger/video_004.png)
 * [invite]를 클릭하면, 현재 열려있는 화상회의로 입장가능한 링크를 복사할 수 있습니다.
 ![video_guide005](http://static.toastoven.net/prod_dooray_messenger/video_005.png)
-* 이 후 복사된 링크를 전달받은 사용자는 브라우저 상단에 링크를 붙여넣기 하며 화상회의에 입장할 수 있습니다.
+* 이 후 복사된 링크를 전달받은 사용자는 브라우저 상단에 링크를 붙여넣기 하여 화상회의에 입장할 수 있습니다.
 
 
 #### 카메라 끄기
-* 화면 하단 [Video off]를 클릭하여, 내 카메라를 끌 수 있습니다.
+* 화면 하단 [Video off]를 클릭하여 내 카메라를 끌 수 있습니다.
 ![video_guide006](http://static.toastoven.net/prod_dooray_messenger/video_006.png)
-* 카메라를 off한 경우 메신저 방에 화면은 아래와 같이 표시되며, 카메라를 통해 내 모습이 다른 사용자에게 노출되지 않게 할 수 있습니다.
-![image.png](/wikis/2777091638807958784/files/2876107010515672153)
+* 카메라를 off 한 경우 메신저 방에 화면은 아래와 같이 표시되며, 카메라를 통해 내 모습이 다른 사용자에게 노출되지 않습니다.
+![video_guide007](http://static.toastoven.net/prod_dooray_messenger/video_007.png)
 
 #### 마이크 끄기
-* 화면 하단 [Mic off]를 클릭하여, 내 마이크를 끌 수 있습니다.
-![video_guide007](http://static.toastoven.net/prod_dooray_messenger/video_007.png)
-* 마이크를 off한 경우 메신저 방에 화면은 아래와 같이 표시되며, 마이크를 통해 내 음성이 다른 사용자에게 노출되지 않게 할 수 있습니다.
+* 화면 하단 [Mic off]를 클릭하여 내 마이크를 끌 수 있습니다.
+![video_guide008](http://static.toastoven.net/prod_dooray_messenger/video_008.png)
+* 마이크를 off 한 경우 메신저 방에 화면은 아래와 같이 표시되며, 마이크를 통해 내 음성이 다른 사용자에게 들리지 않게 됩니다.
+![video_guide009](http://static.toastoven.net/prod_dooray_messenger/video_009.png)
+
 
 #### 회의 중 화면 공유하기
-* 화면 하단 [share]를 클릭 하여, 공유할 대상을 선택할 수 있습니다.
-![video_guide008](http://static.toastoven.net/prod_dooray_messenger/video_008.png)
-* 이 중 [Screen Share]를 선택하면, 내 화면을 다른 사용자에게 공유할 수 있습니다. 
-![video_guide009](http://static.toastoven.net/prod_dooray_messenger/video_009.png)
-* 화면이 공유되는 경우, 나 에게는 아래와 같이 화면이 표시되며 다른 사용자에게는 내 화면이 공유됩니다. 
+* 화면 하단 [Share]를 클릭 하여 공유할 대상을 선택할 수 있습니다.
 ![video_guide010](http://static.toastoven.net/prod_dooray_messenger/video_010.png)
-* [Stop Sharing]을 클릭하여 화면공유를 종료할 수 있습니다.
-* 이 외에도 [share] > [White Board], [Video], [Documents]를 선택하여 각각 화이트보드, 영상, 문서를 공유할 수 있습니다. 
+* 이 중 [Screen Share]를 선택하면, 내 화면을 다른 사용자에게 공유할 수 있습니다. 
 ![video_guide011](http://static.toastoven.net/prod_dooray_messenger/video_011.png)
+* 화면이 공유되는 경우, 나 에게는 아래와 같이 화면이 표시되며 다른 사용자에게는 내 화면이 공유됩니다. 
+![video_guide012](http://static.toastoven.net/prod_dooray_messenger/video_012.png)
+* [Stop Sharing]을 클릭하여 화면공유를 종료할 수 있습니다.
+* 이 외에도 [Share] > [White Board], [Video], [Documents]를 선택하여 각각 화이트보드, 영상, 문서를 공유할 수 있습니다. 
+![video_guide013](http://static.toastoven.net/prod_dooray_messenger/video_013.png)
 
 #### 회의 녹화하기
-* 화면 하단 [Rec]를 클릭 하여, 회의를 녹화할 수 있습니다. 
-![video_guide012](http://static.toastoven.net/prod_dooray_messenger/video_012.png)
+* 화면 하단 [Rec]를 클릭 하여 회의를 녹화할 수 있습니다. 
+![video_guide014](http://static.toastoven.net/prod_dooray_messenger/video_014.png)
 * Rec버튼을 누르는 즉시 녹화가 시작되며, 일시정지 버튼을 눌러 녹화를 일시 정지할 수 있습니다.
 * 일시정지 버튼을 다시 누르는 경우 재녹화가 시작됩니다.
 * 녹화된 자료는 회의가 끝난 후, 회의 주최자 메일로 영상과 음성을 다운로드 받을 수 있는 링크가 전송됩니다.
 
 
 #### 채팅하기
-* 화면 하단 [Chat]을 클릭 하여, 화상회의와 동시에 채팅을 할 수 있습니다.
-![video_guide013](http://static.toastoven.net/prod_dooray_messenger/video_013.png)
+* 화면 하단 [Chat]을 클릭 하여 화상회의와 동시에 채팅을 할 수 있습니다.
+![video_guide015](http://static.toastoven.net/prod_dooray_messenger/video_015.png)
 * [Chat]클릭 시, 화면 좌측으로 대화를 할 수 있는 채팅방이 생성됩니다.
-![video_guide014](http://static.toastoven.net/prod_dooray_messenger/video_014.png)
+![video_guide016](http://static.toastoven.net/prod_dooray_messenger/video_016.png)
 
 
 #### 화상회의 끝내기
-* 화면 하단 [Leave]를 클릭 하여, 회의를 떠날 수 있습니다. 
-![video_guide015](http://static.toastoven.net/prod_dooray_messenger/video_015.png)
-* 회의 녹화를 진행한 경우, 회의를 끝낸 후 녹화된 영상과 음성 자료가 회의주최자 메일로 전달됩니다.
-* 한번 생성된 화상회의 링크는 1회성으로 사용됩니다.
+* 화면 하단 [Leave]를 클릭 하여 회의를 떠날 수 있습니다. 
+![video_guide017](http://static.toastoven.net/prod_dooray_messenger/video_017.png)
+* 한번 생성된 화상회의 링크는 1회 성으로 사용됩니다.
 * 회의 참여자가 모두 나간 후 회의가 완전히 종료되면, 생성했던 화상회의로 더 이상 입장할 수 없습니다.
 
 
