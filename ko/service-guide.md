@@ -204,7 +204,6 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 #### 화상회의 끝내기
 * 화면 하단 [Leave]를 클릭 하여 회의를 떠날 수 있습니다. 
 ![video_guide017](http://static.toastoven.net/prod_dooray_messenger/video_017.png)
-* 회의 녹화를 진행한 경우, 회의를 끝낸 후 녹화된 영상과 음성 자료는 회의주최자 메일로 전달됩니다.
 * 한번 생성된 화상회의 링크는 1회 성으로 사용됩니다.
 * 회의 참여자가 모두 나간 후 회의가 완전히 종료되면, 생성했던 화상회의로 더 이상 입장할 수 없습니다.
 
