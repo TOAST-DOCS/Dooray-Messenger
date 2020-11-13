@@ -96,46 +96,11 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 
 ![servide_guide10](http://static.toastoven.net/prod_dooray_messenger/Messenger_08_ko.png)
 
-### 기타
-#### 웹훅/프로젝트 알림 받기
-- 각 대화방은 URL을 가지고 있습니다. 이 URL을 등록하면 다른 서비스에서 대화방으로 메시지를 보내도록 할 수 있습니다.
-- 메신저 대화방의 설정 화면으로 들어가서, 서비스 추가 탭을 선택합니다.
-- 서비스 추가 버튼을 클릭하면, 임의의 URL을 확인할 수 있습니다.
-![servide_guide19](http://static.toastoven.net/prod_dooray_messenger/Messenger_18_ko.png)
-
-- Dooray!의 특정 Project에서 새로 추가된 글 / 댓글을 대화방에서 확인하고 싶다면 웹 훅을 설정해 주세요. 
-- 메신저 대화방 설정 화면에서 서비스 연동 메뉴를 선택한 후, 서비스 추가 탭으로 이동합니다.
-- incoming 서비스 추가 버튼을 클릭합니다.
-- 서비스 추가를 했으면, 연동중인 서비스 탭에서 연동 URL 복사 버튼을 활용하여 URL 복사를 합니다.
-![servide_guide21](http://static.toastoven.net/prod_dooray_messenger/Messenger_20_ko.png)
-
-알림을 받고자하는 프로젝트의 [설정>업무>웹 훅>웹 훅 추가]에서 복사한 연동 url을 웹 훅 url 부분에 넣어주세요.
-받고자 하는 메시지의 포맷은 Dooray! 포맷과 Slack 2가지를 지원합니다.
-연동 대화방에서 확인하고자 하는 업무 항목을 선택 후 추가 버튼을 누르면 선택된 연동 대화방으로 해당 프로젝트의 웹 훅을 받을 수 있습니다.   
-
-![servide_guide13](http://static.toastoven.net/prod_dooray_messenger/Messenger_11_ko.png)
-
-#### 여러 계정으로 동시에 로그인하기
-1. 로그인한 상태에서 상단의 [파일] 버튼을 클릭합니다.
-
-2. [계정 추가] 버튼을 누르고 다른 조직명과 계정을 입력하면 여러 개의 계정으로 동시에 로그인할 수 있습니다.
-
-![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/Messenger_12_ko.png)
-
-3. 좌측에 파란색 바가 나타나면, (+) 버튼을 클릭해서 간편하게 계정을 전환할 수 있습니다.
-
-#### 조직도를 활용한 메시지 발송 
-다른 부서의 멤버 또는 부서에 메시지를 발송하고자 할 때 조직 관리자가 세팅해 놓은 부서를 선택하여 발송할 수 있습니다.  조직도 아이콘을 선택하여 테넌트 내 부서별 멤버를 확인하고 선택하여 메시지를 발송해주세요.
-조직도 활용을 위해서는 미리 조직 관리자가 [조직 관리 > 부서/멤버 관리 > 조직도 관리]에 세팅해 놓아야 합니다. 
-
-![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/Messenger_13_ko.png)
-
--	신규로 멤버를 등록하거나, 외부 사용자와 협업하고자 할 경우, 조직도에서 신규 멤버를 초대할 수 있습니다.
--	멤버를 초대하기 위해서는 초대하고자 하는 사용자의 이메일 주소가 필요합니다.   
 
 
 
-### 화상회의
+
+### 화상회의(ideo conferencing)
 
 #### 화상회의 시작하기
 * 메신저에서 화상채팅을 클릭합니다.
@@ -207,5 +172,40 @@ https://dooray.com/messenger/orgs 에 접속하거나 https://dooray.com 에서 
 * 한번 생성된 화상회의 링크는 1회 성으로 사용됩니다.
 * 회의 참여자가 모두 나간 후 회의가 완전히 종료되면, 생성했던 화상회의로 더 이상 입장할 수 없습니다.
 
+### 기타
+#### 웹훅/프로젝트 알림 받기
+- 각 대화방은 URL을 가지고 있습니다. 이 URL을 등록하면 다른 서비스에서 대화방으로 메시지를 보내도록 할 수 있습니다.
+- 메신저 대화방의 설정 화면으로 들어가서, 서비스 추가 탭을 선택합니다.
+- 서비스 추가 버튼을 클릭하면, 임의의 URL을 확인할 수 있습니다.
+![servide_guide19](http://static.toastoven.net/prod_dooray_messenger/Messenger_18_ko.png)
 
+- Dooray!의 특정 Project에서 새로 추가된 글 / 댓글을 대화방에서 확인하고 싶다면 웹 훅을 설정해 주세요. 
+- 메신저 대화방 설정 화면에서 서비스 연동 메뉴를 선택한 후, 서비스 추가 탭으로 이동합니다.
+- incoming 서비스 추가 버튼을 클릭합니다.
+- 서비스 추가를 했으면, 연동중인 서비스 탭에서 연동 URL 복사 버튼을 활용하여 URL 복사를 합니다.
+![servide_guide21](http://static.toastoven.net/prod_dooray_messenger/Messenger_20_ko.png)
+
+알림을 받고자하는 프로젝트의 [설정>업무>웹 훅>웹 훅 추가]에서 복사한 연동 url을 웹 훅 url 부분에 넣어주세요.
+받고자 하는 메시지의 포맷은 Dooray! 포맷과 Slack 2가지를 지원합니다.
+연동 대화방에서 확인하고자 하는 업무 항목을 선택 후 추가 버튼을 누르면 선택된 연동 대화방으로 해당 프로젝트의 웹 훅을 받을 수 있습니다.   
+
+![servide_guide13](http://static.toastoven.net/prod_dooray_messenger/Messenger_11_ko.png)
+
+#### 여러 계정으로 동시에 로그인하기
+1. 로그인한 상태에서 상단의 [파일] 버튼을 클릭합니다.
+
+2. [계정 추가] 버튼을 누르고 다른 조직명과 계정을 입력하면 여러 개의 계정으로 동시에 로그인할 수 있습니다.
+
+![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/Messenger_12_ko.png)
+
+3. 좌측에 파란색 바가 나타나면, (+) 버튼을 클릭해서 간편하게 계정을 전환할 수 있습니다.
+
+#### 조직도를 활용한 메시지 발송 
+다른 부서의 멤버 또는 부서에 메시지를 발송하고자 할 때 조직 관리자가 세팅해 놓은 부서를 선택하여 발송할 수 있습니다.  조직도 아이콘을 선택하여 테넌트 내 부서별 멤버를 확인하고 선택하여 메시지를 발송해주세요.
+조직도 활용을 위해서는 미리 조직 관리자가 [조직 관리 > 부서/멤버 관리 > 조직도 관리]에 세팅해 놓아야 합니다. 
+
+![servide_guide14](http://static.toastoven.net/prod_dooray_messenger/Messenger_13_ko.png)
+
+-	신규로 멤버를 등록하거나, 외부 사용자와 협업하고자 할 경우, 조직도에서 신규 멤버를 초대할 수 있습니다.
+-	멤버를 초대하기 위해서는 초대하고자 하는 사용자의 이메일 주소가 필요합니다.   
 
